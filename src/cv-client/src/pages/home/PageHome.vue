@@ -1,9 +1,9 @@
 <template>
-  Hey!
+  <p>Hey!</p>
 </template>
 
 <script setup lang="ts">
-import { usePage } from '@amilochau/core-vue3';
+import { usePage } from '../../composition';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n()
