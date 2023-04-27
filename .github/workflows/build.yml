@@ -10,9 +10,7 @@ on:
     - main
 
 env:
-  PROJECT_API_BUILD: './src/operations-api/Milochau.Operations.sln'
-  PROJECT_API_TESTS: './src/operations-api/Milochau.Operations.sln'
-  PROJECT_CLIENT_WORKSPACE: './src/operations-client'
+  PROJECT_CLIENT_WORKSPACE: './src/cv-client'
   DOTNET_VERSION: 7.0.x
   DOTNET_NOLOGO: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
@@ -26,26 +24,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build and test projects
         uses: amilochau/github-actions/build/terraform@v3
-
-  build_api:
-    name: Build (API)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-      - name: Restore packages
-        shell: pwsh
-        run: dotnet restore ${{ env.PROJECT_API_BUILD }} --verbosity ${{ env.VERBOSITY }}
-      - name: Build application
-        shell: pwsh
-        run: dotnet build ${{ env.PROJECT_API_BUILD }} --configuration Release --no-restore --verbosity ${{ env.VERBOSITY }}
-      - name: Run tests
-        shell: pwsh
-        run: dotnet test ${{ env.PROJECT_API_TESTS }} --configuration Release --no-restore --no-build --verbosity ${{ env.VERBOSITY }}
-        
+   
   build_client:
     name: Build (Client)
     runs-on: ubuntu-latest
