@@ -6,5 +6,3 @@ import 'vuetify/styles'
 
 const app = createApp(App);
 app.use(milochauCore);
-
-console.log(app)
