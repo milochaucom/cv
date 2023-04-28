@@ -1,4 +1,4 @@
-import type { IIcon, IList } from "./list"
+import type { IAction, IIcon, IList } from "./list"
 
 export interface IResumeCall {
   icon?: IIcon
@@ -21,8 +21,14 @@ export interface IResumePersona {
   job?: string
   description?: string
   location?: string
-  actions?: IList
+  actions?: IResumePersonaAction[]
   contact?: IResumeContact
+}
+
+export interface IResumePersonaAction {
+  title: { text: string, replacement?: string }
+  icon: IIcon
+  action: IAction
 }
 
 export interface IResumeTopicItem {

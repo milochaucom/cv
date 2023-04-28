@@ -19,7 +19,6 @@
     },
     "location": "Paris, FR",
     "actions": {
-      "disableTranslation": true,
       "items": [
         {
           "title": { "text": "LinkedIn", "replacement": "amilochau" },

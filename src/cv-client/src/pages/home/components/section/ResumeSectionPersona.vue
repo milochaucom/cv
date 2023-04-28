@@ -17,12 +17,14 @@
       {{ persona.description }}
     </v-card-text>
     <v-list
-      :items="" />
+      v-if="persona.actions"
+      :items="personaItems" />
   </v-card>
 </template>
 
 <script setup lang="ts">
 import thumbnail from '@/assets/resume/thumbnail.webp'
+import { useFormatIcons } from '@/data/formatIcons';
 import type { IResumePersona } from '@/types/resume';
 import { computed, ref } from 'vue';
 
@@ -30,8 +32,14 @@ const props = defineProps<{
   persona: IResumePersona,
 }>()
 
-const pictureDialog = ref(false)
-const personaItems = computed(() => ({
+const { formatIcon } = useFormatIcons()
 
-}))
+const pictureDialog = ref(false)
+const personaItems = computed(() => props.persona.actions?.map((x) => ({
+  title: x.title.text,
+  props: {
+    prependIcon: formatIcon(x.icon.mdi),
+    href: x.action.href,
+  }
+})))
 </script>

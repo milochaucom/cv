@@ -18,26 +18,23 @@
       "url": "https://linkedin.com/in/amilochau"
     },
     "location": "Paris, FR",
-    "actions": {
-      "disableTranslation": true,
-      "items": [
-        {
-          "title": { "text": "LinkedIn", "replacement": "amilochau" },
-          "icon": { "mdi": "linkedin" },
-          "action": { "href": "https://www.linkedin.com/in/amilochau" }
-        },
-        {
-          "title": { "text": "GitHub", "replacement": "amilochau" },
-          "icon": { "mdi": "github" },
-          "action": { "href": "https://github.com/amilochau" }
-        },
-        {
-          "title": { "text": "Paris, FR" },
-          "icon": { "mdi": "map-marker-distance" },
-          "action": { "href": "https://www.google.com/maps/dir/Rue+de+l'Alma,+92600+Asni%C3%A8res-sur-Seine//@48.9140613,2.2888171,15z/data=!4m9!4m8!1m5!1m1!1s0x47e66f60e621aff3:0xdf738d390509c25a!2m2!1d2.2854697!2d48.9157538!1m0!3e3" }
-        }
-      ]
-    }
+    "actions": [
+      {
+        "title": { "text": "LinkedIn", "replacement": "amilochau" },
+        "icon": { "mdi": "linkedin" },
+        "action": { "href": "https://www.linkedin.com/in/amilochau" }
+      },
+      {
+        "title": { "text": "GitHub", "replacement": "amilochau" },
+        "icon": { "mdi": "github" },
+        "action": { "href": "https://github.com/amilochau" }
+      },
+      {
+        "title": { "text": "Paris, FR" },
+        "icon": { "mdi": "map-marker-distance" },
+        "action": { "href": "https://www.google.com/maps/dir/Rue+de+l'Alma,+92600+Asni%C3%A8res-sur-Seine//@48.9140613,2.2888171,15z/data=!4m9!4m8!1m5!1m1!1s0x47e66f60e621aff3:0xdf738d390509c25a!2m2!1d2.2854697!2d48.9157538!1m0!3e3" }
+      }
+    ]
   },
   "topics": {
     "items": [
