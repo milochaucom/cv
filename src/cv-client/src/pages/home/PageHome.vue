@@ -14,7 +14,7 @@
       class="pb-4">
       <resume-section-persona
         :persona="currentResume.persona" />
-      <resume-section-key-words
+      <resume-section-topics
         v-if="currentResume.topics"
         :topics="currentResume.topics"
         :expanded="expanded"
@@ -50,7 +50,7 @@
 import { usePage } from '../../composition';
 import ResumeSectionCall from './components/section/ResumeSectionCall.vue';
 import ResumeSectionPersona from './components/section/ResumeSectionPersona.vue';
-import ResumeSectionKeyWords from './components/section/ResumeSectionKeyWords.vue';
+import ResumeSectionTopics from './components/section/ResumeSectionTopics.vue';
 import ResumeSectionTrainings from './components/section/ResumeSectionTrainings.vue';
 import ResumeSectionMetrics from './components/section/ResumeSectionMetrics.vue';
 import ResumeSectionProjects from './components/section/ResumeSectionProjects.vue';

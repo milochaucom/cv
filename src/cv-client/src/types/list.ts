@@ -50,8 +50,3 @@ export interface IListItem {
 
   removeFromPrint?: boolean;
 }
-
-export interface IList {
-  items: IListItem[];
-  disableTranslation?: boolean;
-}

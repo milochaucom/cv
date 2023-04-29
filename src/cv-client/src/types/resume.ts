@@ -1,4 +1,4 @@
-import type { IAction, IIcon, IList } from "./list"
+import type { IIcon, IListItem } from "./list"
 
 export interface IResumeCall {
   icon?: IIcon
@@ -28,7 +28,11 @@ export interface IResumePersona {
 export interface IResumePersonaAction {
   title: { text: string, replacement?: string }
   icon: IIcon
-  action: IAction
+  href?: string
+}
+
+export interface IResumeTopics {
+  items?: IResumeTopicItem[]
 }
 
 export interface IResumeTopicItem {
@@ -37,8 +41,13 @@ export interface IResumeTopicItem {
   color?: string
 }
 
-export interface IResumeTopics {
-  items?: IResumeTopicItem[]
+export interface IResumeProjects {
+  items: IResumeProjectItem[];
+  tags?: IResumeTag[]
+}
+
+export interface IResumeProjectItem {
+  title: string
 }
 
 export interface IResumeTag {
@@ -46,8 +55,8 @@ export interface IResumeTag {
   key: string
 }
 
-export interface IResumeProjects extends IList {
-  tags?: IResumeTag[]
+export interface IResumeExperiences {
+  items: IResumeExperienceItem[]
 }
 
 export interface IResumeExperienceItem {
@@ -59,17 +68,33 @@ export interface IResumeExperienceItem {
   startDate: string
   endDate?: string
   description?: string
-  missions?: IList
+  missions?: IListItem[];
   tags?: IResumeTag[]
 }
 
-export interface IResumeExperiences {
-  items: IResumeExperienceItem[]
-}
-
-export interface IResumeTrainings extends IList {
+export interface IResumeTrainings {
+  initialTraining: IResumeTrainingItem[];
+  continuousTraining: IResumeTrainingItem[];
   alumni?: string
   languages: string[]
+}
+
+export interface IResumeTrainingItem {
+  title: string
+  subtitle?: string
+  icon?: IIcon
+  date?: string
+  href?: string
+}
+
+export interface IResumeMetrics {
+  items: IResumeMetricItem[];
+}
+
+export interface IResumeMetricItem {
+  title: string
+  number: number
+  removeFromPrint?: boolean
 }
 
 export interface IResumeChange {
@@ -90,6 +115,6 @@ export interface IResume {
   projects?: IResumeProjects
   experiences: IResumeExperiences
   trainings?: IResumeTrainings
-  metrics?: IList
+  metrics?: IResumeMetrics
   change?: IResumeChange
 }

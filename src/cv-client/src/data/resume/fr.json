@@ -1,6 +1,8 @@
 {
   "call": {
-    "icon": { "mdi": "human-greeting" },
+    "icon": {
+      "mdi": "human-greeting"
+    },
     "color": "success",
     "message": "Bienvenue sur mon CV !",
     "description": "",
@@ -20,19 +22,33 @@
     "location": "Paris, FR",
     "actions": [
       {
-        "title": { "text": "LinkedIn", "replacement": "amilochau" },
-        "icon": { "mdi": "linkedin" },
-        "action": { "href": "https://www.linkedin.com/in/amilochau" }
+        "title": {
+          "text": "LinkedIn",
+          "replacement": "amilochau"
+        },
+        "icon": {
+          "mdi": "linkedin"
+        },
+        "href": "https://www.linkedin.com/in/amilochau"
       },
       {
-        "title": { "text": "GitHub", "replacement": "amilochau" },
-        "icon": { "mdi": "github" },
-        "action": { "href": "https://github.com/amilochau" }
+        "title": {
+          "text": "GitHub",
+          "replacement": "amilochau"
+        },
+        "icon": {
+          "mdi": "github"
+        },
+        "href": "https://github.com/amilochau"
       },
       {
-        "title": { "text": "Paris, FR" },
-        "icon": { "mdi": "map-marker-distance" },
-        "action": { "href": "https://www.google.com/maps/dir/Rue+de+l'Alma,+92600+Asni%C3%A8res-sur-Seine//@48.9140613,2.2888171,15z/data=!4m9!4m8!1m5!1m1!1s0x47e66f60e621aff3:0xdf738d390509c25a!2m2!1d2.2854697!2d48.9157538!1m0!3e3" }
+        "title": {
+          "text": "Paris, FR"
+        },
+        "icon": {
+          "mdi": "map-marker-distance"
+        },
+        "href": "https://www.google.com/maps/dir/Rue+de+l'Alma,+92600+Asni%C3%A8res-sur-Seine//@48.9140613,2.2888171,15z/data=!4m9!4m8!1m5!1m1!1s0x47e66f60e621aff3:0xdf738d390509c25a!2m2!1d2.2854697!2d48.9157538!1m0!3e3"
       }
     ]
   },
@@ -71,66 +87,107 @@
     ]
   },
   "projects": {
-    "disableTranslation": true,
     "items": [
       {
-        "title": { "text": "Applications" },
+        "title": "Applications",
         "items": [
           {
-            "title": { "text": "Création de cartes" },
-            "icon": { "mdi": "map-marker-outline" },
-            "action": { "href": "https://maps.milochau.com/fr" }
+            "title": "Création de cartes",
+            "icon": {
+              "mdi": "map-marker-outline"
+            },
+            "action": {
+              "href": "https://maps.milochau.com/fr"
+            }
           },
           {
-            "title": { "text": "Envoi d'emails" },
-            "icon": { "mdi": "email-outline" },
-            "action": { "href": "https://github.com/amilochau/emails" }
+            "title": "Envoi d'emails",
+            "icon": {
+              "mdi": "email-outline"
+            },
+            "action": {
+              "href": "https://github.com/amilochau/emails"
+            }
           },
           {
-            "title": { "text": "CV" },
-            "icon": { "mdi": "card-account-details-outline" },
-            "action": { "href": "https://cv.milochau.com/fr" }
+            "title": "CV",
+            "icon": {
+              "mdi": "card-account-details-outline"
+            },
+            "action": {
+              "href": "https://cv.milochau.com/fr"
+            }
           }
         ]
       },
       {
-        "title": { "text": "Librairies & Templates" },
+        "title": "Librairies & Templates",
         "items": [
           {
-            "title": { "text": "NuGet - Milochau.Core" },
-            "icon": { "mdi": "dot-net" },
-            "action": { "href": "https://www.nuget.org/packages?q=Milochau.Core.*" }
+            "title": "NuGet - Milochau.Core",
+            "icon": {
+              "mdi": "dot-net"
+            },
+            "action": {
+              "href": "https://www.nuget.org/packages?q=Milochau.Core.*"
+            }
           },
           {
-            "title": { "text": "Bicep - azure-templates" },
-            "icon": { "mdi": "microsoft-azure" },
-            "action": { "href": "https://github.com/amilochau/azure-templates" }
+            "title": "Bicep - azure-templates",
+            "icon": {
+              "mdi": "microsoft-azure"
+            },
+            "action": {
+              "href": "https://github.com/amilochau/azure-templates"
+            }
           },
           {
-            "title": { "text": "GitHub - github-actions" },
-            "icon": { "mdi": "github" },
-            "action": { "href": "https://github.com/amilochau/github-actions" }
+            "title": "GitHub - github-actions",
+            "icon": {
+              "mdi": "github"
+            },
+            "action": {
+              "href": "https://github.com/amilochau/github-actions"
+            }
           }
         ]
       },
       {
-        "title": { "text": "Documentation" },
+        "title": "Documentation",
         "removeFromPrint": true,
         "items": [
           {
-            "title": { "text": "Vision" },
-            "icon": { "mdi": "television-ambient-light" },
-            "badge": { "text": "WIP", "color": "info", "small": true, "outlined": true }
+            "title": "Vision",
+            "icon": {
+              "mdi": "television-ambient-light"
+            },
+            "badge": {
+              "text": "WIP",
+              "color": "info",
+              "small": true,
+              "outlined": true
+            }
           },
           {
-            "title": { "text": "Roadmap" },
-            "icon": { "mdi": "chart-gantt" },
-            "action": { "href": "https://github.com/amilochau/.github/blob/main/docs/roadmap.md" }
+            "title": "Roadmap",
+            "icon": {
+              "mdi": "chart-gantt"
+            },
+            "action": {
+              "href": "https://github.com/amilochau/.github/blob/main/docs/roadmap.md"
+            }
           },
           {
-            "title": { "text": "Architecture" },
-            "icon": { "mdi": "sitemap-outline" },
-            "badge": { "text": "WIP", "color": "info", "small": true, "outlined": true }
+            "title": "Architecture",
+            "icon": {
+              "mdi": "sitemap-outline"
+            },
+            "badge": {
+              "text": "WIP",
+              "color": "info",
+              "small": true,
+              "outlined": true
+            }
           }
         ]
       }
@@ -173,7 +230,7 @@
         "key": "development"
       },
       {
-        "label":"vue.js",
+        "label": "vue.js",
         "key": "development"
       }
     ]
@@ -187,77 +244,122 @@
         "placeUri": "https://www.google.com/maps/place/AssurWare/@48.8713031,2.2275824,17z/data=!3m1!4b1!4m5!3m4!1s0x47e6652271fa816d:0x1dcd7d131570fb85!8m2!3d48.8713119!4d2.2297834",
         "startDate": "2020-05-04",
         "description": "SPVIE Technology développe les applications business du groupe SPVIE. L'environnement est 100% Web, 100% Azure, 100% Microsoft.",
-        "missions": {
-          "disableTranslation": true,
-          "items": [
-            {
-              "title": { "text": "Architecture Cloud & Automatisation" },
-              "icon": { "mdi": "microsoft-azure", "unicode": "⚙️" },
-              "items": [
-                {
-                  "title": { "text": "Définition d'architectures Cloud, mise en place d'une stack Azure PaaS, soutenant l'évolution rapide des applications" }
-                },
-                {
-                  "title": { "text": "Mise en place de CI/CD sur toutes les applications (YAML Templates)" }
-                },
-                {
-                  "title": { "text": "Mise en place de IaC pour la refonte de l'infrastructure (ARM Templates en Bicep)" }
-                }
-              ]
+        "missions": [
+          {
+            "title": {
+              "text": "Architecture Cloud & Automatisation"
             },
-            {
-              "title": { "text": "Architecture applicative" },
-              "icon": { "mdi": "floor-plan", "unicode": "📐" },
-              "items": [
-                {
-                  "title": { "text": "Revue d'architecture : mise en place de N-Tiers sur les applications legacy, microservices sur les nouveaux projets" }
-                },
-                {
-                  "title": { "text": "Définition de schémas d'architecture et plans de migration vers une architecture scalable, résiliente (serverless, secretless)" }
-                },
-                {
-                  "title": { "text": "Création de frameworks et templates d'entreprise : applications en ASP.NET Core / Functions Apps / Angular, templates YAML de déploiement" }
-                },
-                {
-                  "title": { "text": "Cadrage et suivi des projets business et techniques (estimations, études d'impact, accompagnement des équipes, audit)" }
-                }
-              ]
+            "icon": {
+              "mdi": "microsoft-azure",
+              "unicode": "⚙️"
             },
-            {
-              "title": { "text": "Accompagnement des équipes" },
-              "icon": { "mdi": "handshake", "unicode": "🤝" },
-              "items": [
-                {
-                  "title": { "text": "Team Leader d'une équipe de 6 développeurs (FR, CI, BL) pendant un an" }
-                },
-                {
-                  "title": { "text": "Recrutement des profils techniques (développeurs, QA, DevOps, architectes)" }
-                },
-                {
-                  "title": { "text": "Formation des équipes sur les technologies (code, qualité, architecture)" }
-                },
-                {
-                  "title": { "text": "Accompagnement à la mise en place de frameworks Scrum et Kanban" }
+            "items": [
+              {
+                "title": {
+                  "text": "Définition d'architectures Cloud, mise en place d'une stack Azure PaaS, soutenant l'évolution rapide des applications"
                 }
-              ]
+              },
+              {
+                "title": {
+                  "text": "Mise en place de CI/CD sur toutes les applications (YAML Templates)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Mise en place de IaC pour la refonte de l'infrastructure (ARM Templates en Bicep)"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Architecture applicative"
             },
-            {
-              "title": { "text": "Amélioration continue de la qualité et de la sécurité" },
-              "icon": { "mdi": "chart-line", "unicode": "📈" },
-              "items": [
-                {
-                  "title": { "text": "Mise en place d'outils de suivi de la qualité et des performances (SonarCloud, Health checks, Application Insights, Azure Monitor...)" }
-                },
-                {
-                  "title": { "text": "Introduction de tests unitaires et E2E sur les applications business" }
-                },
-                {
-                  "title": { "text": "Audit de sécurité sur les applications et l'infrastructure, suivi des remédiations par les équipes techniques" }
+            "icon": {
+              "mdi": "floor-plan",
+              "unicode": "📐"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Revue d'architecture : mise en place de N-Tiers sur les applications legacy, microservices sur les nouveaux projets"
                 }
-              ]
-            }
-          ]
-        },
+              },
+              {
+                "title": {
+                  "text": "Définition de schémas d'architecture et plans de migration vers une architecture scalable, résiliente (serverless, secretless)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Création de frameworks et templates d'entreprise : applications en ASP.NET Core / Functions Apps / Angular, templates YAML de déploiement"
+                }
+              },
+              {
+                "title": {
+                  "text": "Cadrage et suivi des projets business et techniques (estimations, études d'impact, accompagnement des équipes, audit)"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Accompagnement des équipes"
+            },
+            "icon": {
+              "mdi": "handshake",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Team Leader d'une équipe de 6 développeurs (FR, CI, BL) pendant un an"
+                }
+              },
+              {
+                "title": {
+                  "text": "Recrutement des profils techniques (développeurs, QA, DevOps, architectes)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Formation des équipes sur les technologies (code, qualité, architecture)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Accompagnement à la mise en place de frameworks Scrum et Kanban"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Amélioration continue de la qualité et de la sécurité"
+            },
+            "icon": {
+              "mdi": "chart-line",
+              "unicode": "📈"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Mise en place d'outils de suivi de la qualité et des performances (SonarCloud, Health checks, Application Insights, Azure Monitor...)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Introduction de tests unitaires et E2E sur les applications business"
+                }
+              },
+              {
+                "title": {
+                  "text": "Audit de sécurité sur les applications et l'infrastructure, suivi des remédiations par les équipes techniques"
+                }
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Scrum + Kanban",
@@ -341,35 +443,50 @@
         "startDate": "2019-07-01",
         "endDate": "2020-04-30",
         "description": "Le site sarenza.com évolue en permanence pour répondre aux besoins des clients.",
-        "missions": {
-          "disableTranslation": true,
-          "items": [
-            {
-              "title": { "text": "Référent technique de sarenza.com" },
-              "icon": { "mdi": "account-alert", "unicode": "👨‍💻" },
-              "items": [
-                {
-                  "title": { "text": "Evolutions fonctionnelles et techniques du site sarenza.com (.NET, T-SQL)" }
-                },
-                {
-                  "title": { "text": "Définition de roadmap technique du Front-Office Sarenza" }
-                },
-                {
-                  "title": { "text": "Mise en place de tests unitaires et mesures de qualité (SonarCloud) sur les applications" }
-                }
-              ]
+        "missions": [
+          {
+            "title": {
+              "text": "Référent technique de sarenza.com"
             },
-            {
-              "title": { "text": "Création et animation de communautés de développeurs" },
-              "icon": { "mdi": "account-group", "unicode": "🤝" },
-              "items": [
-                {
-                  "title": { "text": "Création de guildes (modèles Spotify)" }
+            "icon": {
+              "mdi": "account-alert",
+              "unicode": "👨‍💻"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Evolutions fonctionnelles et techniques du site sarenza.com (.NET, T-SQL)"
                 }
-              ]
-            }
-          ]
-        },
+              },
+              {
+                "title": {
+                  "text": "Définition de roadmap technique du Front-Office Sarenza"
+                }
+              },
+              {
+                "title": {
+                  "text": "Mise en place de tests unitaires et mesures de qualité (SonarCloud) sur les applications"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Création et animation de communautés de développeurs"
+            },
+            "icon": {
+              "mdi": "account-group",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Création de guildes (modèles Spotify)"
+                }
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Scrum",
@@ -413,62 +530,97 @@
         "startDate": "2018-04-01",
         "endDate": "2019-06-20",
         "description": "Des outils (applications) et des méthodes (algorithmes et réglages de machines) permettent aux raffineries d'optimiser leur production.",
-        "missions": {
-          "disableTranslation": true,
-          "items": [
-            {
-              "title": { "text": "Management de projets" },
-              "icon": { "mdi": "chart-gantt", "unicode": "📊" },
-              "items": [
-                {
-                  "title": { "text": "Gestion des projets d'applications pour l'optimisation des mélanges de carburant" }
-                },
-                {
-                  "title": { "text": "Coordination fonctionnelle et technique, pilotage, reporting au management" }
-                },
-                {
-                  "title": { "text": "Lien avec les prestataires et sous-traitants (~ 10 développeurs)" }
-                }
-              ]
+        "missions": [
+          {
+            "title": {
+              "text": "Management de projets"
             },
-            {
-              "title": { "text": "Lead technique" },
-              "icon": { "mdi": "account-wrench", "unicode": "👨‍💻" },
-              "items": [
-                {
-                  "title": { "text": "Définition des architectures et technologies cibles, découpage des applications en domaines fonctionnels, clarification des flux de données" }
-                },
-                {
-                  "title": { "text": "Définition des plans de migration vers des applications Web, sur Azure" }
-                },
-                {
-                  "title": { "text": "Participation aux développements d'applications Web et Desktop (.NET / vue.js)" }
-                }
-              ]
+            "icon": {
+              "mdi": "chart-gantt",
+              "unicode": "📊"
             },
-            {
-              "title": { "text": "Automatisation des process (DevOps)" },
-              "icon": { "mdi": "microsoft-azure-devops", "unicode": "⚙️" },
-              "items": [
-                {
-                  "title": { "text": "Mise en place d'Azure DevOps (boards, repositories, pipelines) pour le Raffinage" }
-                },
-                {
-                  "title": { "text": "Configuration des déploiements des applications (On Premise et Azure)" }
+            "items": [
+              {
+                "title": {
+                  "text": "Gestion des projets d'applications pour l'optimisation des mélanges de carburant"
                 }
-              ]
+              },
+              {
+                "title": {
+                  "text": "Coordination fonctionnelle et technique, pilotage, reporting au management"
+                }
+              },
+              {
+                "title": {
+                  "text": "Lien avec les prestataires et sous-traitants (~ 10 développeurs)"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Lead technique"
             },
-            {
-              "title": { "text": "Accompagnement des équipes" },
-              "icon": { "mdi": "handshake", "unicode": "🤝" },
-              "items": [
-                {
-                  "title": { "text": "Mise en place de framework Scrum, conduite du changement" }
+            "icon": {
+              "mdi": "account-wrench",
+              "unicode": "👨‍💻"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Définition des architectures et technologies cibles, découpage des applications en domaines fonctionnels, clarification des flux de données"
                 }
-              ]
-            }
-          ]
-        },
+              },
+              {
+                "title": {
+                  "text": "Définition des plans de migration vers des applications Web, sur Azure"
+                }
+              },
+              {
+                "title": {
+                  "text": "Participation aux développements d'applications Web et Desktop (.NET / vue.js)"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Automatisation des process (DevOps)"
+            },
+            "icon": {
+              "mdi": "microsoft-azure-devops",
+              "unicode": "⚙️"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Mise en place d'Azure DevOps (boards, repositories, pipelines) pour le Raffinage"
+                }
+              },
+              {
+                "title": {
+                  "text": "Configuration des déploiements des applications (On Premise et Azure)"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Accompagnement des équipes"
+            },
+            "icon": {
+              "mdi": "handshake",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Mise en place de framework Scrum, conduite du changement"
+                }
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Scrum",
@@ -509,27 +661,35 @@
         "startDate": "2017-11-06",
         "endDate": "2018-03-23",
         "description": "Le groupe SeLoger fait évoluer des sites à fort trafic, pour les particuliers et les agences immobilières.",
-        "missions": {
-          "disableTranslation": true,
-          "items": [
-            {
-              "title": { "text": "Développement d'applications Web" },
-              "icon": { "mdi": "account-hard-hat", "unicode": "👨‍💻" },
-              "items": [
-                {
-                  "title": { "text": "Evolutions Front-End et Back-End des applications du groupe SeLoger (.NET)" },
-                  "removeFromPrint": true
+        "missions": [
+          {
+            "title": {
+              "text": "Développement d'applications Web"
+            },
+            "icon": {
+              "mdi": "account-hard-hat",
+              "unicode": "👨‍💻"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Evolutions Front-End et Back-End des applications du groupe SeLoger (.NET)"
                 },
-                {
-                  "title": { "text": "Optimisations SEO pour les sites SeLoger et ImmoStreet" }
-                },
-                {
-                  "title": { "text": "Optimisations de performances Front-End (temps de chargement divisé par 10)" }
+                "removeFromPrint": true
+              },
+              {
+                "title": {
+                  "text": "Optimisations SEO pour les sites SeLoger et ImmoStreet"
                 }
-              ]
-            }
-          ]
-        },
+              },
+              {
+                "title": {
+                  "text": "Optimisations de performances Front-End (temps de chargement divisé par 10)"
+                }
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Scrum",
@@ -569,58 +729,88 @@
         "startDate": "2011-12-05",
         "endDate": "2017-11-03",
         "description": "L'optimisation des mélanges de carburant nécessite des algorithmes et des modélisations étudiées, puis implémentées dans des outils d'optimisation temps réel",
-        "missions": {
-          "disableTranslation": true,
-          "items": [
-            {
-              "title": { "text": "Création d'algorithmes d'optimisation mathématique" },
-              "icon": { "mdi": "calculator-variant", "unicode": "👨‍🔬" },
-              "items": [
-                {
-                  "title": { "text": "Méta-modélisation de modèles d'émission de polluants (SVM, neural networks)" }
-                },
-                {
-                  "title": { "text": "Implémentation d'algorithmes d'optimisation non-linéaire (Matlab, C++)" }
-                },
-                {
-                  "title": { "text": "Estimation en temps réel de propriétés de carburants, gestion des incertitudes par des méthodes type filtres de Kalman" }
-                }
-              ]
+        "missions": [
+          {
+            "title": {
+              "text": "Création d'algorithmes d'optimisation mathématique"
             },
-            {
-              "title": { "text": "Architecture des solutions APC mélanges" },
-              "icon": { "mdi": "compass", "unicode": "📐" },
-              "items": [
-                {
-                  "title": { "text": "Conception d'applications de suivi de la production en temps réel (.NET)" }
-                },
-                {
-                  "title": { "text": "Référent d'une application de monitoring en temps réel des solutions APC" },
-                  "removeFromPrint": true
-                },
-                {
-                  "title": { "text": "Réécriture complète d'une application d'optimisation temps réel (C vers C++, 30 M€/an de gains)" }
-                }
-              ]
+            "icon": {
+              "mdi": "calculator-variant",
+              "unicode": "👨‍🔬"
             },
-            {
-              "title": { "text": "Assistance et formation aux sites industriels" },
-              "icon": { "mdi": "help-network", "unicode": "🤝" },
-              "items": [
-                {
-                  "title": { "text": "Assistance technique et économique aux raffineries du groupe (FR, DE, US)" }
-                },
-                {
-                  "title": { "text": "Troubleshooting des applications de contrôle avancé (dernier niveau)" },
-                  "removeFromPrint": true
-                },
-                {
-                  "title": { "text": "Organisation de séminaires scientifiques sur l''optimisation des mélanges" }
+            "items": [
+              {
+                "title": {
+                  "text": "Méta-modélisation de modèles d'émission de polluants (SVM, neural networks)"
                 }
-              ]
-            }
-          ]
-        },
+              },
+              {
+                "title": {
+                  "text": "Implémentation d'algorithmes d'optimisation non-linéaire (Matlab, C++)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Estimation en temps réel de propriétés de carburants, gestion des incertitudes par des méthodes type filtres de Kalman"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Architecture des solutions APC mélanges"
+            },
+            "icon": {
+              "mdi": "compass",
+              "unicode": "📐"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Conception d'applications de suivi de la production en temps réel (.NET)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Référent d'une application de monitoring en temps réel des solutions APC"
+                },
+                "removeFromPrint": true
+              },
+              {
+                "title": {
+                  "text": "Réécriture complète d'une application d'optimisation temps réel (C vers C++, 30 M€/an de gains)"
+                }
+              }
+            ]
+          },
+          {
+            "title": {
+              "text": "Assistance et formation aux sites industriels"
+            },
+            "icon": {
+              "mdi": "help-network",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": {
+                  "text": "Assistance technique et économique aux raffineries du groupe (FR, DE, US)"
+                }
+              },
+              {
+                "title": {
+                  "text": "Troubleshooting des applications de contrôle avancé (dernier niveau)"
+                },
+                "removeFromPrint": true
+              },
+              {
+                "title": {
+                  "text": "Organisation de séminaires scientifiques sur l''optimisation des mélanges"
+                }
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Gestion de projets",
@@ -656,53 +846,57 @@
   },
   "trainings": {
     "alumni": "Ecole Centrale de Nantes",
-    "languages": ["fr", "en"],
-    "disableTranslation": true,
-    "items": [
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "initialTraining": [
       {
-        "header": { "text": "Formation initiale" }
+        "title": "Ecole Centrale de Nantes",
+        "subtitle": "Diplôme d'Ingénieur généraliste",
+        "date": "2014",
+        "icon": {
+          "mdi": "town-hall"
+        }
       },
       {
-        "title": { "text": "Ecole Centrale de Nantes" },
-        "subtitle": { "text": "Diplôme d'Ingénieur généraliste" },
-        "badge": { "text": "2014", "label": true, "outlined": true, "icon": { "mdi": "calendar-range-outline" }, "small": true }
+        "title": "TOEIC - Anglais",
+        "subtitle": "915 / 990",
+        "date": "2014",
+        "icon": {
+          "mdi": "account-voice"
+        }
+      }
+    ],
+    "continuousTraining": [
+      {
+        "title": "Microsoft Learn",
+        "icon": {
+          "mdi": "microsoft-azure"
+        },
+        "href": "https://docs.microsoft.com/fr-fr/users/amilochau"
       },
       {
-        "title": { "text": "TOEIC" },
-        "subtitle": { "text": "915 / 990" },
-        "badge": { "text": "2014", "label": true, "outlined": true, "icon": { "mdi": "calendar-range-outline" }, "small": true }
-      },
-      {
-        "divider": true
-      },
-      {
-        "header": { "text": "Formation continue" }
-      },
-      {
-        "title": { "text": "Microsoft Learn" },
-        "icon": { "mdi": "microsoft-azure" },
-        "action": { "href": "https://docs.microsoft.com/fr-fr/users/amilochau" }
-      },
-      {
-        "title": { "text": "Sauveteur Secouriste au Travail" },
-        "icon": { "mdi": "lifebuoy" }
+        "title": "Sauveteur Secouriste au Travail",
+        "icon": {
+          "mdi": "lifebuoy"
+        }
       }
     ]
   },
   "metrics": {
-    "disableTranslation": true,
     "items": [
       {
-        "avatar": { "title": { "text": "11" }, "color": "primary white--text", "size": "36px" },
-        "title": { "text": "Années d'expérience" }
+        "number": 12,
+        "title": "Années d'expérience"
       },
       {
-        "avatar": { "title": { "text": "128" }, "color": "primary white--text", "size": "36px" },
-        "title": { "text": "Resources Azure personnnelles" }
+        "number": 331,
+        "title": "Resources AWS personnnelles"
       },
       {
-        "avatar": { "title": { "text": "4" }, "color": "primary white--text", "size": "36px" },
-        "title": { "text": "Tasses de café par jour" },
+        "number": 4,
+        "title": "Tasses de café par jour",
         "removeFromPrint": true
       }
     ]

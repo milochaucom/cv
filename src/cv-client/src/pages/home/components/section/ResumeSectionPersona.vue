@@ -39,7 +39,7 @@ const personaItems = computed(() => props.persona.actions?.map((x) => ({
   title: x.title.text,
   props: {
     prependIcon: formatIcon(x.icon.mdi),
-    href: x.action.href,
+    href: x.href,
   }
 })))
 </script>
