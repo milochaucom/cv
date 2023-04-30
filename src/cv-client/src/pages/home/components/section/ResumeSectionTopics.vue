@@ -16,7 +16,7 @@
         :key="i"
         :color="topic.color"
         :value="topic.key"
-        :variant="selectedTopic == topic.key ? undefined : 'outlined'"
+        :variant="selectedTopic === topic.key ? undefined : 'outlined'"
         label
         class="mr-1 mb-1 pa-1"
         size="small"
@@ -34,7 +34,6 @@ import { useI18n } from 'vue-i18n';
 
 defineProps<{
   topics: IResumeTopics,
-  expanded: boolean,
   selectedTopic: string,
 }>()
 

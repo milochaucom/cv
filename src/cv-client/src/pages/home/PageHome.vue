@@ -17,7 +17,6 @@
       <resume-section-topics
         v-if="currentResume.topics"
         :topics="currentResume.topics"
-        :expanded="expanded"
         :selected-topic="selectedTopic" />
       <resume-section-trainings
         v-if="currentResume.trainings"
@@ -68,7 +67,7 @@ const expanded = ref(true)
 const selectedTopic = ref('')
 
 const currentResume: ComputedRef<IResume> = computed(() => {
-  if (route.params.lang == 'fr') {
+  if (route.params.lang === 'fr') {
     return resume['fr']
   } else {
     return resume['en']

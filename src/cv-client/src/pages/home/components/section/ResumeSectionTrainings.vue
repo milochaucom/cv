@@ -13,7 +13,9 @@
         :title="training.title"
         :subtitle="training.subtitle"
         :prepend-icon="formatIcon(training.icon?.mdi)"
-        :href="training.href">
+        :href="training.href"
+        target="_blank"
+        rel="noopener">
         <template #append>
           <v-chip
             v-if="training.date"
@@ -34,13 +36,15 @@
         :title="training.title"
         :subtitle="training.subtitle"
         :prepend-icon="formatIcon(training.icon?.mdi)"
-        :href="training.href" />
+        :href="training.href"
+        target="_blank"
+        rel="noopener" />
     </v-list>
   </v-card>
 </template>
 
 <script setup lang="ts">
-import { useFormatIcons } from '@/data/formatIcons';
+import { useIcons } from '@/data/icons';
 import type { IResumeTrainings } from '@/types/resume';
 import { mdiCalendarRangeOutline, mdiSchool } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
@@ -50,7 +54,7 @@ defineProps<{
 }>()
 
 const { t } = useI18n()
-const { formatIcon } = useFormatIcons()
+const { formatIcon } = useIcons()
 </script>
 
 <i18n lang="json">

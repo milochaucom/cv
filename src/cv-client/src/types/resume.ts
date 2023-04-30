@@ -42,12 +42,20 @@ export interface IResumeTopicItem {
 }
 
 export interface IResumeProjects {
-  items: IResumeProjectItem[];
+  items: IResumeProjectCategory[];
   tags?: IResumeTag[]
+}
+
+export interface IResumeProjectCategory {
+  title: string
+  items: IResumeProjectItem[]
 }
 
 export interface IResumeProjectItem {
   title: string
+  icon: IIcon
+  href?: string
+  badge?: string
 }
 
 export interface IResumeTag {
@@ -60,9 +68,9 @@ export interface IResumeExperiences {
 }
 
 export interface IResumeExperienceItem {
-  company?: string
-  client?: string
   job: string
+  company: string
+  client?: string
   place?: string
   placeUri?: string
   startDate: string

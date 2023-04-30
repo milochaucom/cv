@@ -20,11 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import { useFormatIcons } from '@/data/formatIcons';
+import { useIcons } from '@/data/icons';
 import type { IResumeCall } from '@/types/resume';
 import { useI18n } from 'vue-i18n';
 
-const { formatIcon } = useFormatIcons()
+const { formatIcon } = useIcons()
 const { t, d, mergeDateTimeFormat } = useI18n()
 
 const props = defineProps<{

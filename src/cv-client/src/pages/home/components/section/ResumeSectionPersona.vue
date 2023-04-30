@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import thumbnail from '@/assets/resume/thumbnail.webp'
-import { useFormatIcons } from '@/data/formatIcons';
+import { useIcons } from '@/data/icons';
 import type { IResumePersona } from '@/types/resume';
 import { computed, ref } from 'vue';
 
@@ -32,7 +32,7 @@ const props = defineProps<{
   persona: IResumePersona,
 }>()
 
-const { formatIcon } = useFormatIcons()
+const { formatIcon } = useIcons()
 
 const pictureDialog = ref(false)
 const personaItems = computed(() => props.persona.actions?.map((x) => ({

@@ -96,27 +96,21 @@
             "icon": {
               "mdi": "map-marker-outline"
             },
-            "action": {
-              "href": "https://maps.milochau.com/en"
-            }
+            "href": "https://maps.milochau.com/en"
           },
           {
             "title": "Emails service",
             "icon": {
               "mdi": "email-outline"
             },
-            "action": {
-              "href": "https://github.com/amilochau/emails"
-            }
+            "href": "https://github.com/amilochau/emails"
           },
           {
             "title": "CV",
             "icon": {
               "mdi": "card-account-details-outline"
             },
-            "action": {
-              "href": "https://cv.milochau.com/en"
-            }
+            "href": "https://cv.milochau.com/en"
           }
         ]
       },
@@ -128,27 +122,21 @@
             "icon": {
               "mdi": "dot-net"
             },
-            "action": {
-              "href": "https://www.nuget.org/packages?q=Milochau.Core.*"
-            }
+            "href": "https://www.nuget.org/packages?q=Milochau.Core.*"
           },
           {
             "title": "Bicep - azure-templates",
             "icon": {
               "mdi": "microsoft-azure"
             },
-            "action": {
-              "href": "https://github.com/amilochau/azure-templates"
-            }
+            "href": "https://github.com/amilochau/azure-templates"
           },
           {
             "title": "GitHub - github-actions",
             "icon": {
               "mdi": "github"
             },
-            "action": {
-              "href": "https://github.com/amilochau/github-actions"
-            }
+            "href": "https://github.com/amilochau/github-actions"
           }
         ]
       },
@@ -161,33 +149,21 @@
             "icon": {
               "mdi": "television-ambient-light"
             },
-            "badge": {
-              "text": "WIP",
-              "color": "info",
-              "small": true,
-              "outlined": true
-            }
+            "badge": "WIP"
           },
           {
             "title": "Roadmap",
             "icon": {
               "mdi": "chart-gantt"
             },
-            "action": {
-              "href": "https://github.com/amilochau/.github/blob/main/docs/roadmap.md"
-            }
+            "href": "https://github.com/amilochau/.github/blob/main/docs/roadmap.md"
           },
           {
             "title": "Architecture",
             "icon": {
               "mdi": "sitemap-outline"
             },
-            "badge": {
-              "text": "WIP",
-              "color": "info",
-              "small": true,
-              "outlined": true
-            }
+            "badge": "WIP"
           }
         ]
       }
