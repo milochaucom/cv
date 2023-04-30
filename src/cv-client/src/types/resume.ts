@@ -68,16 +68,27 @@ export interface IResumeExperiences {
 }
 
 export interface IResumeExperienceItem {
-  job: string
+  title: string
+  description?: string
   company: string
   client?: string
   place?: string
   placeUri?: string
   startDate: string
   endDate?: string
-  description?: string
-  missions?: IListItem[];
+  missions?: IResumeExprerienceMissionItem[];
   tags?: IResumeTag[]
+}
+
+export interface IResumeExprerienceMissionItem {
+  title: string
+  icon: IIcon
+  items: IResumeExprerienceMissionLineItem[]
+}
+
+export interface IResumeExprerienceMissionLineItem {
+  title: string
+  removeFromPrint?: boolean
 }
 
 export interface IResumeTrainings {

@@ -214,120 +214,88 @@
   "experiences": {
     "items": [
       {
+        "title": "Software & Cloud Architect",
+        "description": "SPVIE Technology develops and deploys the business applications for the SPVIE group.",
         "company": "SPVIE Technology",
-        "job": "Software & Cloud Architect",
         "place": "Suresnes, FR",
         "placeUri": "https://www.google.com/maps/place/AssurWare/@48.8713031,2.2275824,17z/data=!3m1!4b1!4m5!3m4!1s0x47e6652271fa816d:0x1dcd7d131570fb85!8m2!3d48.8713119!4d2.2297834",
         "startDate": "2020-05-04",
-        "description": "SPVIE Technology develops and deploys the business applications for the SPVIE group.",
         "missions": [
           {
-            "title": {
-              "text": "Cloud Architecture & Automation"
-            },
+            "title": "Cloud Architecture & Automation",
             "icon": {
-              "mdi": "microsoft-azure"
+              "mdi": "microsoft-azure",
+              "unicode": "⚙️"
             },
             "items": [
               {
-                "title": {
-                  "text": "Definition of Cloud architectures, implementation of an Azure PaaS stack, supporting rapidly changing applications"
-                }
+                "title": "Definition of Cloud architectures, implementation of an Azure PaaS stack, supporting rapidly changing applications"
               },
               {
-                "title": {
-                  "text": "Implementation of CI/CD on all applications (YAML templates)"
-                }
+                "title": "Implementation of CI/CD on all applications (YAML templates)"
               },
               {
-                "title": {
-                  "text": "Implementation of IaC for the redesign of the infrastructure (ARM templates in Bicep)"
-                }
+                "title": "Implementation of IaC for the redesign of the infrastructure (ARM templates in Bicep)"
               }
             ]
           },
           {
-            "title": {
-              "text": "Software architecture"
-            },
+            "title": "Software architecture",
             "icon": {
-              "mdi": "floor-plan"
+              "mdi": "floor-plan",
+              "unicode": "📐"
             },
             "items": [
               {
-                "title": {
-                  "text": "Architecture review: implementation of N-Tiers on legacy applications, microservices on new projects"
-                }
+                "title": "Architecture review: implementation of N-Tiers on legacy applications, microservices on new projects"
               },
               {
-                "title": {
-                  "text": "Definition of architecture diagrams and migration plans towards a scalable, resilient architecture"
-                }
+                "title": "Definition of architecture diagrams and migration plans towards a scalable, resilient architecture"
               },
               {
-                "title": {
-                  "text": "Creation of enterprise frameworks & templates: applications in ASP.NET Core or Functions Apps, YAML deployment templates"
-                }
+                "title": "Creation of enterprise frameworks & templates: applications in ASP.NET Core or Functions Apps, YAML deployment templates"
               },
               {
-                "title": {
-                  "text": "Supervision and monitoring of business and technical projects (estimations, impact studies, team support, audit)"
-                }
+                "title": "Supervision and monitoring of business and technical projects (estimations, impact studies, team support, audit)"
               }
             ]
           },
           {
-            "title": {
-              "text": "Support for teams"
-            },
+            "title": "Support for teams",
             "icon": {
-              "mdi": "handshake"
+              "mdi": "handshake",
+              "unicode": "🤝"
             },
             "items": [
               {
-                "title": {
-                  "text": "Team Leader of a 6-developers team (FR, CI, BL) during one year"
-                }
+                "title": "Team Leader of a 6-developers team (FR, CI, BL) during one year"
               },
               {
-                "title": {
-                  "text": "Recruitment of technical profiles (developers, QAs, DevOps, architects)"
-                }
+                "title": "Recruitment of technical profiles (developers, QAs, DevOps, architects)"
               },
               {
-                "title": {
-                  "text": "Training of the teams on technologies (code, quality, architecture)"
-                }
+                "title": "Training of the teams on technologies (code, quality, architecture)"
               },
               {
-                "title": {
-                  "text": "Support for the implementation of the Scrum & Kanban frameworks"
-                }
+                "title": "Support for the implementation of the Scrum & Kanban frameworks"
               }
             ]
           },
           {
-            "title": {
-              "text": "Continuous quality & security improvement"
-            },
+            "title": "Continuous quality & security improvement",
             "icon": {
-              "mdi": "chart-line"
+              "mdi": "chart-line",
+              "unicode": "📈"
             },
             "items": [
               {
-                "title": {
-                  "text": "Implementation of quality and performance monitoring tools (SonarCloud, Health checks, Application Insights, Azure Monitor...)"
-                }
+                "title": "Implementation of quality and performance monitoring tools (SonarCloud, Health checks, Application Insights, Azure Monitor...)"
               },
               {
-                "title": {
-                  "text": "Introduction of unit and E2E tests on business applications"
-                }
+                "title": "Introduction of unit and E2E tests on business applications"
               },
               {
-                "title": {
-                  "text": "Security audit on applications and infrastructure, monitoring of remediations by technical teams"
-                }
+                "title": "Security audit on applications and infrastructure, monitoring of remediations by technical teams"
               }
             ]
           }
@@ -408,51 +376,41 @@
         ]
       },
       {
+        "title": "Lead Developer",
+        "description": "The sarenza.com site is constantly evolving to meet the customer needs.",
         "company": "MONOPRIX ONLINE",
-        "job": "Lead Developer",
         "place": "Clichy, FR",
         "placeUri": "https://www.google.com/maps/place/Monoprix+Online/@48.9114806,2.3075256,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fa859a7648f:0x9f092451007f953!8m2!3d48.9114745!4d2.3097094",
         "startDate": "2019-07-01",
         "endDate": "2020-04-30",
-        "description": "The sarenza.com site is constantly evolving to meet the customer needs.",
         "missions": [
           {
-            "title": {
-              "text": "Technical referent of sarenza.com"
-            },
+            "title":  "Technical referent of sarenza.com",
             "icon": {
-              "mdi": "account-alert"
+              "mdi": "account-alert",
+              "unicode": "👨‍💻"
             },
             "items": [
               {
-                "title": {
-                  "text": "Functional and technical developments of the sarenza.com site (.NET, T-SQL)"
-                }
+                "title": "Functional and technical developments of the sarenza.com site (.NET, T-SQL)"
               },
               {
-                "title": {
-                  "text": "Definition of the technical roadmap for Sarenza Front-Office"
-                }
+                "title": "Definition of the technical roadmap for Sarenza Front-Office"
               },
               {
-                "title": {
-                  "text": "Implementation of unit tests and quality measures (SonarCloud) on applications"
-                }
+                "title": "Implementation of unit tests and quality measures (SonarCloud) on applications"
               }
             ]
           },
           {
-            "title": {
-              "text": "Creation and animation of developer communities"
-            },
+            "title": "Creation and animation of developer communities",
             "icon": {
-              "mdi": "account-group"
+              "mdi": "account-group",
+              "unicode": "🤝"
             },
             "items": [
               {
-                "title": {
-                  "text": "Creation of guilds (Spotify method)"
-                }
+                "title": "Creation of guilds (Spotify method)"
               }
             ]
           }
@@ -493,96 +451,74 @@
         ]
       },
       {
+        "title": "Advanced Process Control Engineer",
+        "description": "Tools (applications) and methods (algorithms and machine tuning) allow refineries to optimize their production.",
         "company": "TOTAL Refining & Chemicals",
-        "job": "Advanced Process Control Engineer",
         "place": "Courbevoie, FR",
         "placeUri": "https://www.google.com/maps/place/Total+Tour+Coupole/@48.8927778,2.2411446,17z/data=!3m1!4b1!4m5!3m4!1s0x47fa657a1827f5af:0x968cbd4e5b7000ea!8m2!3d48.8930013!4d2.2434948",
         "startDate": "2018-04-01",
         "endDate": "2019-06-20",
-        "description": "Tools (applications) and methods (algorithms and machine tuning) allow refineries to optimize their production.",
         "missions": [
           {
-            "title": {
-              "text": "Project management"
-            },
+            "title": "Project management",
             "icon": {
-              "mdi": "chart-gantt"
+              "mdi": "chart-gantt",
+              "unicode": "📊"
             },
             "items": [
               {
-                "title": {
-                  "text": "Project management of applications for fuel blend optimization"
-                }
+                "title": "Project management of applications for fuel blend optimization"
               },
               {
-                "title": {
-                  "text": "Functional an technical coordination, piloting, reporting to management"
-                }
+                "title": "Functional an technical coordination, piloting, reporting to management"
               },
               {
-                "title": {
-                  "text": "Link with service providers and subcontractors (~ 10 developers)"
-                }
+                "title": "Link with service providers and subcontractors (~ 10 developers)"
               }
             ]
           },
           {
-            "title": {
-              "text": "Technical lead"
-            },
+            "title": "Technical lead",
             "icon": {
-              "mdi": "account-wrench"
+              "mdi": "account-wrench",
+              "unicode": "👨‍💻"
             },
             "items": [
               {
-                "title": {
-                  "text": "Definition of target architectures and technologies, division of applications into functional domains, clarification of data flows"
-                }
+                "title": "Definition of target architectures and technologies, division of applications into functional domains, clarification of data flows"
               },
               {
-                "title": {
-                  "text": "Definition of migration plans to web applications, on Azure"
-                }
+                "title": "Definition of migration plans to web applications, on Azure"
               },
               {
-                "title": {
-                  "text": "Participation in the development of Web and Desktop applications (.NET / vue.js)"
-                }
+                "title": "Participation in the development of Web and Desktop applications (.NET / vue.js)"
               }
             ]
           },
           {
-            "title": {
-              "text": "Process automation (DevOps)"
-            },
+            "title": "Process automation (DevOps)",
             "icon": {
-              "mdi": "microsoft-azure-devops"
+              "mdi": "microsoft-azure-devops",
+              "unicode": "⚙️"
             },
             "items": [
               {
-                "title": {
-                  "text": "Implementation of Azure DevOps (boards, repositories, pipelines) for Refining"
-                }
+                "title": "Implementation of Azure DevOps (boards, repositories, pipelines) for Refining"
               },
               {
-                "title": {
-                  "text": "Configuration of application deployments (On Premise and Azure)"
-                }
+                "title": "Configuration of application deployments (On Premise and Azure)"
               }
             ]
           },
           {
-            "title": {
-              "text": "Support for teams"
-            },
+            "title": "Support for teams",
             "icon": {
-              "mdi": "handshake"
+              "mdi": "handshake",
+              "unicode": "🤝"
             },
             "items": [
               {
-                "title": {
-                  "text": "Implementation of the Scrum framework, change management"
-                }
+                "title": "Implementation of the Scrum framework, change management"
               }
             ]
           }
@@ -619,38 +555,31 @@
         ]
       },
       {
+        "title": ".NET Engineer",
+        "description": "The SeLoger group develops high traffic websites for individual and real estate agencies.",
         "company": "Infeeny",
         "client": "SeLoger",
-        "job": ".NET Engineer",
         "place": "Paris, FR",
         "placeUri": "https://www.google.com/maps/place/SeLoger/@48.8912719,2.3484074,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66e66d3362e2b:0xbec65ee69f11fe85!8m2!3d48.8912719!4d2.3505961",
         "startDate": "2017-11-06",
         "endDate": "2018-03-23",
-        "description": "The SeLoger group develops high traffic websites for individual and real estate agencies.",
         "missions": [
           {
-            "title": {
-              "text": "Web applications development"
-            },
+            "title": "Web applications development",
             "icon": {
-              "mdi": "account-hard-hat"
+              "mdi": "account-hard-hat",
+              "unicode": "👨‍💻"
             },
             "items": [
               {
-                "title": {
-                  "text": "Front-End and Back-End developments for the SeLoger group applications (.NET)"
-                },
+                "title": "Front-End and Back-End developments for the SeLoger group applications (.NET)",
                 "removeFromPrint": true
               },
               {
-                "title": {
-                  "text": "SEO optimizations for SeLoger and ImmoStreet websites"
-                }
+                "title":  "SEO optimizations for SeLoger and ImmoStreet websites"
               },
               {
-                "title": {
-                  "text": "Front-End performance optimizations (dividing loading time by 10)"
-                }
+                "title": "Front-End performance optimizations (dividing loading time by 10)"
               }
             ]
           }
@@ -687,88 +616,67 @@
         ]
       },
       {
+        "title": "Advanced Process Control Engineer",
+        "description": "The fuel blend optimization requires algorithms and models to be studied then implemented in real-time optimization tools",
         "company": "TOTAL Refining & Chemicals",
-        "job": "Advanced Process Control Engineer",
         "place": "Feyzin, FR / Leuna, DE",
         "placeUri": "https://www.google.fr/maps/@48.3488588,2.6277793,6z/data=!3m1!4b1!4m3!11m2!2sR_OlZS53IfP_ZVzHz3WmXP5ApZKn9w!3e3",
         "startDate": "2011-12-05",
         "endDate": "2017-11-03",
-        "description": "The fuel blend optimization requires algorithms and models to be studied then implemented in real-time optimization tools",
         "missions": [
           {
-            "title": {
-              "text": "Creation of mathematical optimization algorithms"
-            },
+            "title": "Creation of mathematical optimization algorithms",
             "icon": {
-              "mdi": "calculator-variant"
+              "mdi": "calculator-variant",
+              "unicode": "👨‍🔬"
             },
             "items": [
               {
-                "title": {
-                  "text": "Meta-modeling of pollutant emission models (SVM, neural networks)"
-                }
+                "title": "Meta-modeling of pollutant emission models (SVM, neural networks)"
               },
               {
-                "title": {
-                  "text": "Implementation of non-lineal optimization algorithms (Matlab, C++)"
-                }
+                "title": "Implementation of non-lineal optimization algorithms (Matlab, C++)"
               },
               {
-                "title": {
-                  "text": "Real-time estimation of fuel properties dealing with uncertainties, with methods as Kalman filters"
-                }
+                "title": "Real-time estimation of fuel properties dealing with uncertainties, with methods as Kalman filters"
               }
             ]
           },
           {
-            "title": {
-              "text": "Architecture of APC solutions for offsites"
-            },
+            "title": "Architecture of APC solutions for offsites",
             "icon": {
-              "mdi": "compass"
+              "mdi": "compass",
+              "unicode": "📐"
             },
             "items": [
               {
-                "title": {
-                  "text": "Design of real-time production monitoring applications (.NET)"
-                }
+                "title": "Design of real-time production monitoring applications (.NET)"
               },
               {
-                "title": {
-                  "text": "Referent for a real-time monitoring application for APC solutions"
-                },
+                "title": "Referent for a real-time monitoring application for APC solutions",
                 "removeFromPrint": true
               },
               {
-                "title": {
-                  "text": "Complete rewrite of a real-time optimization application (C to C++, 30 M€/y in earnings)"
-                }
+                "title": "Complete rewrite of a real-time optimization application (C to C++, 30 M€/y in earnings)"
               }
             ]
           },
           {
-            "title": {
-              "text": "Assistance and training at industrial sites"
-            },
+            "title": "Assistance and training at industrial sites",
             "icon": {
-              "mdi": "help-network"
+              "mdi": "help-network",
+              "unicode": "🤝"
             },
             "items": [
               {
-                "title": {
-                  "text": "Technical and economic assistance to the group's refineries (FR, DE, US)"
-                }
+                "title": "Technical and economic assistance to the group's refineries (FR, DE, US)"
               },
               {
-                "title": {
-                  "text": "Troubleshooting advanced control applications (last level)"
-                },
+                "title": "Troubleshooting advanced control applications (last level)",
                 "removeFromPrint": true
               },
               {
-                "title": {
-                  "text": "Organization of scientist seminars on blend optimization"
-                }
+                "title": "Organization of scientist seminars on blend optimization"
               }
             ]
           }

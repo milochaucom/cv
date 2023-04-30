@@ -9,7 +9,7 @@
       :key="i">
       <v-card-item>
         <template #title>
-          {{ experience.job }}
+          {{ experience.title }}
           <span class="font-weight-light">
             / {{ experience.company }}
           </span>
