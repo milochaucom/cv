@@ -27,7 +27,7 @@ import { useI18n } from 'vue-i18n';
 const { formatIcon } = useIcons()
 const { t, d, mergeDateTimeFormat } = useI18n()
 
-const props = defineProps<{
+defineProps<{
   call: IResumeCall,
   expanded: boolean,
 }>()

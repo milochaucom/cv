@@ -17,7 +17,8 @@
       <resume-section-topics
         v-if="currentResume.topics"
         :topics="currentResume.topics"
-        :selected-topic="selectedTopic" />
+        :selected-topic="selectedTopic"
+        @change-selected-topic="changeSelectedTopic" />
       <resume-section-trainings
         v-if="currentResume.trainings"
         :trainings="currentResume.trainings" />
@@ -73,6 +74,14 @@ const currentResume: ComputedRef<IResume> = computed(() => {
     return resume['en']
   }
 })
+
+const changeSelectedTopic = (topic: string) => {
+  if (topic && selectedTopic.value !== topic) {
+    selectedTopic.value = topic
+  } else {
+    selectedTopic.value = ''
+  }
+}
 
 const getStructuredData = () => {
     const structuredData: any = {
@@ -142,7 +151,7 @@ const getStructuredData = () => {
       currentResume.value.experiences.items.forEach(experience => {
         const occupation: any = {
           '@type': 'Role',
-          roleName: experience.job,
+          roleName: experience.title,
           startDate: experience.startDate,
         }
 

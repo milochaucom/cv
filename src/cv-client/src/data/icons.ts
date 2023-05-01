@@ -1,4 +1,4 @@
-import { mdiAccountVoice, mdiCardAccountDetailsOutline, mdiChartGantt, mdiCircle, mdiDotNet, mdiEmailOutline, mdiGithub, mdiHumanGreeting, mdiLifebuoy, mdiLinkedin, mdiMapMarkerDistance, mdiMapMarkerOutline, mdiMicrosoftAzure, mdiSitemapOutline, mdiTelevisionAmbientLight, mdiTownHall } from "@mdi/js"
+import { mdiAccountAlert, mdiAccountGroup, mdiAccountHardHat, mdiAccountVoice, mdiAccountWrench, mdiCalculatorVariant, mdiCardAccountDetailsOutline, mdiChartGantt, mdiChartLine, mdiCircle, mdiCompass, mdiDotNet, mdiEmailOutline, mdiFloorPlan, mdiGithub, mdiHandshake, mdiHelpNetwork, mdiHumanGreeting, mdiLifebuoy, mdiLinkedin, mdiMapMarkerDistance, mdiMapMarkerOutline, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiSitemapOutline, mdiTelevisionAmbientLight, mdiTownHall } from "@mdi/js"
 
 export function useIcons() {
   return {
@@ -38,8 +38,28 @@ export function useIcons() {
           return mdiChartGantt;
         case 'sitemap-outline':
           return mdiSitemapOutline;
-
-
+        case 'floor-plan':
+          return mdiFloorPlan;
+        case 'handshake':
+          return mdiHandshake;
+        case 'chart-line':
+          return mdiChartLine;
+        case 'account-alert':
+          return mdiAccountAlert;
+        case 'account-group':
+          return mdiAccountGroup;
+        case 'account-wrench':
+          return mdiAccountWrench;
+        case 'microsoft-azure-devops':
+          return mdiMicrosoftAzureDevops;
+        case 'account-hard-hat':
+          return mdiAccountHardHat;
+        case 'calculator-variant':
+          return mdiCalculatorVariant;
+        case 'compass':
+          return mdiCompass;
+        case 'help-network':
+          return mdiHelpNetwork;
         default:
           return mdiCircle;
       }

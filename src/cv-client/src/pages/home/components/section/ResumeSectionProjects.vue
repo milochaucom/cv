@@ -50,7 +50,7 @@ import type { IResumeProjects, IResumeTopicItem } from '@/types/resume';
 import { mdiProjector } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
 
-const props = defineProps<{
+defineProps<{
   projects: IResumeProjects,
   topicItems?: IResumeTopicItem[],
   expanded: boolean,

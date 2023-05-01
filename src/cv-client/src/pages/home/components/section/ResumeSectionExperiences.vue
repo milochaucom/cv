@@ -54,12 +54,28 @@
           {{ experience.place }}
         </v-chip>
       </v-card-text>
-
+      <v-list>
+        <v-list-group
+          v-for="(mission, j) in experience.missions"
+          :key="j">
+          <template #activator="group">
+            <v-list-item
+              v-bind="group.props"
+              :title="mission.title"
+              :prepend-icon="formatIcon(mission.icon.mdi)" />
+          </template>
+          <v-list-item
+            v-for="(item, k) in mission.items"
+            :key="k"
+            :title="item.title" />
+        </v-list-group>
+      </v-list>
     </v-card>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useIcons } from '@/data/icons';
 import type { IResumeChange, IResumeExperiences, IResumeTopicItem } from '@/types/resume';
 import { mdiBriefcase, mdiCalendarRangeOutline, mdiFire, mdiMapMarkerOutline } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
@@ -73,6 +89,7 @@ const props = defineProps<{
 }>()
 
 const { t, d, mergeDateTimeFormat } = useI18n()
+const { formatIcon } = useIcons()
 
 mergeDateTimeFormat('en', {
   month: {
