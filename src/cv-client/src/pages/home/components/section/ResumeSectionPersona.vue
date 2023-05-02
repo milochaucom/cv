@@ -1,6 +1,7 @@
 <template>
   <v-card
-    id="persona">
+    id="persona"
+    class="mb-2">
     <v-card-item
       :title="persona.name"
       :subtitle="persona.job">
@@ -13,12 +14,13 @@
     </v-card-item>
     <v-card-text
       v-if="persona.description"
-      class="text-center">
+      class="text-center pb-0">
       {{ persona.description }}
     </v-card-text>
     <v-list
       v-if="persona.actions"
-      :items="personaItems" />
+      :items="personaItems"
+      density="compact" />
   </v-card>
 </template>
 

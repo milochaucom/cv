@@ -1,10 +1,11 @@
 <template>
   <v-card
-    id="metrics">
+    id="metrics"
+    class="mb-2">
     <v-card-item
       :prepend-icon="mdiTicketConfirmation"
       :title="t('title')" />
-    <v-list>
+    <v-list density="compact">
       <v-list-item
         v-for="(metric, i) in metrics.items"
         :key="i"
@@ -38,10 +39,10 @@ const { t } = useI18n()
 <i18n lang="json">
   {
     "en": {
-      "title": "Top topics"
+      "title": "Metrics"
     },
     "fr": {
-      "title": "Mots-clés"
+      "title": "Métriques"
     }
   }
 </i18n>

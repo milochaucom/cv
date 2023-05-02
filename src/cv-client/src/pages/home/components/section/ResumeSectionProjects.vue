@@ -1,32 +1,38 @@
 <template>
   <v-card
-    id="projects">
+    id="projects"
+    class="mb-2">
     <v-card-item
       :prepend-icon="mdiProjector"
       :title="t('title')" />
-    <v-list
-      v-for="(category, i) in projects.items"
-      :key="i">
-      <v-list-subheader
-        :title="category.title" />
-      <v-list-item
-        v-for="(project, j) in category.items"
-        :key="j"
-        :title="project.title"
-        :prepend-icon="formatIcon(project.icon?.mdi)"
-        :href="project.href"
-        target="_blank"
-        rel="noopener">
-        <template #append>
-          <v-chip
-            v-if="project.badge"
-            variant="outlined"
-            size="small"
-            color="primary">
-            {{ project.badge }}
-          </v-chip>
-        </template>
-      </v-list-item>
+    <v-list density="compact">
+      <template
+        v-for="(category, i) in projects.items"
+        :key="i">
+        <v-divider
+          v-if="i !== 0"
+          class="my-1" />
+        <v-list-subheader
+          :title="category.title" />
+        <v-list-item
+          v-for="(project, j) in category.items"
+          :key="j"
+          :title="project.title"
+          :prepend-icon="formatIcon(project.icon?.mdi)"
+          :href="project.href"
+          target="_blank"
+          rel="noopener">
+          <template #append>
+            <v-chip
+              v-if="project.badge"
+              variant="outlined"
+              size="small"
+              color="primary">
+              {{ project.badge }}
+            </v-chip>
+          </template>
+        </v-list-item>
+      </template>
     </v-list>
     <v-card-text
       v-if="expanded && projects.tags">
@@ -36,7 +42,7 @@
         :color="topicItems?.find((x) => x.key === tag.key)?.color"
         :variant="tag.key === selectedTopic ? undefined : 'outlined'"
         label
-        class="mr-1 mb-1"
+        class="mr-1 mb-1 chip-tile"
         size="small">
         {{ tag.label }}
       </v-chip>

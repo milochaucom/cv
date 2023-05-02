@@ -15,7 +15,7 @@ export default {
         themes: {
           light: {
             colors: {
-              background: '#fcfcfc'
+              background: '#fafafa'
             }
           }
         }

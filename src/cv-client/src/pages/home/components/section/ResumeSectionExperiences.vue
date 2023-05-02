@@ -3,29 +3,35 @@
     id="experiences">
     <v-card-item
       :prepend-icon="mdiBriefcase"
-      :title="t('title')" />
+      :title="t('title')"
+      class="pt-0" />
     <v-card
       v-for="(experience, i) in experiences.items"
-      :key="i">
+      :key="i"
+      class="mb-2"
+      elevation="0">
       <v-card-item>
-        <template #title>
+        <v-card-title class="multi-line">
           {{ experience.title }}
-          <span class="font-weight-light">
-            / {{ experience.company }}
+          <span class="font-weight-light text-body-1 px-1">
+            /
+          </span>
+          <span class="font-weight-light text-body-1">
+            {{ experience.company }}
           </span>
           <span
             v-if="experience.client"
-            class="font-weight-light">
+            class="font-weight-light text-body-1">
             ({{ experience.client }})
           </span>
-        </template>
+        </v-card-title>
       </v-card-item>
       <v-card-text>
         <v-chip
           :prepend-icon="mdiCalendarRangeOutline"
           label
           variant="outlined"
-          class="text-capitalize mr-1 mb-1">
+          class="text-capitalize chip-border-grey mr-1 mb-1">
           <span v-if="experience.endDate">
             {{ d(experience.startDate, 'month') }} — {{ d(experience.endDate, 'month') }}
           </span>
@@ -50,26 +56,43 @@
           rel="noopener"
           label
           variant="outlined"
-          class="mr-1 mb-1">
+          class="chip-border-grey mr-1 mb-1">
           {{ experience.place }}
         </v-chip>
       </v-card-text>
-      <v-list>
+      <v-list
+        density="compact">
         <v-list-group
           v-for="(mission, j) in experience.missions"
           :key="j">
           <template #activator="group">
             <v-list-item
               v-bind="group.props"
-              :title="mission.title"
-              :prepend-icon="formatIcon(mission.icon.mdi)" />
+              :prepend-icon="formatIcon(mission.icon.mdi)"
+              class="font-weight-medium">
+              {{ mission.title }}
+            </v-list-item>
           </template>
           <v-list-item
             v-for="(item, k) in mission.items"
             :key="k"
-            :title="item.title" />
+            :title="item.title"
+            class="mission-item multi-line pl-4" />
         </v-list-group>
       </v-list>
+      <v-card-text
+        v-if="expanded && experience.tags">
+        <v-chip
+          v-for="(tag, j) in experience.tags"
+          :key="j"
+          :color="topicItems?.find((x) => x.key === tag.key)?.color"
+          :variant="tag.key === selectedTopic ? undefined : 'outlined'"
+          label
+          class="mr-1 mb-1 chip-tile"
+          size="small">
+          {{ tag.label }}
+        </v-chip>
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -80,7 +103,7 @@ import type { IResumeChange, IResumeExperiences, IResumeTopicItem } from '@/type
 import { mdiBriefcase, mdiCalendarRangeOutline, mdiFire, mdiMapMarkerOutline } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
 
-const props = defineProps<{
+defineProps<{
   experiences: IResumeExperiences,
   topicItems?: IResumeTopicItem[],
   change?: IResumeChange,
@@ -117,3 +140,8 @@ mergeDateTimeFormat('fr', {
     }
   }
 </i18n>
+
+<style lang="sass" scoped>
+.mission-item
+  padding-inline-start: 16px !important
+</style>

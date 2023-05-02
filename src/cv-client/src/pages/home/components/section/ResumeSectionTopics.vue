@@ -1,15 +1,13 @@
 <template>
   <v-card
-    id="topics">
+    id="topics"
+    class="mb-2">
     <v-card-item
       :prepend-icon="mdiFilter"
-      :title="t('title')">
-      <template #subtitle>
-        <span class="font-italic">
-          {{ t('subtitle') }}
-        </span>
-      </template>
-    </v-card-item>
+      :title="t('title')" />
+    <v-card-text class="text-center font-italic pb-0">
+      {{ t('subtitle') }}
+    </v-card-text>
     <v-card-text>
       <v-chip
         v-for="(topic, i) in topics.items"
@@ -18,7 +16,7 @@
         :value="topic.key"
         :variant="selectedTopic === topic.key ? undefined : 'outlined'"
         label
-        class="mr-1 mb-1 pa-1"
+        class="mr-1 mb-1 pa-1 chip-tile"
         size="small"
         @click="emits('changeSelectedTopic', topic.key)">
         {{ topic.title }}

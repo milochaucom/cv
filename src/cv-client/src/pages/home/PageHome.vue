@@ -1,49 +1,53 @@
 <template>
-  <v-row
-    v-if="currentResume.call">
-    <v-col>
-      <resume-section-call
-        :call="currentResume.call"
-        :expanded="expanded" />
-    </v-col>
-  </v-row>
-  <v-row>
-    <v-col
-      cols="12"
-      md="4"
-      class="pb-4">
-      <resume-section-persona
-        :persona="currentResume.persona" />
-      <resume-section-topics
-        v-if="currentResume.topics"
-        :topics="currentResume.topics"
-        :selected-topic="selectedTopic"
-        @change-selected-topic="changeSelectedTopic" />
-      <resume-section-trainings
-        v-if="currentResume.trainings"
-        :trainings="currentResume.trainings" />
-      <resume-section-metrics
-        v-if="currentResume.metrics"
-        :metrics="currentResume.metrics" />
-      <resume-section-projects
-        v-if="currentResume.projects"
-        :projects="currentResume.projects"
-        :topic-items="currentResume.topics?.items"
-        :expanded="expanded"
-        :selected-topic="selectedTopic" />
-    </v-col>
-    <v-col
-      cols="12"
-      md="8"
-      class="pb-8">
-      <resume-section-experiences
-        :experiences="currentResume.experiences"
-        :topic-items="currentResume.topics?.items"
-        :change="currentResume.change"
-        :expanded="expanded"
-        :selected-topic="selectedTopic" />
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row
+      v-if="currentResume.call">
+      <v-col>
+        <resume-section-call
+          :call="currentResume.call"
+          :expanded="expanded"
+          @expand="expanded = true"
+          @reduce="expanded = false" />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        cols="12"
+        md="4"
+        class="pb-4">
+        <resume-section-persona
+          :persona="currentResume.persona" />
+        <resume-section-topics
+          v-if="currentResume.topics"
+          :topics="currentResume.topics"
+          :selected-topic="selectedTopic"
+          @change-selected-topic="changeSelectedTopic" />
+        <resume-section-trainings
+          v-if="currentResume.trainings"
+          :trainings="currentResume.trainings" />
+        <resume-section-metrics
+          v-if="currentResume.metrics"
+          :metrics="currentResume.metrics" />
+        <resume-section-projects
+          v-if="currentResume.projects"
+          :projects="currentResume.projects"
+          :topic-items="currentResume.topics?.items"
+          :expanded="expanded"
+          :selected-topic="selectedTopic" />
+      </v-col>
+      <v-col
+        cols="12"
+        md="8"
+        class="pb-8">
+        <resume-section-experiences
+          :experiences="currentResume.experiences"
+          :topic-items="currentResume.topics?.items"
+          :change="currentResume.change"
+          :expanded="expanded"
+          :selected-topic="selectedTopic" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup lang="ts">

@@ -2,6 +2,7 @@
 
 .multi-line {
   white-space: pre-line !important;
+  -webkit-line-clamp: initial !important;
 
   .v-list-item-title {
     white-space: pre-line !important;
@@ -14,6 +15,15 @@
 
 .no-user-select {
   user-select: none !important;
+}
+
+.chip-tile {
+  border-width: thin !important;
+  border-style: solid !important;
+}
+
+.chip-border-grey {
+  border-color: rgba(0, 0, 0, 0.125) !important;
 }
 
 // Vuetify overrides
