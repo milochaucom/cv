@@ -17,14 +17,13 @@
       {{ t('lastUpdate', { lastUpdate: d(call.lastUpdate) }) }}
     </div>
     <template #append>
-      <v-menu
-        v-model="menu"
-        location="bottom">
+      <v-menu location="bottom end">
         <template #activator="{ props: propsMenu }">
           <v-btn
             v-bind="propsMenu"
-            class="multi-line"
-            :icon="menu ? mdiClose : mdiDotsVertical" />
+            :icon="mdiDotsVertical"
+            color="info"
+            class="multi-line" />
         </template>
         <v-list>
           <v-list-item
@@ -54,8 +53,7 @@
 <script setup lang="ts">
 import { useIcons } from '@/data/icons';
 import type { IResumeCall } from '@/types/resume';
-import { mdiClose, mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal } from '@mdi/js';
-import { ref } from 'vue';
+import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
 
 const { formatIcon } = useIcons()
@@ -82,7 +80,6 @@ mergeDateTimeFormat('fr', {
   },
 })
 
-const menu = ref(false)
 const print = () => {
   window.print()
 }

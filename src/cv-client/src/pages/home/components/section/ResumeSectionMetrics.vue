@@ -1,7 +1,5 @@
 <template>
-  <v-card
-    id="metrics"
-    class="mb-2">
+  <v-card class="mb-2">
     <v-card-item
       :prepend-icon="mdiTicketConfirmation"
       :title="t('title')" />

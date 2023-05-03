@@ -1,15 +1,35 @@
 <template>
-  <v-card
-    id="persona"
-    class="mb-2">
+  <v-card class="mb-2">
     <v-card-item
       :title="persona.name"
       :subtitle="persona.job">
       <template #prepend>
-        <VAvatar
-          :image="thumbnail"
-          class="cursor-pointer"
-          @click="pictureDialog = true" />
+        <v-dialog
+          v-model="dialog"
+          min-width="400px"
+          max-width="600px"
+          min-height="400px">
+          <template #activator="{ props: dialogProps }">
+            <VAvatar
+              v-bind="dialogProps"
+              :image="thumbnail"
+              class="cursor-pointer"
+              @click="pictureDialog = true" />
+          </template>
+          <v-card>
+            <v-card-item
+              :prepend-icon="mdiAccountBoxOutline"
+              :title="persona.name"
+              class="py-2">
+              <template #append>
+                <v-icon
+                  :icon="mdiClose"
+                  @click="dialog = false" />
+              </template>
+            </v-card-item>
+            <v-img :src="thumbnail" />
+          </v-card>
+        </v-dialog>
       </template>
     </v-card-item>
     <v-card-text
@@ -28,6 +48,7 @@
 import thumbnail from '@/assets/resume/thumbnail.webp'
 import { useIcons } from '@/data/icons';
 import type { IResumePersona } from '@/types/resume';
+import { mdiAccountBoxOutline, mdiClose } from '@mdi/js';
 import { computed, ref } from 'vue';
 
 const props = defineProps<{
@@ -44,4 +65,6 @@ const personaItems = computed(() => props.persona.actions?.map((x) => ({
     href: x.href,
   }
 })))
+
+const dialog = ref(false)
 </script>

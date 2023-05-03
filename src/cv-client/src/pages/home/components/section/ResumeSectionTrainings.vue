@@ -1,7 +1,5 @@
 <template>
-  <v-card
-    id="trainings"
-    class="mb-2">
+  <v-card class="mb-2">
     <v-card-item
       :prepend-icon="mdiSchool"
       :title="t('title')" />
@@ -53,6 +51,7 @@
 import { useIcons } from '@/data/icons';
 import type { IResumeTrainings } from '@/types/resume';
 import { mdiCalendarRangeOutline, mdiSchool } from '@mdi/js';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 defineProps<{

@@ -1,7 +1,5 @@
 <template>
-  <v-card
-    id="topics"
-    class="mb-2">
+  <v-card class="mb-2">
     <v-card-item
       :prepend-icon="mdiFilter"
       :title="t('title')" />

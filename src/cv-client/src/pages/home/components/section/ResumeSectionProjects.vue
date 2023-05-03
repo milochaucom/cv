@@ -1,7 +1,5 @@
 <template>
-  <v-card
-    id="projects"
-    class="mb-2">
+  <v-card class="mb-2">
     <v-card-item
       :prepend-icon="mdiProjector"
       :title="t('title')" />

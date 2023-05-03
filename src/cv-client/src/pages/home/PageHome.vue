@@ -17,11 +17,13 @@
         class="pb-4">
         <resume-section-persona
           :persona="currentResume.persona" />
-        <resume-section-topics
-          v-if="currentResume.topics"
-          :topics="currentResume.topics"
-          :selected-topic="selectedTopic"
-          @change-selected-topic="changeSelectedTopic" />
+        <v-expand-transition>
+          <resume-section-topics
+            v-if="expanded && currentResume.topics"
+            :topics="currentResume.topics"
+            :selected-topic="selectedTopic"
+            @change-selected-topic="changeSelectedTopic" />
+        </v-expand-transition>
         <resume-section-trainings
           v-if="currentResume.trainings"
           :trainings="currentResume.trainings" />

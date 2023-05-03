@@ -777,8 +777,8 @@
     "isDepartureNotice": false,
     "changeLikelihoodInPercent": 0.6,
     "ongoingProcess": false,
-    "noticePeriodInDays": 14,
+    "noticePeriodInDays": 90,
     "noticePeriodBufferInDays": 21,
-    "isDepartureEndOfMonth": false
+    "isDepartureEndOfMonth": true
   }
 }
