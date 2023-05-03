@@ -32,6 +32,26 @@ export default {
           en,
           fr
         }
+      },
+      defaults: {
+        VCardTitle: {
+          class: 'multi-line'
+        },
+        VCardSubtitle: {
+          class: 'multi-line'
+        },
+        VList: {
+          density: 'compact'
+        },
+        VListItemTitle: {
+          class: 'multi-line',
+        },
+        VListItemSubtitle: {
+          class: 'multi-line'
+        },
+        VListSubheader: {
+          class: 'multi-line'
+        }
       }
     }
 

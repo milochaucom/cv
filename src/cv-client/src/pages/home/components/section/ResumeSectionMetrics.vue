@@ -1,9 +1,9 @@
 <template>
-  <v-card class="mb-2">
+  <v-card class="mb-2 d-print-none">
     <v-card-item
       :prepend-icon="mdiTicketConfirmation"
       :title="t('title')" />
-    <v-list density="compact">
+    <v-list>
       <v-list-item
         v-for="(metric, i) in metrics.items"
         :key="i"

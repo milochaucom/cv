@@ -7,13 +7,15 @@
           <component :is="Component" />
         </v-fade-transition>
       </router-view>
+      <app-footer-bar />
+      <app-snackbar />
     </v-main>
-    <app-snackbar />
   </div>
 </template>
 
 <script setup lang="ts">
 import AppCookies from '@/components/app/layout/AppCookies.vue'
+import AppFooterBar from '@/components/app/layout/AppFooterBar.vue';
 import AppSnackbar from '@/components/app/layout/AppSnackbar.vue'
 import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';

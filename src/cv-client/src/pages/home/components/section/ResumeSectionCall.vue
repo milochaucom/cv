@@ -22,8 +22,7 @@
           <v-btn
             v-bind="propsMenu"
             :icon="mdiDotsVertical"
-            color="info"
-            class="multi-line" />
+            color="info" />
         </template>
         <v-list>
           <v-list-item

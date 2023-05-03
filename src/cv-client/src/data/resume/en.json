@@ -145,25 +145,11 @@
         "removeFromPrint": true,
         "items": [
           {
-            "title": "Vision",
-            "icon": {
-              "mdi": "television-ambient-light"
-            },
-            "badge": "WIP"
-          },
-          {
             "title": "Roadmap",
             "icon": {
               "mdi": "chart-gantt"
             },
             "href": "https://github.com/amilochau/.github/blob/main/docs/roadmap.md"
-          },
-          {
-            "title": "Architecture",
-            "icon": {
-              "mdi": "sitemap-outline"
-            },
-            "badge": "WIP"
           }
         ]
       }
@@ -766,8 +752,7 @@
       },
       {
         "number": 4,
-        "title": "Cups of coffee per day",
-        "removeFromPrint": true
+        "title": "Cups of coffee per day"
       }
     ]
   },

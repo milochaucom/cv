@@ -1,7 +1,8 @@
 <template>
-  <v-container>
+  <v-container class="py-0 p-pa-0">
     <v-row
-      v-if="currentResume.call">
+      v-if="currentResume.call"
+      class="d-print-none">
       <v-col>
         <resume-section-call
           :call="currentResume.call"
@@ -10,11 +11,11 @@
           @reduce="expanded = false" />
       </v-col>
     </v-row>
-    <v-row>
+    <v-row class="mt-0">
       <v-col
         cols="12"
         md="4"
-        class="pb-4">
+        class="p-col-4 p-py-0">
         <resume-section-persona
           :persona="currentResume.persona" />
         <v-expand-transition>
@@ -40,7 +41,7 @@
       <v-col
         cols="12"
         md="8"
-        class="pb-8">
+        class="p-col-8 p-py-0">
         <resume-section-experiences
           :experiences="currentResume.experiences"
           :topic-items="currentResume.topics?.items"

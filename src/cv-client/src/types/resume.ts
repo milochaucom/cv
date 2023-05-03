@@ -49,6 +49,7 @@ export interface IResumeProjects {
 export interface IResumeProjectCategory {
   title: string
   items: IResumeProjectItem[]
+  removeFromPrint?: boolean
 }
 
 export interface IResumeProjectItem {
@@ -76,11 +77,11 @@ export interface IResumeExperienceItem {
   placeUri?: string
   startDate: string
   endDate?: string
-  missions?: IResumeExprerienceMissionItem[];
+  missions?: IResumeExperienceMissionItem[];
   tags?: IResumeTag[]
 }
 
-export interface IResumeExprerienceMissionItem {
+export interface IResumeExperienceMissionItem {
   title: string
   icon: IIcon
   items: IResumeExprerienceMissionLineItem[]
@@ -113,7 +114,6 @@ export interface IResumeMetrics {
 export interface IResumeMetricItem {
   title: string
   number: number
-  removeFromPrint?: boolean
 }
 
 export interface IResumeChange {

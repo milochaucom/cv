@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-2">
+  <v-card class="mb-2 p-card-outlined">
     <v-card-item
       :title="persona.name"
       :subtitle="persona.job">
@@ -13,7 +13,7 @@
             <VAvatar
               v-bind="dialogProps"
               :image="thumbnail"
-              class="cursor-pointer"
+              class="cursor-pointer d-print-none"
               @click="pictureDialog = true" />
           </template>
           <v-card>
@@ -40,7 +40,20 @@
     <v-list
       v-if="persona.actions"
       :items="personaItems"
-      density="compact" />
+      density="compact"
+      class="d-print-none" />
+    <v-card-actions class="d-none d-print-block text-center pt-3">
+      <v-chip
+        v-for="(action, i) in persona.actions"
+        :key="i"
+        :prepend-icon="formatIcon(action.icon.mdi)"
+        label
+        density="comfortable"
+        variant="outlined"
+        class="chip-border-grey mb-1 mr-1">
+        {{ action.title.replacement ?? action.title.text }}
+      </v-chip>
+    </v-card-actions>
   </v-card>
 </template>
 

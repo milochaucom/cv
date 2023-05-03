@@ -2,14 +2,14 @@
   <v-card-item
     :prepend-icon="mdiBriefcase"
     :title="t('title')"
-    class="pt-0" />
+    class="pt-0 p-pb-0" />
   <v-card
     v-for="(experience, i) in experiences.items"
     :key="i"
-    class="mb-4"
+    class="mb-4 p-mb-2"
     elevation="0">
     <v-card-item>
-      <v-card-title class="multi-line">
+      <v-card-title>
         {{ experience.title }}
         <span class="font-weight-light text-body-1 px-1">
           /
@@ -24,12 +24,12 @@
         </span>
       </v-card-title>
     </v-card-item>
-    <v-card-text>
+    <v-card-text class="p-pb-0">
       <v-chip
         :prepend-icon="mdiCalendarRangeOutline"
         label
         variant="outlined"
-        class="text-capitalize chip-border-grey mr-1 mb-1">
+        class="text-capitalize chip-border-grey mr-1 mb-1 p-chip-text">
         <span v-if="experience.endDate">
           {{ d(experience.startDate, 'month') }} — {{ d(experience.endDate, 'month') }}
         </span>
@@ -42,7 +42,7 @@
         :prepend-icon="mdiFire"
         label
         variant="outlined"
-        class="mr-1 mb-1"
+        class="mr-1 mb-1 d-print-none"
         color="error"
         @click="changeDialog = true">
         {{ t('current') }}
@@ -55,22 +55,22 @@
         rel="noopener"
         label
         variant="outlined"
-        class="chip-border-grey mr-1 mb-1">
+        class="chip-border-grey mr-1 mb-1 p-chip-text">
         {{ experience.place }}
       </v-chip>
     </v-card-text>
     <v-card-text
       v-if="experience.description"
-      class="font-italic font-weight-light py-0">
+      class="font-italic font-weight-light py-0 d-print-none">
       {{ experience.description }}
     </v-card-text>
     <v-list
-      :opened="expanded ? [...Array(experience.missions?.length).keys()] : []"
-      density="compact">
+      :opened="expanded ? [...Array(experience.missions?.length).keys()] : []">
       <v-list-group
         v-for="(mission, j) in experience.missions"
         :key="j"
-        :value="j">
+        :value="j"
+        class="p-avoid-break-inside">
         <template #activator="group">
           <v-list-item
             v-bind="group.props"
@@ -83,11 +83,12 @@
           v-for="(item, k) in mission.items"
           :key="k"
           :title="item.title"
-          class="mission-item multi-line pl-4" />
+          class="mission-item pl-4 p-font-weight-light" />
       </v-list-group>
     </v-list>
     <v-card-text
-      v-if="expanded && experience.tags">
+      v-if="expanded && experience.tags"
+      class="p-py-1">
       <v-chip
         v-for="(tag, j) in experience.tags"
         :key="j"

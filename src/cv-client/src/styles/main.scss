@@ -1,3 +1,5 @@
+@use 'vuetify';
+
 // Custom styles
 
 .multi-line {
@@ -40,4 +42,105 @@
 
 .p-avoid-break-inside {
   break-inside: avoid;
+}
+
+$grid-columns: 12;
+
+@mixin make-col($size) {
+  flex: 0 0 percentage(calc($size / $grid-columns));
+  max-width: percentage(calc($size / $grid-columns));
+}
+
+@media print {
+
+  // Define page size
+  @page {
+    size: A4;
+    margin: 5mm;
+  }
+
+  html {
+    font-size: 0.8rem;
+  }
+  
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  // Force columns
+  @for $i from 1 through $grid-columns {
+    .p-col-#{$i} {
+      @include make-col($i);
+    }
+  }
+
+  // Disable elevation
+  .v-theme--dark {
+    .p-card-outlined {
+      box-shadow: 0 0 0 0 !important;
+      border: thin solid #222 !important;
+    }
+  }
+  .v-theme--light {
+    .p-card-outlined {
+      box-shadow: 0 0 0 0 !important;
+      border: thin solid #ddd !important;
+    }
+  }
+  
+  // Reduce padding
+  .p-pa-0 {
+    padding: 0 !important;
+  }
+  .p-pt-0 {
+    padding-top: 0 !important;
+  }
+  .p-pb-0 {
+    padding-bottom: 0 !important;
+  }
+  .p-py-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .p-py-1 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .p-mb-2 {
+    margin-bottom: 4px !important;
+  }
+
+  // Remove chip border
+  .p-chip-text {
+    border: none !important;
+  }
+
+  // Use confortable chips density
+  .v-chip {
+    height: 18px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  // Reduce height for lists
+  .v-list-item {
+    min-height: 12px !important;
+  }
+
+  .v-list-item-title {
+    line-height: 1.4rem !important;
+  }
+
+  .v-list-subheader {
+    min-height: 24px !important;
+  }
+  
+  // Font
+  .p-font-weight-light {
+    .v-list-item-title {
+      font-weight: 300 !important;
+    }
+  }
 }

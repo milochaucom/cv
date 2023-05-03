@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import 'vuetify/styles'
 import { coreOptions } from './data/config';
 import i18n from './plugins/i18n';
 import head from './plugins/head';
