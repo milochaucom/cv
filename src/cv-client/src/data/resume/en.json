@@ -1,0 +1,769 @@
+{
+  "call": {
+    "icon": {
+      "mdi": "human-greeting"
+    },
+    "color": "success",
+    "message": "Welcome on my resume!",
+    "description": "",
+    "lastUpdate": "2022-10-24"
+  },
+  "persona": {
+    "name": "Antoine MILOCHAU",
+    "firstName": "Antoine",
+    "lastName": "Milochau",
+    "nationality": "France",
+    "job": "Software & Cloud Architect",
+    "description": "I'm exploring and implementation many of Microsoft technologies.",
+    "contact": {
+      "text": "LinkedIn",
+      "url": "https://linkedin.com/in/amilochau"
+    },
+    "location": "Paris, FR",
+    "actions": [
+      {
+        "title": {
+          "text": "LinkedIn",
+          "replacement": "amilochau"
+        },
+        "icon": {
+          "mdi": "linkedin"
+        },
+        "href": "https://www.linkedin.com/in/amilochau"
+      },
+      {
+        "title": {
+          "text": "GitHub",
+          "replacement": "amilochau"
+        },
+        "icon": {
+          "mdi": "github"
+        },
+        "href": "https://github.com/amilochau"
+      },
+      {
+        "title": {
+          "text": "Paris, FR"
+        },
+        "icon": {
+          "mdi": "map-marker-distance"
+        },
+        "href": "https://www.google.com/maps/dir/Rue+de+l'Alma,+92600+Asni%C3%A8res-sur-Seine//@48.9140613,2.2888171,15z/data=!4m9!4m8!1m5!1m1!1s0x47e66f60e621aff3:0xdf738d390509c25a!2m2!1d2.2854697!2d48.9157538!1m0!3e3"
+      }
+    ]
+  },
+  "topics": {
+    "items": [
+      {
+        "key": "management",
+        "title": "Management",
+        "color": "purple darken-3 white--text"
+      },
+      {
+        "key": "architecture",
+        "title": "Architecture",
+        "color": "deep-purple darken-3 white--text"
+      },
+      {
+        "key": "infrastructure",
+        "title": "Infrastructure",
+        "color": "brown darken-3 white--text"
+      },
+      {
+        "key": "devops",
+        "title": "DevOps",
+        "color": "indigo darken-3 white--text"
+      },
+      {
+        "key": "development",
+        "title": "Development",
+        "color": "teal darken-3 white--text"
+      },
+      {
+        "key": "quality",
+        "title": "Quality",
+        "color": "green darken-3 white--text"
+      }
+    ]
+  },
+  "projects": {
+    "items": [
+      {
+        "title": "Applications",
+        "items": [
+          {
+            "title": "Maps creation",
+            "icon": {
+              "mdi": "map-marker-outline"
+            },
+            "href": "https://maps.milochau.com/en"
+          },
+          {
+            "title": "Emails service",
+            "icon": {
+              "mdi": "email-outline"
+            },
+            "href": "https://github.com/amilochau/emails"
+          },
+          {
+            "title": "CV",
+            "icon": {
+              "mdi": "card-account-details-outline"
+            },
+            "href": "https://cv.milochau.com/en"
+          }
+        ]
+      },
+      {
+        "title": "Libraries & Templates",
+        "items": [
+          {
+            "title": "NuGet - Milochau.Core",
+            "icon": {
+              "mdi": "dot-net"
+            },
+            "href": "https://www.nuget.org/packages?q=Milochau.Core.*"
+          },
+          {
+            "title": "Bicep - azure-templates",
+            "icon": {
+              "mdi": "microsoft-azure"
+            },
+            "href": "https://github.com/amilochau/azure-templates"
+          },
+          {
+            "title": "GitHub - github-actions",
+            "icon": {
+              "mdi": "github"
+            },
+            "href": "https://github.com/amilochau/github-actions"
+          }
+        ]
+      },
+      {
+        "title": "Documentation",
+        "removeFromPrint": true,
+        "items": [
+          {
+            "title": "Roadmap",
+            "icon": {
+              "mdi": "chart-gantt"
+            },
+            "href": "https://github.com/amilochau/.github/blob/main/docs/roadmap.md"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      {
+        "label": "Azure PaaS",
+        "key": "infrastructure"
+      },
+      {
+        "label": "API Management",
+        "key": "infrastructure"
+      },
+      {
+        "label": "Functions Apps",
+        "key": "infrastructure"
+      },
+      {
+        "label": "Service Bus",
+        "key": "infrastructure"
+      },
+      {
+        "label": "CosmosDB",
+        "key": "infrastructure"
+      },
+      {
+        "label": "SQL",
+        "key": "infrastructure"
+      },
+      {
+        "label": "GitHub",
+        "key": "devops"
+      },
+      {
+        "label": "ARM Templates",
+        "key": "devops"
+      },
+      {
+        "label": ".NET",
+        "key": "development"
+      },
+      {
+        "label": "vue.js",
+        "key": "development"
+      }
+    ]
+  },
+  "experiences": {
+    "items": [
+      {
+        "title": "Software & Cloud Architect",
+        "description": "SPVIE Technology develops and deploys the business applications for the SPVIE group.",
+        "company": "SPVIE Technology",
+        "place": "Suresnes, FR",
+        "placeUri": "https://www.google.com/maps/place/AssurWare/@48.8713031,2.2275824,17z/data=!3m1!4b1!4m5!3m4!1s0x47e6652271fa816d:0x1dcd7d131570fb85!8m2!3d48.8713119!4d2.2297834",
+        "startDate": "2020-05-04",
+        "missions": [
+          {
+            "title": "Cloud Architecture & Automation",
+            "icon": {
+              "mdi": "microsoft-azure",
+              "unicode": "⚙️"
+            },
+            "items": [
+              {
+                "title": "Definition of Cloud architectures, implementation of an Azure PaaS stack, supporting rapidly changing applications"
+              },
+              {
+                "title": "Implementation of CI/CD on all applications (YAML templates)"
+              },
+              {
+                "title": "Implementation of IaC for the redesign of the infrastructure (ARM templates in Bicep)"
+              }
+            ]
+          },
+          {
+            "title": "Software architecture",
+            "icon": {
+              "mdi": "floor-plan",
+              "unicode": "📐"
+            },
+            "items": [
+              {
+                "title": "Architecture review: implementation of N-Tiers on legacy applications, microservices on new projects"
+              },
+              {
+                "title": "Definition of architecture diagrams and migration plans towards a scalable, resilient architecture"
+              },
+              {
+                "title": "Creation of enterprise frameworks & templates: applications in ASP.NET Core or Functions Apps, YAML deployment templates"
+              },
+              {
+                "title": "Supervision and monitoring of business and technical projects (estimations, impact studies, team support, audit)"
+              }
+            ]
+          },
+          {
+            "title": "Support for teams",
+            "icon": {
+              "mdi": "handshake",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": "Team Leader of a 6-developers team (FR, CI, BL) during one year"
+              },
+              {
+                "title": "Recruitment of technical profiles (developers, QAs, DevOps, architects)"
+              },
+              {
+                "title": "Training of the teams on technologies (code, quality, architecture)"
+              },
+              {
+                "title": "Support for the implementation of the Scrum & Kanban frameworks"
+              }
+            ]
+          },
+          {
+            "title": "Continuous quality & security improvement",
+            "icon": {
+              "mdi": "chart-line",
+              "unicode": "📈"
+            },
+            "items": [
+              {
+                "title": "Implementation of quality and performance monitoring tools (SonarCloud, Health checks, Application Insights, Azure Monitor...)"
+              },
+              {
+                "title": "Introduction of unit and E2E tests on business applications"
+              },
+              {
+                "title": "Security audit on applications and infrastructure, monitoring of remediations by technical teams"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "label": "Scrum + Kanban",
+            "key": "management"
+          },
+          {
+            "label": "Team lead",
+            "key": "management"
+          },
+          {
+            "label": "Microservices",
+            "key": "architecture"
+          },
+          {
+            "label": "Azure PaaS",
+            "key": "infrastructure"
+          },
+          {
+            "label": "API Management",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Functions Apps",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Service Bus",
+            "key": "infrastructure"
+          },
+          {
+            "label": "App Insights",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Key Vault",
+            "key": "infrastructure"
+          },
+          {
+            "label": "CosmosDB",
+            "key": "infrastructure"
+          },
+          {
+            "label": "SQL",
+            "key": "infrastructure"
+          },
+          {
+            "label": "MongoDB",
+            "key": "infrastructure"
+          },
+          {
+            "label": "ARM Templates",
+            "key": "devops"
+          },
+          {
+            "label": "Azure DevOps",
+            "key": "devops"
+          },
+          {
+            "label": ".NET",
+            "key": "development"
+          },
+          {
+            "label": "Angular",
+            "key": "development"
+          },
+          {
+            "label": "SonarCloud",
+            "key": "quality"
+          },
+          {
+            "label": "cypress",
+            "key": "quality"
+          }
+        ]
+      },
+      {
+        "title": "Lead Developer",
+        "description": "The sarenza.com site is constantly evolving to meet the customer needs.",
+        "company": "MONOPRIX ONLINE",
+        "place": "Clichy, FR",
+        "placeUri": "https://www.google.com/maps/place/Monoprix+Online/@48.9114806,2.3075256,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fa859a7648f:0x9f092451007f953!8m2!3d48.9114745!4d2.3097094",
+        "startDate": "2019-07-01",
+        "endDate": "2020-04-30",
+        "missions": [
+          {
+            "title":  "Technical referent of sarenza.com",
+            "icon": {
+              "mdi": "account-alert",
+              "unicode": "👨‍💻"
+            },
+            "items": [
+              {
+                "title": "Functional and technical developments of the sarenza.com site (.NET, T-SQL)"
+              },
+              {
+                "title": "Definition of the technical roadmap for Sarenza Front-Office"
+              },
+              {
+                "title": "Implementation of unit tests and quality measures (SonarCloud) on applications"
+              }
+            ]
+          },
+          {
+            "title": "Creation and animation of developer communities",
+            "icon": {
+              "mdi": "account-group",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": "Creation of guilds (Spotify method)"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "label": "Scrum",
+            "key": "management"
+          },
+          {
+            "label": "Guild",
+            "key": "management"
+          },
+          {
+            "label": "SQL Server",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Azure DevOps",
+            "key": "devops"
+          },
+          {
+            "label": ".NET",
+            "key": "development"
+          },
+          {
+            "label": "T-SQL",
+            "key": "development"
+          },
+          {
+            "label": "SonarCloud",
+            "key": "quality"
+          },
+          {
+            "label": "MS Tests",
+            "key": "quality"
+          }
+        ]
+      },
+      {
+        "title": "Advanced Process Control Engineer",
+        "description": "Tools (applications) and methods (algorithms and machine tuning) allow refineries to optimize their production.",
+        "company": "TOTAL Refining & Chemicals",
+        "place": "Courbevoie, FR",
+        "placeUri": "https://www.google.com/maps/place/Total+Tour+Coupole/@48.8927778,2.2411446,17z/data=!3m1!4b1!4m5!3m4!1s0x47fa657a1827f5af:0x968cbd4e5b7000ea!8m2!3d48.8930013!4d2.2434948",
+        "startDate": "2018-04-01",
+        "endDate": "2019-06-20",
+        "missions": [
+          {
+            "title": "Project management",
+            "icon": {
+              "mdi": "chart-gantt",
+              "unicode": "📊"
+            },
+            "items": [
+              {
+                "title": "Project management of applications for fuel blend optimization"
+              },
+              {
+                "title": "Functional an technical coordination, piloting, reporting to management"
+              },
+              {
+                "title": "Link with service providers and subcontractors (~ 10 developers)"
+              }
+            ]
+          },
+          {
+            "title": "Technical lead",
+            "icon": {
+              "mdi": "account-wrench",
+              "unicode": "👨‍💻"
+            },
+            "items": [
+              {
+                "title": "Definition of target architectures and technologies, division of applications into functional domains, clarification of data flows"
+              },
+              {
+                "title": "Definition of migration plans to web applications, on Azure"
+              },
+              {
+                "title": "Participation in the development of Web and Desktop applications (.NET / vue.js)"
+              }
+            ]
+          },
+          {
+            "title": "Process automation (DevOps)",
+            "icon": {
+              "mdi": "microsoft-azure-devops",
+              "unicode": "⚙️"
+            },
+            "items": [
+              {
+                "title": "Implementation of Azure DevOps (boards, repositories, pipelines) for Refining"
+              },
+              {
+                "title": "Configuration of application deployments (On Premise and Azure)"
+              }
+            ]
+          },
+          {
+            "title": "Support for teams",
+            "icon": {
+              "mdi": "handshake",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": "Implementation of the Scrum framework, change management"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "label": "Scrum",
+            "key": "management"
+          },
+          {
+            "label": "Microservices",
+            "key": "architecture"
+          },
+          {
+            "label": "Azure PaaS",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Azure DevOps",
+            "key": "devops"
+          },
+          {
+            "label": ".NET",
+            "key": "development"
+          },
+          {
+            "label": "vue.js",
+            "key": "development"
+          },
+          {
+            "label": "SonarCloud",
+            "key": "quality"
+          }
+        ]
+      },
+      {
+        "title": ".NET Engineer",
+        "description": "The SeLoger group develops high traffic websites for individual and real estate agencies.",
+        "company": "Infeeny",
+        "client": "SeLoger",
+        "place": "Paris, FR",
+        "placeUri": "https://www.google.com/maps/place/SeLoger/@48.8912719,2.3484074,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66e66d3362e2b:0xbec65ee69f11fe85!8m2!3d48.8912719!4d2.3505961",
+        "startDate": "2017-11-06",
+        "endDate": "2018-03-23",
+        "missions": [
+          {
+            "title": "Web applications development",
+            "icon": {
+              "mdi": "account-hard-hat",
+              "unicode": "👨‍💻"
+            },
+            "items": [
+              {
+                "title": "Front-End and Back-End developments for the SeLoger group applications (.NET)",
+                "removeFromPrint": true
+              },
+              {
+                "title":  "SEO optimizations for SeLoger and ImmoStreet websites"
+              },
+              {
+                "title": "Front-End performance optimizations (dividing loading time by 10)"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "label": "Scrum",
+            "key": "management"
+          },
+          {
+            "label": "IIS",
+            "key": "infrastructure"
+          },
+          {
+            "label": "NHibernate",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Jira",
+            "key": "devops"
+          },
+          {
+            "label": "TeamCity + Octopus",
+            "key": "devops"
+          },
+          {
+            "label": ".NET",
+            "key": "development"
+          },
+          {
+            "label": "SEO",
+            "key": "quality"
+          }
+        ]
+      },
+      {
+        "title": "Advanced Process Control Engineer",
+        "description": "The fuel blend optimization requires algorithms and models to be studied then implemented in real-time optimization tools",
+        "company": "TOTAL Refining & Chemicals",
+        "place": "Feyzin, FR / Leuna, DE",
+        "placeUri": "https://www.google.fr/maps/@48.3488588,2.6277793,6z/data=!3m1!4b1!4m3!11m2!2sR_OlZS53IfP_ZVzHz3WmXP5ApZKn9w!3e3",
+        "startDate": "2011-12-05",
+        "endDate": "2017-11-03",
+        "missions": [
+          {
+            "title": "Creation of mathematical optimization algorithms",
+            "icon": {
+              "mdi": "calculator-variant",
+              "unicode": "👨‍🔬"
+            },
+            "items": [
+              {
+                "title": "Meta-modeling of pollutant emission models (SVM, neural networks)"
+              },
+              {
+                "title": "Implementation of non-lineal optimization algorithms (Matlab, C++)"
+              },
+              {
+                "title": "Real-time estimation of fuel properties dealing with uncertainties, with methods as Kalman filters"
+              }
+            ]
+          },
+          {
+            "title": "Architecture of APC solutions for offsites",
+            "icon": {
+              "mdi": "compass",
+              "unicode": "📐"
+            },
+            "items": [
+              {
+                "title": "Design of real-time production monitoring applications (.NET)"
+              },
+              {
+                "title": "Referent for a real-time monitoring application for APC solutions",
+                "removeFromPrint": true
+              },
+              {
+                "title": "Complete rewrite of a real-time optimization application (C to C++, 30 M€/y in earnings)"
+              }
+            ]
+          },
+          {
+            "title": "Assistance and training at industrial sites",
+            "icon": {
+              "mdi": "help-network",
+              "unicode": "🤝"
+            },
+            "items": [
+              {
+                "title": "Technical and economic assistance to the group's refineries (FR, DE, US)"
+              },
+              {
+                "title": "Troubleshooting advanced control applications (last level)",
+                "removeFromPrint": true
+              },
+              {
+                "title": "Organization of scientist seminars on blend optimization"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "label": "Projects management",
+            "key": "management"
+          },
+          {
+            "label": "IIS",
+            "key": "infrastructure"
+          },
+          {
+            "label": "MySQL",
+            "key": "infrastructure"
+          },
+          {
+            "label": ".NET",
+            "key": "development"
+          },
+          {
+            "label": "WinForms",
+            "key": "development"
+          },
+          {
+            "label": "C / C++",
+            "key": "development"
+          },
+          {
+            "label": "ISO 9001",
+            "key": "quality"
+          }
+        ]
+      }
+    ]
+  },
+  "trainings": {
+    "alumni": "Ecole Centrale de Nantes",
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "initialTraining": [
+      {
+        "title": "Ecole Centrale de Nantes",
+        "subtitle": "Master of Engineering",
+        "date": "2014",
+        "icon": {
+          "mdi": "town-hall"
+        }
+      },
+      {
+        "title": "TOEIC - English",
+        "subtitle": "915 / 990",
+        "date": "2014",
+        "icon": {
+          "mdi": "account-voice"
+        }
+      }
+    ],
+    "continuousTraining": [
+      {
+        "title": "Microsoft Learn",
+        "icon": {
+          "mdi": "microsoft-azure"
+        },
+        "href": "https://docs.microsoft.com/en-us/users/amilochau"
+      },
+      {
+        "title": "Lifeguard at work",
+        "icon": {
+          "mdi": "lifebuoy"
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "items": [
+      {
+        "number": 12,
+        "title": "Years of experience"
+      },
+      {
+        "number": 331,
+        "title": "Personal AWS resources"
+      },
+      {
+        "number": 4,
+        "title": "Cups of coffee per day"
+      }
+    ]
+  },
+  "change": {
+    "busy": true,
+    "isTrialPeriod": false,
+    "isDepartureNotice": false,
+    "changeLikelihoodInPercent": 0.6,
+    "ongoingProcess": false,
+    "noticePeriodInDays": 90,
+    "noticePeriodBufferInDays": 21,
+    "isDepartureEndOfMonth": true
+  }
+}
