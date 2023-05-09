@@ -20,8 +20,8 @@ variable "client_settings" {
     package_source_file   = string
     s3_bucket_name_suffix = string
     domains = optional(object({
-      zone_name = string
-      domain_name = string
+      zone_name                 = string
+      domain_name               = string
       subject_alternative_names = optional(list(string), [])
     }), null)
   })

@@ -1,5 +1,4 @@
 import type { MilochauCoreOptions } from "../types"
-import { getConfig } from "../utils/config"
 import routes from "./routes"
 import navigation from "./navigation"
 
@@ -30,7 +29,7 @@ export const envConfig: EnvConfigValues = {
 export const getCurrentEnv = (host: string, subdomain: string): Environment => {
   if (host.includes('localhost')) {
     return Environment.Local
-  } else if (subdomain.includes('dev') || subdomain.includes('d2flwgbbe44t9c')) { // @todo to remove when domain is supported
+  } else if (subdomain.includes('dev')) {
     return Environment.Development
   } else {
     return Environment.Production

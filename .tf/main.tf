@@ -52,7 +52,7 @@ module "client_app" {
   client_settings = {
     package_source_file   = var.client_settings.package_source_file
     s3_bucket_name_suffix = var.client_settings.s3_bucket_name_suffix
-    domains = var.client_settings.domains
+    domains               = var.client_settings.domains
   }
 
   providers = {
