@@ -1,4 +1,4 @@
-import { mdiAccountAlert, mdiAccountGroup, mdiAccountHardHat, mdiAccountVoice, mdiAccountWrench, mdiCalculatorVariant, mdiCardAccountDetailsOutline, mdiChartGantt, mdiChartLine, mdiCircle, mdiCompass, mdiDotNet, mdiEmailOutline, mdiFloorPlan, mdiGithub, mdiHandshake, mdiHelpNetwork, mdiHumanGreeting, mdiLifebuoy, mdiLinkedin, mdiMapMarkerDistance, mdiMapMarkerOutline, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiSitemapOutline, mdiTelevisionAmbientLight, mdiTownHall } from "@mdi/js"
+import { mdiAccountAlert, mdiAccountGroup, mdiAccountHardHat, mdiAccountVoice, mdiAccountWrench, mdiBookMultipleOutline, mdiCalculatorVariant, mdiCardAccountDetailsOutline, mdiChartGantt, mdiChartLine, mdiCircle, mdiCompass, mdiDotNet, mdiFloorPlan, mdiGithub, mdiHandshake, mdiHelpNetwork, mdiHumanGreeting, mdiLifebuoy, mdiLinkedin, mdiMapMarkerDistance, mdiMapMarkerOutline, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiSitemapOutline, mdiTelevisionAmbientLight, mdiTerraform, mdiTownHall } from "@mdi/js"
 
 export function useIcons() {
   return {
@@ -26,8 +26,8 @@ export function useIcons() {
           return mdiLifebuoy;
         case 'map-marker-outline':
           return mdiMapMarkerOutline;
-        case 'email-outline':
-          return mdiEmailOutline;
+        case 'book-multiple-outline':
+          return mdiBookMultipleOutline;
         case 'card-account-details-outline':
           return mdiCardAccountDetailsOutline;
         case 'dot-net':
@@ -60,6 +60,8 @@ export function useIcons() {
           return mdiCompass;
         case 'help-network':
           return mdiHelpNetwork;
+        case 'terraform':
+          return mdiTerraform;
         default:
           return mdiCircle;
       }

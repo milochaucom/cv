@@ -6,15 +6,15 @@
     "color": "success",
     "message": "Bienvenue sur mon CV !",
     "description": "",
-    "lastUpdate": "2022-10-24"
+    "lastUpdate": "2023-05-15"
   },
   "persona": {
     "name": "Antoine MILOCHAU",
     "firstName": "Antoine",
     "lastName": "Milochau",
     "nationality": "France",
-    "job": "Software & Cloud Architect",
-    "description": "J'explore et j'implémente de nombreuses technologies Microsoft.",
+    "job": "Platform Architect",
+    "description": "J'explore et j'implémente des architectures Cloud-native, avec Azure et AWS.",
     "contact": {
       "text": "LinkedIn",
       "url": "https://linkedin.com/in/amilochau"
@@ -99,11 +99,11 @@
             "href": "https://maps.milochau.com/fr"
           },
           {
-            "title": "Envoi d'emails",
+            "title": "Gestion d'opérations",
             "icon": {
-              "mdi": "email-outline"
+              "mdi": "book-multiple-outline"
             },
-            "href": "https://github.com/amilochau/emails"
+            "href": "https://operations.milochau.com/fr"
           },
           {
             "title": "CV",
@@ -118,18 +118,11 @@
         "title": "Librairies & Templates",
         "items": [
           {
-            "title": "NuGet - Milochau.Core",
+            "title": "Terraform - tf-modules",
             "icon": {
-              "mdi": "dot-net"
+              "mdi": "terraform"
             },
-            "href": "https://www.nuget.org/packages?q=Milochau.Core.*"
-          },
-          {
-            "title": "Bicep - azure-templates",
-            "icon": {
-              "mdi": "microsoft-azure"
-            },
-            "href": "https://github.com/amilochau/azure-templates"
+            "href": "https://github.com/amilochau/tf-modules"
           },
           {
             "title": "GitHub - github-actions",
@@ -137,6 +130,13 @@
               "mdi": "github"
             },
             "href": "https://github.com/amilochau/github-actions"
+          },
+          {
+            "title": "Bicep - azure-templates",
+            "icon": {
+              "mdi": "microsoft-azure"
+            },
+            "href": "https://github.com/amilochau/azure-templates"
           }
         ]
       },
@@ -156,27 +156,15 @@
     ],
     "tags": [
       {
-        "label": "Azure PaaS",
+        "label": "AWS Lambda",
         "key": "infrastructure"
       },
       {
-        "label": "API Management",
+        "label": "AWS DynamoDB",
         "key": "infrastructure"
       },
       {
-        "label": "Functions Apps",
-        "key": "infrastructure"
-      },
-      {
-        "label": "Service Bus",
-        "key": "infrastructure"
-      },
-      {
-        "label": "CosmosDB",
-        "key": "infrastructure"
-      },
-      {
-        "label": "SQL",
+        "label": "AWS CloudFront",
         "key": "infrastructure"
       },
       {
@@ -185,6 +173,10 @@
       },
       {
         "label": "ARM Templates",
+        "key": "devops"
+      },
+      {
+        "label": "Terraform",
         "key": "devops"
       },
       {
@@ -200,12 +192,23 @@
   "experiences": {
     "items": [
       {
+        "title": "Platform Architect",
+        "description": "Shift Technology fournit des solutions SaaS de détection de fraud et gestion de sinistres au secteur de l'assurance.",
+        "company": "Shift Technology",
+        "place": "Paris, FR",
+        "placeUrl": "https://www.google.com/maps/place/14+Rue+Gerty+Archim%C3%A8de,+75012+Paris/@48.8359403,2.3859098,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6726ab0131eaf:0xf4379e8e2dd5042f!8m2!3d48.8359403!4d2.3884847!16s%2Fg%2F11g6nh9xcc",
+        "startDate": "2022-08-29",
+        "missions": [],
+        "tags": []
+      },
+      {
         "title": "Software & Cloud Architect",
         "description": "SPVIE Technology développe les applications business du groupe SPVIE. L'environnement est 100% Web, 100% Azure, 100% Microsoft.",
         "company": "SPVIE Technology",
         "place": "Suresnes, FR",
-        "placeUri": "https://www.google.com/maps/place/AssurWare/@48.8713031,2.2275824,17z/data=!3m1!4b1!4m5!3m4!1s0x47e6652271fa816d:0x1dcd7d131570fb85!8m2!3d48.8713119!4d2.2297834",
+        "placeUri": "https://www.google.com/maps/place/4+Rue+Gustave+Flourens,+92150+Suresnes/@48.8713282,2.2251646,17z/data=!3m1!4b1!4m6!3m5!1s0x47e664d9099f5fc5:0x778d80ab9f1e3f89!8m2!3d48.8713283!4d2.229778!16s%2Fg%2F11h6yr6c47",
         "startDate": "2020-05-04",
+        "endDate": "2022-08-26",
         "missions": [
           {
             "title": "Architecture Cloud & Automatisation",
@@ -747,12 +750,8 @@
         "title": "Années d'expérience"
       },
       {
-        "number": 331,
+        "number": 559,
         "title": "Resources AWS personnnelles"
-      },
-      {
-        "number": 4,
-        "title": "Tasses de café par jour"
       }
     ]
   },
