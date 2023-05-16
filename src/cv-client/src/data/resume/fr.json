@@ -193,13 +193,34 @@
     "items": [
       {
         "title": "Platform Architect",
-        "description": "Shift Technology fournit des solutions SaaS de détection de fraud et gestion de sinistres au secteur de l'assurance.",
+        "description": "Dans une scale-up multinationale (licorne), je définis et aide les équipes à mettre en place une nouvelle plateforme Cloud-native, pour migrer vers des services multi-tenant et hautement disponibles.",
         "company": "Shift Technology",
         "place": "Paris, FR",
         "placeUrl": "https://www.google.com/maps/place/14+Rue+Gerty+Archim%C3%A8de,+75012+Paris/@48.8359403,2.3859098,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6726ab0131eaf:0xf4379e8e2dd5042f!8m2!3d48.8359403!4d2.3884847!16s%2Fg%2F11g6nh9xcc",
         "startDate": "2022-08-29",
         "missions": [],
-        "tags": []
+        "tags": [
+          {
+            "label": "Cloud Adoption Framework",
+            "key": "architecture"
+          },
+          {
+            "label": "Well-Architected Framework",
+            "key": "architecture"
+          },
+          {
+            "label": "Azure",
+            "key": "infrastructure"
+          },
+          {
+            "label": "AWS",
+            "key": "infrastructure"
+          },
+          {
+            "label": "Terraform",
+            "key": "devops"
+          }
+        ]
       },
       {
         "title": "Software & Cloud Architect",
@@ -295,7 +316,7 @@
       },
       {
         "title": "Lead Developer",
-        "description": "Pour un site de e-commerce à fort trafic, mon rôle est de designer et implémenter les évolutions structurelles du Front-Office, en tandem avec le Product Owner.",
+        "description": "Pour un site de e-commerce à fort trafic, je designe et implémente les évolutions structurelles du Front-Office, en tandem avec le Product Owner.",
         "company": "MONOPRIX ONLINE",
         "place": "Clichy, FR",
         "placeUri": "https://www.google.com/maps/place/Monoprix+Online/@48.9114806,2.3075256,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fa859a7648f:0x9f092451007f953!8m2!3d48.9114745!4d2.3097094",
@@ -361,16 +382,12 @@
           {
             "label": "SonarCloud",
             "key": "quality"
-          },
-          {
-            "label": "MS Tests",
-            "key": "quality"
           }
         ]
       },
       {
         "title": "Ingénieur Contrôle Avancé",
-        "description": "Des outils (applications) et des méthodes (algorithmes et réglages de machines) permettent aux raffineries d'optimiser leur production.",
+        "description": "Au sein de la direction industrielle, je crée des outils (applications) et des méthodes (algorithmes et réglages de machines) permettent aux raffineries d'optimiser leur production.",
         "company": "TOTAL Raffinage Chimie",
         "place": "Feyzin, FR / Leuna, DE / Courbevoie, FR",
         "placeUri": "https://www.google.fr/maps/@48.3488588,2.6277793,6z/data=!3m1!4b1!4m3!11m2!2sR_OlZS53IfP_ZVzHz3WmXP5ApZKn9w!3e3",
@@ -471,7 +488,7 @@
             "key": "management"
           },
           {
-            "label": "Gestion de projets",
+            "label": "Projets",
             "key": "management"
           },
           {
@@ -491,10 +508,6 @@
             "key": "infrastructure"
           },
           {
-            "label": "MySQL",
-            "key": "infrastructure"
-          },
-          {
             "label": "C / C++",
             "key": "development"
           },
@@ -505,10 +518,6 @@
           {
             "label": "vue.js",
             "key": "development"
-          },
-          {
-            "label": "SonarCloud",
-            "key": "quality"
           }
         ]
       }
