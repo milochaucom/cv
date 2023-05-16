@@ -32,6 +32,7 @@
             <template #prepend>
               <v-icon
                 :icon="mdiCalendarRangeOutline"
+                start
                 class="d-print-none" />
             </template>
             {{ training.date }}
