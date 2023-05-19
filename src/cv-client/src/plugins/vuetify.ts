@@ -4,7 +4,7 @@ import type { MilochauCoreOptions } from '../types/options'
 // Vuetify
 import { createVuetify } from 'vuetify'
 import { en, fr } from 'vuetify/locale'
-import { aliases, mdi } from 'vuetify/lib/iconsets/mdi-svg'
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import type { VuetifyOptions } from 'vuetify/framework'
 
 export default {
