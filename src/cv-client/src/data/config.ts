@@ -1,6 +1,5 @@
 import type { MilochauCoreOptions } from "../types"
 import routes from "./routes"
-import navigation from "./navigation"
 
 export enum Environment {
   Default = 'default',
@@ -40,7 +39,6 @@ export const coreOptions: MilochauCoreOptions = {
   application: {
     name: 'CV',
     contact: 'Antoine Milochau',
-    navigation,
     onAppBarTitleClick: router => router.push({ name: 'Home' })
   },
   i18n: {
