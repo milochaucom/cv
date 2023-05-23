@@ -7,6 +7,7 @@ export type MilochauCoreOptions = {
     name: string,
     contact: string,
     onAppBarTitleClick?: (router: Router) => void,
+    isProduction: boolean,
   },
   i18n: I18nOptions & { messages: MilochauCoreOptionsMessages },
   vuetify?: VuetifyOptions,

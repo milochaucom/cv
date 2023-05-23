@@ -1,3 +1,4 @@
+import { getCurrentEnvironment } from "@/utils/config"
 import type { MilochauCoreOptions } from "../types"
 import routes from "./routes"
 
@@ -39,7 +40,8 @@ export const coreOptions: MilochauCoreOptions = {
   application: {
     name: 'CV',
     contact: 'Antoine Milochau',
-    onAppBarTitleClick: router => router.push({ name: 'Home' })
+    onAppBarTitleClick: router => router.push({ name: 'Home' }),
+    isProduction: getCurrentEnvironment() === Environment.Production,
   },
   i18n: {
     messages: {

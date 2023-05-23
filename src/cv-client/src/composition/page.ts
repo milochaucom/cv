@@ -1,10 +1,9 @@
 import { useI18n } from "vue-i18n";
 import { useHead } from '@vueuse/head';
 import { useCoreOptions } from './options';
-import { computed } from "vue";
-import type { Ref } from "vue";
+import { computed, ref, type Ref } from "vue";
 
-export function usePage(args?: Ref<any>) {
+export function usePage(pageArgs: { i18n?: Ref<any>, noindex?: boolean } = {}) {
 
   const { t, te, mergeLocaleMessage } = useI18n()
   const coreOptions = useCoreOptions()
@@ -16,16 +15,27 @@ export function usePage(args?: Ref<any>) {
   })
   
   const appTitle = computed(() => t('appTitle'))
-  const pageTitle = computed(() => te('pageTitle', args?.value) && t('pageTitle', args?.value) ? `${t('pageTitle', args?.value)} — ${appTitle.value}` : appTitle.value)
-  const pageDescription = computed(() => te('pageDescription', args?.value) && t('pageDescription', args?.value) ? `${t('pageDescription', args?.value)} — ${appTitle.value}` : appTitle.value)
+  const pageTitle = computed(() => te('pageTitle', pageArgs.i18n?.value) && t('pageTitle', pageArgs.i18n?.value) ? `${t('pageTitle', pageArgs.i18n?.value)} — ${appTitle.value}` : appTitle.value)
+  const pageDescription = computed(() => te('pageDescription', pageArgs.i18n?.value) && t('pageDescription', pageArgs.i18n?.value) ? `${t('pageDescription', pageArgs.i18n?.value)} — ${appTitle.value}` : appTitle.value)
+
+  const meta = computed(() => {
+    const items: { name: string, content: Ref<string> }[] = [
+      {
+        name: 'description',
+        content: pageDescription,
+      },
+    ]
+    if (!coreOptions.application.isProduction || pageArgs.noindex) {
+      items.push({
+        name: 'robots',
+        content: ref('noindex'),
+      })
+    }
+    return items
+  })
 
   useHead({
     title: pageTitle,
-    meta: [
-      {
-        name: 'description',
-        content: pageDescription
-      }
-    ]
+    meta: meta.value
   })
 }
