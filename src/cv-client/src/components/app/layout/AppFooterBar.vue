@@ -24,6 +24,16 @@
           {{ t('privacy') }}
         </v-btn>
         <v-btn
+          :href="`https://contact.milochau.com/${route.params.lang}`"
+          rounded
+          size="small"
+          variant="text"
+          target="_blank"
+          rel="noopener"
+          class="mb-1">
+          {{ t('contact') }}
+        </v-btn>
+        <v-btn
           href="https://github.com/amilochau/aws-cv"
           rounded
           size="small"
@@ -71,11 +81,13 @@
 import { useThemeStore } from '@/stores';
 import { mdiBrightness6, mdiEarth } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
+import { useRoute } from 'vue-router';
 import { useRouter } from 'vue-router';
 
 const { t } = useI18n()
 const themeStore = useThemeStore()
 const router = useRouter()
+const route = useRoute()
 </script>
 
 <i18n lang="json">
@@ -83,6 +95,7 @@ const router = useRouter()
     "en": {
       "home": "Home",
       "privacy": "Privacy",
+      "contact": "Contact",
       "sourceCode": "Source code",
       "languages": "Language",
       "french": "French",
@@ -91,6 +104,7 @@ const router = useRouter()
     "fr": {
       "home": "Accueil",
       "privacy": "Confidentialité",
+      "contact": "Contact",
       "sourceCode": "Code source",
       "languages": "Langues",
       "french": "Français",
