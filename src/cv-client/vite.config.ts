@@ -38,4 +38,9 @@ export default defineConfig({
       }
     ]
   },
+  optimizeDeps: {
+    include: [
+      "@aws-amplify/auth"
+    ]
+  }
 })

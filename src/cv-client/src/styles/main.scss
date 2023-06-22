@@ -2,23 +2,6 @@
 
 // Custom styles
 
-.multi-line {
-  white-space: pre-line !important;
-  -webkit-line-clamp: initial !important;
-
-  .v-list-item-title {
-    white-space: pre-line !important;
-  }
-}
-
-.cursor-pointer {
-  cursor: pointer !important;
-}
-
-.no-user-select {
-  user-select: none !important;
-}
-
 .chip-tile {
   border-width: thin !important;
   border-style: solid !important;
@@ -28,21 +11,7 @@
   border-color: rgba(0, 0, 0, 0.125) !important;
 }
 
-// Vuetify overrides
-
-.v-timeline-item__body {
-  min-width: 100%;
-}
-
-.v-dialog--fullscreen .v-overlay__content .v-card {
-  border-radius: 0;
-}
-
 // Print helpers
-
-.p-avoid-break-inside {
-  break-inside: avoid;
-}
 
 $grid-columns: 12;
 
