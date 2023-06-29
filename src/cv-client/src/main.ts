@@ -1,15 +1,12 @@
-import { createApp } from 'vue'
 import App from './App.vue'
-import milochauCore from './plugins/milochau-core'
+import { CoreVue3 } from '@amilochau/core-vue3'
+import { coreOptions } from './data/config'
 
 import { LogStyle, logInformation } from './utils/logger';
 import resume from '@/data/resume'
 
 import 'vuetify/styles'
 import './styles/main.scss'
-
-const app = createApp(App);
-app.use(milochauCore);
 
 // Add custom messages on console
 logInformation('===================', LogStyle.Header)
@@ -21,3 +18,5 @@ logInformation('  - if you want to hire me :)')
 logInformation('===================', LogStyle.Header)
 logInformation(`Contact me here: ${resume['en'].persona.contact.url}`)
 logInformation('===================', LogStyle.Header)
+
+export const createApp = await CoreVue3(App, coreOptions);
