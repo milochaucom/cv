@@ -54,7 +54,6 @@
 </template>
 
 <script setup lang="ts">
-import { usePage } from '../../composition';
 import ResumeSectionCall from './components/section/ResumeSectionCall.vue';
 import ResumeSectionPersona from './components/section/ResumeSectionPersona.vue';
 import ResumeSectionTopics from './components/section/ResumeSectionTopics.vue';
@@ -67,6 +66,7 @@ import resume from '@/data/resume'
 import type { IResume } from '@/types/resume';
 import { useRoute } from 'vue-router';
 import { watch } from 'vue';
+import { usePage } from '@amilochau/core-vue3';
 
 usePage()
 const route = useRoute()

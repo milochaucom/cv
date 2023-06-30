@@ -1,28 +1,12 @@
-import { createApp } from 'vue'
 import App from './App.vue'
+import { CoreVue3 } from '@amilochau/core-vue3'
+import { coreOptions } from './data/config'
 
-import { coreOptions } from './data/config';
-import i18n from './plugins/i18n';
-import head from './plugins/head';
-import vuetify from './plugins/vuetify';
-import pinia from './plugins/pinia';
-import router from './plugins/router';
 import { LogStyle, logInformation } from './utils/logger';
 import resume from '@/data/resume'
 
+import 'vuetify/styles'
 import './styles/main.scss'
-
-const app = createApp(App);
-
-// Provide options availble through 'inject'
-app.provide('core-options', coreOptions)
-
-// Install plugins
-app.use(i18n, coreOptions);
-app.use(head, coreOptions);
-app.use(vuetify, coreOptions);
-app.use(pinia, coreOptions);
-app.use(router, coreOptions); // Mount app, so should be the last one
 
 // Add custom messages on console
 logInformation('===================', LogStyle.Header)
@@ -34,3 +18,5 @@ logInformation('  - if you want to hire me :)')
 logInformation('===================', LogStyle.Header)
 logInformation(`Contact me here: ${resume['en'].persona.contact.url}`)
 logInformation('===================', LogStyle.Header)
+
+export const createApp = CoreVue3(App, coreOptions);

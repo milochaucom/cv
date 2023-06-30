@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useThemeStore } from './stores';
+import { useThemeStore } from '@amilochau/core-vue3';
 
 const themeStore = useThemeStore()
 

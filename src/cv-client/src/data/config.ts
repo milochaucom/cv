@@ -1,6 +1,7 @@
 import { getCurrentEnvironment } from "@/utils/config"
-import type { MilochauCoreOptions } from "../types"
+import type { MilochauCoreOptions } from "@amilochau/core-vue3"
 import routes from "./routes"
+import { ref } from "vue"
 
 export enum Environment {
   Default = 'default',
@@ -40,7 +41,19 @@ export const coreOptions: MilochauCoreOptions = {
   application: {
     name: 'CV',
     contact: 'Antoine Milochau',
-    onAppBarTitleClick: router => router.push({ name: 'Home' }),
+    navigation: {
+      items: ref([]),
+    },
+    header: {
+      disabled: true
+    },
+    footer: {
+      enabled: true,
+      items: ref([{
+        title: 'Source code',
+        link: 'https://github.com/amilochau/aws-cv',
+      }])
+    },
     isProduction: getCurrentEnvironment() === Environment.Production,
   },
   i18n: {
@@ -54,5 +67,36 @@ export const coreOptions: MilochauCoreOptions = {
     }
   },
   routes: routes,
+  vuetify: {
+    theme: {
+      themes: {
+        light: {
+          colors: {
+            background: '#f5f5f5'
+          }
+        }
+      }
+    },
+    defaults: {
+      VCardTitle: {
+        class: 'multi-line'
+      },
+      VCardSubtitle: {
+        class: 'multi-line'
+      },
+      VList: {
+        density: 'compact'
+      },
+      VListItemTitle: {
+        class: 'multi-line',
+      },
+      VListItemSubtitle: {
+        class: 'multi-line'
+      },
+      VListSubheader: {
+        class: 'multi-line'
+      }
+    }
+  },
   clean: () => () => {}
 }
