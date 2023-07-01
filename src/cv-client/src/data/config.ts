@@ -2,6 +2,7 @@ import { getCurrentEnvironment } from "@/utils/config"
 import type { MilochauCoreOptions } from "@amilochau/core-vue3"
 import routes from "./routes"
 import { ref } from "vue"
+import logoUrl from "@/assets/logo.png"
 
 export enum Environment {
   Default = 'default',
@@ -41,6 +42,7 @@ export const coreOptions: MilochauCoreOptions = {
   application: {
     name: 'CV',
     contact: 'Antoine Milochau',
+    logoUrl,
     navigation: {
       items: ref([]),
     },
