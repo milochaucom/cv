@@ -4,7 +4,7 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://github.com/vuetifyjs/vuetify/blob/master/LICENSE.md">
+  <a href="https://github.com/amilochau/aws-cv/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/amilochau/aws-cv" alt="License">
   </a>
 </p>
