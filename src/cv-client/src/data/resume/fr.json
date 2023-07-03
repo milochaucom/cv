@@ -198,7 +198,41 @@
         "place": "Paris, FR",
         "placeUrl": "https://www.google.com/maps/place/14+Rue+Gerty+Archim%C3%A8de,+75012+Paris/@48.8359403,2.3859098,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6726ab0131eaf:0xf4379e8e2dd5042f!8m2!3d48.8359403!4d2.3884847!16s%2Fg%2F11g6nh9xcc",
         "startDate": "2022-08-29",
-        "missions": [],
+        "missions": [
+          {
+            "title": "Architecture Cloud",
+            "icon": {
+              "mdi": "microsoft-azure",
+              "unicode": "⚙️"
+            },
+            "items": [
+              {
+                "title": "Audits pour mesure la fiabilité et la conformité des workloads déployés (reviews manuelles et audits automatiques, en continu)"
+              },
+              {
+                "title": "Conception et implémentation d'une architecture Cloud Azure-first, commençant par les landing zones, les conventions et la topologie réseau"
+              }
+            ]
+          },
+          {
+            "title": "Platform engineering",
+            "icon": {
+              "mdi": "floor-plan",
+              "unicode": "📐"
+            },
+            "items": [
+              {
+                "title": "Définition d'une stratégie de déploiement de l'infrastructure, synchronisée avec le cycle de développement des applications"
+              },
+              {
+                "title": "Conception de workflows entièrement sécurisés pour aider les développeurs à configurer et déployer leur propre infrastructure (via AAD Federated Credentials, least privilege principle)"
+              },
+              {
+                "title": "Création de modules centralisés, standardisés et consistents pour l'Infrastructure as Code et les workflows de déploiement, comme base d'une 'Internal Developer Platform' (via GitHub Actions, Terraform)"
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Cloud Adoption Framework",
@@ -206,6 +240,10 @@
           },
           {
             "label": "Well-Architected Framework",
+            "key": "architecture"
+          },
+          {
+            "label": "IDP",
             "key": "architecture"
           },
           {
@@ -218,6 +256,10 @@
           },
           {
             "label": "Terraform",
+            "key": "devops"
+          },
+          {
+            "label": "GitHub Actions",
             "key": "devops"
           }
         ]
@@ -245,7 +287,7 @@
                 "title": "Mise en place de CI/CD (via Azure DevOps, GitHub Actions) et d'Infrastructure as Core (via ARM Templates en Bicep, Terraform, PowerShell) sur toutes les applications"
               },
               {
-                "title": "Définition et mise en place d'audits en continu sur la sécurité (pipelines DevSecOps) et la qualité, comprenant la supply chain et la conformité"
+                "title": "Définition et automatisation d'audits en continu sur la sécurité (pipelines DevSecOps) et la qualité, comprenant la supply chain et la conformité"
               }
             ]
           },
