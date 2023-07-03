@@ -207,10 +207,10 @@
             },
             "items": [
               {
-                "title": "Cloud architecture audits to measure reliability and compliance (both manual and automatic, continuous audits)"
+                "title": "Audits to measure reliability and compliance of deployed workloads (both manual reviews and automatic, continuous audits)"
               },
               {
-                "title": "Design and implementation of an Azure-first Cloud architecture, starting with landing zones and conventions"
+                "title": "Design and implementation of an Azure-first Cloud architecture, starting with landing zones, conventions and network topology"
               }
             ]
           },
@@ -225,7 +225,10 @@
                 "title": "Definition of a deployment strategy for infrastructure, synchronized with application development lifecycle"
               },
               {
-                "title": "Design of fully secured workflows to help developers configure and deploy their own infrastructure"
+                "title": "Design of fully secured workflows to help developers configure and deploy their own infrastructure (via AAD Federated Credentials, least privilege principle)"
+              },
+              {
+                "title": "Creation of centralized, standardized, consistent modules for Infrastructure as Code and deployment workflows, as the base of an Internal Developer Platform (via GitHub Actions, Terraform)"
               }
             ]
           }
@@ -240,6 +243,10 @@
             "key": "architecture"
           },
           {
+            "label": "IDP",
+            "key": "architecture"
+          },
+          {
             "label": "Azure",
             "key": "infrastructure"
           },
@@ -249,6 +256,10 @@
           },
           {
             "label": "Terraform",
+            "key": "devops"
+          },
+          {
+            "label": "GitHub Actions",
             "key": "devops"
           }
         ]
@@ -276,7 +287,7 @@
                 "title": "Implementation of CI/CD (via Azure DevOps, GitHub Actions) and Infrastructure as Code (via ARM templates in Bicep, Terraform, PowerShell) on all applications"
               },
               {
-                "title": "Define and automate continuous audits on security (DevSecOps pipelines) and quality, including supply chain and compliance"
+                "title": "Definition and automatisation of continuous audits on security (DevSecOps pipelines) and quality, including supply chain and compliance"
               }
             ]
           },
