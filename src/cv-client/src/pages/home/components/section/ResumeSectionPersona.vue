@@ -13,7 +13,7 @@
             <VAvatar
               v-bind="dialogProps"
               :image="thumbnail"
-              class="cursor-pointer d-print-none"
+              class="cursor-pointer"
               @click="pictureDialog = true" />
           </template>
           <v-card>

@@ -6,7 +6,7 @@
   <v-card
     v-for="(experience, i) in experiences.items"
     :key="i"
-    class="mb-4 p-mb-2"
+    class="mb-4 p-mb-2 p-avoid-break-inside"
     elevation="0">
     <v-card-item>
       <v-card-title>
