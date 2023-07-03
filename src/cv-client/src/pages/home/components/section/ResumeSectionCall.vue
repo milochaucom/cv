@@ -17,7 +17,9 @@
       {{ t('lastUpdate', { lastUpdate: d(call.lastUpdate) }) }}
     </div>
     <template #append>
-      <v-menu location="bottom end">
+      <v-menu
+        location="bottom end"
+        class="d-print-none">
         <template #activator="{ props: propsMenu }">
           <v-btn
             v-bind="propsMenu"
@@ -27,7 +29,7 @@
         <v-list>
           <v-list-item
             :title="t('print')"
-            @click="print">
+            @click.prevent.stop="print">
             <template #prepend>
               <v-icon
                 :icon="mdiPrinter"
