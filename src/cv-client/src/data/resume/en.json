@@ -198,7 +198,38 @@
         "place": "Paris, FR",
         "placeUrl": "https://www.google.com/maps/place/14+Rue+Gerty+Archim%C3%A8de,+75012+Paris/@48.8359403,2.3859098,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6726ab0131eaf:0xf4379e8e2dd5042f!8m2!3d48.8359403!4d2.3884847!16s%2Fg%2F11g6nh9xcc",
         "startDate": "2022-08-29",
-        "missions": [],
+        "missions": [
+          {
+            "title": "Cloud architecture",
+            "icon": {
+              "mdi": "microsoft-azure",
+              "unicode": "⚙️"
+            },
+            "items": [
+              {
+                "title": "Cloud architecture audits to measure reliability and compliance (both manual and automatic, continuous audits)"
+              },
+              {
+                "title": "Design and implementation of an Azure-first Cloud architecture, starting with landing zones and conventions"
+              }
+            ]
+          },
+          {
+            "title": "Platform engineering",
+            "icon": {
+              "mdi": "floor-plan",
+              "unicode": "📐"
+            },
+            "items": [
+              {
+                "title": "Definition of a deployment strategy for infrastructure, synchronized with application development lifecycle"
+              },
+              {
+                "title": "Design of fully secured workflows to help developers configure and deploy their own infrastructure"
+              }
+            ]
+          }
+        ],
         "tags": [
           {
             "label": "Cloud Adoption Framework",
