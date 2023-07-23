@@ -10,7 +10,11 @@ setDefaultResultOrder('verbatim')
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      script: {
+        defineModel: true // Opt-in feature, see https://github.com/vuejs/rfcs/discussions/503
+      }
+    }),
     vuetify(),
     VueI18n({
       fullInstall: false,

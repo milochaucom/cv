@@ -43,9 +43,9 @@ export const coreOptions: MilochauCoreOptions = {
     name: 'CV',
     contact: 'Antoine Milochau',
     logoUrl,
-    navigation: {
-      items: ref([]),
-    },
+    navigation: ref({
+      items: []
+    }),
     header: {
       disabled: true
     },
