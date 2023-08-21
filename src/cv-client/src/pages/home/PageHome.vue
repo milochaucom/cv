@@ -67,8 +67,21 @@ import type { IResume } from '@/types/resume';
 import { useRoute } from 'vue-router';
 import { watch } from 'vue';
 import { usePage } from '@amilochau/core-vue3';
+import { useI18n } from 'vue-i18n';
 
-usePage()
+const { t } = useI18n()
+usePage(computed(() => ({
+  title: t('pageTitle'),
+  description: t('pageDescription'),
+  footer: {
+    items: [
+      {
+        title: 'Source code',
+        link: 'https://github.com/amilochau/aws-landing'
+      }
+    ]
+  },
+})))
 const route = useRoute()
 
 const expanded = ref(true)

@@ -35,5 +35,10 @@ export default defineConfig({
       { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
       { find: /^pinia$/, replacement: 'pinia/dist/pinia.mjs' },
     ]
+  },
+  esbuild: {
+    supported: {
+      'top-level-await': true // Used to enable await in main.ts
+    }
   }
 })
