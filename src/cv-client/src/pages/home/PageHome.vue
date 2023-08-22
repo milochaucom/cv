@@ -205,15 +205,11 @@ setStructuredData()
 watch(() => route, () => setStructuredData())
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "pageTitle": "",
-      "pageDescription": "CV page"
-    },
-    "fr": {
-      "pageTitle": "",
-      "pageDescription": "Page de CV"
-    }
-  }
+<i18n lang="yaml">
+en:
+  pageTitle: ''
+  pageDescription: CV page
+fr:
+  pageTitle: ''
+  pageDescription: Page de CV
 </i18n>

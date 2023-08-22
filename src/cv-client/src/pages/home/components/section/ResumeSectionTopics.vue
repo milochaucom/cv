@@ -40,15 +40,11 @@ const emits = defineEmits<{
 const { t } = useI18n()
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "title": "Top topics",
-      "subtitle": "Select a topic to highlight it on the page."
-    },
-    "fr": {
-      "title": "Mots-clés",
-      "subtitle": "Sélectionner un mot-clé pour le mettre en évidence sur la page."
-    }
-  }
+<i18n lang="yaml">
+en:
+  title: Top topics
+  subtitle: Select a topic to highlight it on the page.
+fr:
+  title: Mots-clés
+  subtitle: Sélectionner un mot-clé pour le mettre en évidence sur la page.
 </i18n>

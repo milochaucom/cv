@@ -69,13 +69,9 @@ const { t } = useI18n()
 const { formatIcon } = useIcons()
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "title": "Projets personnels"
-    },
-    "fr": {
-      "title": "Projets personnels"
-    }
-  }
+<i18n lang="yaml">
+en:
+  title: Personal projects
+fr:
+  title: Projets personnels
 </i18n>

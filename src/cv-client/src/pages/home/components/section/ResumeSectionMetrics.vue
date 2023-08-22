@@ -34,13 +34,9 @@ defineProps<{
 const { t } = useI18n()
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "title": "Metrics"
-    },
-    "fr": {
-      "title": "Métriques"
-    }
-  }
+<i18n lang="yaml">
+en:
+  title: Metrics
+fr:
+  title: Métriques
 </i18n>

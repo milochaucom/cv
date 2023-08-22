@@ -243,51 +243,45 @@ const changeStartFrom = computed(() => {
 })
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "title": "Experiences",
-      "now": "Now",
-      "current": "Current",
-      "change": {
-        "title": "Change is coming...",
-        "status": "Current situation",
-        "busy": "In office",
-        "free": "Free",
-        "ongoingTrial": "Ongoing trial period",
-        "trialDone": "Trial period ended",
-        "departureNoticed": "Ongoing departure notice",
-        "noNotice": "No departure notice filed",
-        "changeLikelihood": "Likelihood of upcoming change",
-        "ongoingProcess": "Recruitment process in progress",
-        "noProcess": "No recruitment process",
-        "noticePeriod": "Notice period",
-        "days": "{days} days",
-        "startFrom": "Start of a new position at the earliest"
-      }
-    },
-    "fr": {
-      "title": "Expériences",
-      "now": "Maintenant",
-      "current": "En cours",
-      "change": {
-        "title": "Change is coming...",
-        "status": "Situation actuelle",
-        "busy": "En poste",
-        "free": "Libre",
-        "ongoingTrial": "Période d'essai en cours",
-        "trialDone": "Période d'essai terminée",
-        "departureNoticed": "Préavis en cours",
-        "noNotice": "Aucun préavis déposé",
-        "changeLikelihood": "Probabilité de changement prochain",
-        "ongoingProcess": "Process de recrutement en cours",
-        "noProcess": "Aucun process de recrutement",
-        "noticePeriod": "Durée de préavis",
-        "days": "{days} jours",
-        "startFrom": "Début d'un nouveau poste au plus tôt"
-      }
-    }
-  }
+<i18n lang="yaml">
+en:
+  title: Experiences
+  now: Now
+  current: Current
+  change:
+    title: Change is coming...
+    status: Current situation
+    busy: In office
+    free: Free
+    ongoingTrial: Ongoing trial period
+    trialDone: Trial period ended
+    departureNoticed: Ongoing departure notice
+    noNotice: No departure notice filed
+    changeLikelihood: Likelihood of upcoming change
+    ongoingProcess: Recruitment process in progress
+    noProcess: No recruitment process
+    noticePeriod: Notice period
+    days: "{days} days"
+    startFrom: Start of a new position at the earliest
+fr:
+  title: Expériences
+  now: Maintenant
+  current: En cours
+  change:
+    title: Change is coming...
+    status: Situation actuelle
+    busy: En poste
+    free: Libre
+    ongoingTrial: Période d'essai en cours
+    trialDone: Période d'essai terminée
+    departureNoticed: Préavis en cours
+    noNotice: Aucun préavis déposé
+    changeLikelihood: Probabilité de changement prochain
+    ongoingProcess: Process de recrutement en cours
+    noProcess: Aucun process de recrutement
+    noticePeriod: Durée de préavis
+    days: "{days} jours"
+    startFrom: Début d'un nouveau poste au plus tôt
 </i18n>
 
 <style lang="sass" scoped>

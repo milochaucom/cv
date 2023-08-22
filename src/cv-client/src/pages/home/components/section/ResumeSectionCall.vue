@@ -86,19 +86,15 @@ const print = () => {
 }
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "lastUpdate": "Last update: {lastUpdate}",
-      "reduce": "Reduce",
-      "expand": "Expand",
-      "print": "Print"
-    },
-    "fr": {
-      "lastUpdate": "Dernière mise à jour : {lastUpdate}",
-      "reduce": "Réduire",
-      "expand": "Etendre",
-      "print": "Imprimer"
-    }
-  }
+<i18n lang="yaml">
+en:
+  lastUpdate: 'Last update: {lastUpdate}'
+  reduce: Reduce
+  expand: Expand
+  print: Print
+fr:
+  lastUpdate: 'Dernière mise à jour : {lastUpdate}'
+  reduce: Réduire
+  expand: Etendre
+  print: Imprimer
 </i18n>
