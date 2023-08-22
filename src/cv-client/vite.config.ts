@@ -35,5 +35,15 @@ export default defineConfig({
       { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
       { find: /^pinia$/, replacement: 'pinia/dist/pinia.mjs' },
     ]
+  },
+  optimizeDeps: {
+    include:[
+      'vue-router'
+    ]
+  },
+  esbuild: {
+    supported: {
+      'top-level-await': true // Used to enable await in main.ts
+    }
   }
 })

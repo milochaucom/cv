@@ -46,16 +46,6 @@ export const coreOptions: MilochauCoreOptions = {
     navigation: ref({
       items: []
     }),
-    header: {
-      disabled: true
-    },
-    footer: {
-      enabled: true,
-      items: ref([{
-        title: 'Source code',
-        link: 'https://github.com/amilochau/aws-cv',
-      }])
-    },
     isProduction: getCurrentEnvironment() === Environment.Production,
   },
   i18n: {

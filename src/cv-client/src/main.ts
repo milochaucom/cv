@@ -1,5 +1,4 @@
-import App from './App.vue'
-import { CoreVue3 } from '@amilochau/core-vue3'
+import { createCoreVue3App } from '@amilochau/core-vue3'
 import { coreOptions } from './data/config'
 
 import { LogStyle, logInformation } from './utils/logger';
@@ -19,4 +18,4 @@ logInformation('===================', LogStyle.Header)
 logInformation(`Contact me here: ${resume['en'].persona.contact.url}`)
 logInformation('===================', LogStyle.Header)
 
-export const createApp = CoreVue3(App, coreOptions);
+export const coreVue3App = await createCoreVue3App(coreOptions);

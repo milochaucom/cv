@@ -78,17 +78,13 @@ const { t } = useI18n()
 const { formatIcon } = useIcons()
 </script>
 
-<i18n lang="json">
-  {
-    "en": {
-      "title": "Training",
-      "initialTraining": "Initial training",
-      "continuousTraining": "Continuous training"
-    },
-    "fr": {
-      "title": "Formation",
-      "initialTraining": "Formation initiale",
-      "continuousTraining": "Formation continue"
-    }
-  }
+<i18n lang="yaml">
+en:
+  title: Training
+  initialTraining: Initial training
+  continuousTraining: Continuous training
+fr:
+  title: Formation
+  initialTraining: Formation initiale
+  continuousTraining: Formation continue
 </i18n>
