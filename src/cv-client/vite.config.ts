@@ -40,10 +40,5 @@ export default defineConfig({
     include:[
       'vue-router'
     ]
-  },
-  esbuild: {
-    supported: {
-      'top-level-await': true // Used to enable await in main.ts
-    }
   }
 })

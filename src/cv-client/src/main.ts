@@ -18,4 +18,4 @@ logInformation('===================', LogStyle.Header)
 logInformation(`Contact me here: ${resume['en'].persona.contact.url}`)
 logInformation('===================', LogStyle.Header)
 
-export const coreVue3App = await createCoreVue3App(coreOptions);
+export const coreVue3App = createCoreVue3App(coreOptions);
