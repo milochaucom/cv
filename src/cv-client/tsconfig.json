@@ -6,7 +6,6 @@
     "src/**/*.vue"
   ],
   "compilerOptions": {
-    "moduleResolution": "node",
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {

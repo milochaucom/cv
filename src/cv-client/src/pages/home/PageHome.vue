@@ -66,7 +66,7 @@ import resume from '@/data/resume'
 import type { IResume } from '@/types/resume';
 import { useRoute } from 'vue-router';
 import { watch } from 'vue';
-import { usePage } from '@amilochau/core-vue3';
+import { usePage } from '@amilochau/core-vue3/composition';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n()

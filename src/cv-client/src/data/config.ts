@@ -1,5 +1,5 @@
 import { getCurrentEnvironment } from "@/utils/config"
-import type { MilochauCoreOptions } from "@amilochau/core-vue3"
+import { type MilochauCoreOptions } from "@amilochau/core-vue3/types"
 import routes from "./routes"
 import { ref } from "vue"
 import logoUrl from "@/assets/logo.png"
