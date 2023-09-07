@@ -49,16 +49,28 @@
       </v-menu>
     </template>
   </v-alert>
+  <v-alert
+    v-if="updateDisplay"
+    :icon="mdiUpdate"
+    border="bottom"
+    border-color="primary"
+    variant="text">
+    {{ t('newVersion') }}
+  </v-alert>
 </template>
 
 <script setup lang="ts">
 import { useIcons } from '@/data/icons';
 import type { IResumeCall } from '@/types/resume';
-import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal } from '@mdi/js';
+import { usePwaStore } from '@amilochau/core-vue3/stores';
+import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal, mdiUpdate } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia'
 
 const { formatIcon } = useIcons()
 const { t, d, mergeDateTimeFormat } = useI18n()
+const pwaStore = usePwaStore()
+const { updateDisplay } = storeToRefs(pwaStore)
 
 defineProps<{
   call: IResumeCall,
@@ -92,9 +104,13 @@ en:
   reduce: Reduce
   expand: Expand
   print: Print
+  newVersion: A new version is available. Update this page to get latest information!
+  update: Update
 fr:
   lastUpdate: 'Dernière mise à jour : {lastUpdate}'
   reduce: Réduire
   expand: Etendre
   print: Imprimer
+  newVersion: Une nouvelle version est disponible. Mettez à jour cette page pour avoir les dernières informations !
+  update: Mettre à jour
 </i18n>

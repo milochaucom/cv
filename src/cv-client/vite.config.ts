@@ -5,6 +5,9 @@ import vuetify from 'vite-plugin-vuetify'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Unfonts from 'unplugin-fonts/vite'
 import { setDefaultResultOrder } from 'dns'
+import { VitePWA } from 'vite-plugin-pwa'
+import path from 'upath'
+import fs from 'fs'
 
 setDefaultResultOrder('verbatim')
 
@@ -29,6 +32,66 @@ export default defineConfig({
         }],
       },
     }),
+    VitePWA({
+      srcDir: 'src',
+      filename: 'service-worker.js',
+      strategies: 'injectManifest',
+      includeAssets: [
+        'favicon.ico',
+      ],
+      injectManifest: {
+          globIgnores: ['**/*.html'], // To ignore the generated _fallback.html
+          additionalManifestEntries: [
+            { url: '/_fallback.html', revision: Date.now().toString(16) }, // To ensure that it is the latest copy of index.html
+          ],
+          dontCacheBustURLsMatching: /assets\/.+-[A-Za-z0-9]{8}\.(js|css|png)$/, // To reduce bandwidth consumed by precaching with assets uniquely versioned via their URL
+          maximumFileSizeToCacheInBytes: 24 * 1024 ** 2, // To avoid precaching too large files
+      },
+      manifest: {
+        name: 'Milochau - CV',
+        description: 'Antoine Milochau CV',
+        short_name: 'CV',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'img/icons/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'img/icons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: 'img/icons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: 'img/icons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+        ]
+      },
+      devOptions: {
+        enabled: true
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png}']
+      },
+    }),
+    {
+      name: 'amilochau:fallback',
+      enforce: 'post',
+      transformIndexHtml (html) {
+        fs.mkdirSync('dist', { recursive: true })
+        fs.writeFileSync(path.join('dist/_fallback.html'), html)
+      },
+    },
   ],
   resolve: {
     alias: [
@@ -39,6 +102,9 @@ export default defineConfig({
   optimizeDeps: {
     include:[
       'vue-router'
+    ],
+    exclude: [
+      'virtual:pwa-register'
     ]
   }
 })

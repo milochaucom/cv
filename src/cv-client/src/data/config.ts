@@ -90,5 +90,8 @@ export const coreOptions: MilochauCoreOptions = {
       }
     }
   },
-  clean: () => () => {}
+  clean: () => () => {},
+  pwa: {
+    hideInstallBtn: true,
+  },
 }
