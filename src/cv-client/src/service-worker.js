@@ -1,7 +1,8 @@
 // Imports
 import { cleanupOutdatedCaches, matchPrecache, precacheAndRoute } from 'workbox-precaching'
 import { registerRoute, setCatchHandler, setDefaultHandler } from 'workbox-routing'
-import { NetworkFirst, NetworkOnly } from 'workbox-strategies'
+import { NetworkFirst, NetworkOnly, CacheFirst } from 'workbox-strategies'
+import { ExpirationPlugin } from 'workbox-expiration'
 
 const MANIFEST = self.__WB_MANIFEST
 
@@ -9,11 +10,21 @@ cleanupOutdatedCaches()
 precacheAndRoute(MANIFEST)
 
 const networkOnly = new NetworkOnly()
-const networkFirst = new NetworkFirst()
+const cacheFirst = new CacheFirst()
 
 registerRoute(
-  ({ request }) => request.destination !== 'document',
-  networkFirst
+  ({ url }) => [
+    'https://fonts.googleapis.com',
+    'https://fonts.gstatic.com',
+  ].includes(url.origin),
+  cacheFirst
+)
+
+registerRoute(
+  ({ url }) => [
+    'https://cognito-idp.eu-west-3.amazonaws.com',
+  ].includes(url.origin),
+  networkOnly
 )
 
 registerRoute(
@@ -29,13 +40,19 @@ registerRoute(
   }
 )
 
-setDefaultHandler(networkFirst)
+setDefaultHandler(new NetworkFirst({
+  cacheName: 'default',
+  plugins: [
+    new ExpirationPlugin({
+      maxEntries: 100,
+      maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+      purgeOnQuotaError: true,
+    })
+  ]
+}))
 
 setCatchHandler(async ({ url, request }) => {
-  if (
-    url.origin === self.location.origin &&
-    request.destination === 'document'
-  ) {
+  if (url.origin === self.location.origin && request.destination === 'document') {
     return getFallbackDocument(url)
   }
 

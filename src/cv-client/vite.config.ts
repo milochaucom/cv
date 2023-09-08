@@ -36,17 +36,11 @@ export default defineConfig({
       srcDir: 'src',
       filename: 'service-worker.js',
       strategies: 'injectManifest',
-      includeAssets: [
-        'favicon.ico',
-      ],
       injectManifest: {
-          globIgnores: ['**/*.html'], // To ignore the generated _fallback.html
-          additionalManifestEntries: [
-            { url: '/_fallback.html', revision: Date.now().toString(16) }, // To ensure that it is the latest copy of index.html
-          ],
-          dontCacheBustURLsMatching: /assets\/.+-[A-Za-z0-9]{8}\.(js|css|png)$/, // To reduce bandwidth consumed by precaching with assets uniquely versioned via their URL
-          maximumFileSizeToCacheInBytes: 24 * 1024 ** 2, // To avoid precaching too large files
+        globPatterns: ['**/*.{js,css,html,ico,png}'],
+        maximumFileSizeToCacheInBytes: 24 * 1024 ** 2, // 24 MB - To avoid precaching too large files
       },
+      includeManifestIcons: false,
       manifest: {
         name: 'Milochau - CV',
         description: 'Antoine Milochau CV',
@@ -79,9 +73,6 @@ export default defineConfig({
       },
       devOptions: {
         enabled: true
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png}']
       },
     }),
     {
