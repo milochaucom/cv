@@ -8,8 +8,13 @@ import { setDefaultResultOrder } from 'dns'
 import { VitePWA } from 'vite-plugin-pwa'
 import path from 'upath'
 import fs from 'fs'
+import { execSync } from 'child_process'
 
 setDefaultResultOrder('verbatim')
+
+process.env.VITE_BUILD_DATE = new Date().toISOString()
+process.env.VITE_COMMIT_SHA = execSync('git rev-parse --short HEAD').toString()
+process.env.VITE_COMMIT_DATE = execSync('git log -1 --format=%cI').toString()
 
 export default defineConfig({
   plugins: [
