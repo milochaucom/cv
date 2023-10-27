@@ -12,9 +12,9 @@ import { execSync } from 'child_process'
 
 setDefaultResultOrder('verbatim')
 
-process.env.VITE_BUILD_DATE = new Date().toISOString()
-process.env.VITE_COMMIT_SHA = execSync('git rev-parse --short HEAD').toString()
-process.env.VITE_COMMIT_DATE = execSync('git log -1 --format=%cI').toString()
+var buildDate = new Date().toISOString()
+var commitSha = execSync('git rev-parse --short HEAD').toString().split('\n')[0]
+var commitDate = execSync('git log -1 --format=%cI').toString().split('\n')[0]
 
 export default defineConfig({
   plugins: [
@@ -80,6 +80,15 @@ export default defineConfig({
         enabled: true
       },
     }),
+    {
+      name: 'amilochau:build-options',
+      transformIndexHtml (html) {
+        return html.replace(
+          /window.buildData = null;/,
+          `window.buildData = { buildDate: "${buildDate}", commitSha: "${commitSha}", commitDate: "${commitDate}" };`,
+        )
+      }
+    },
     {
       name: 'amilochau:fallback',
       enforce: 'post',
