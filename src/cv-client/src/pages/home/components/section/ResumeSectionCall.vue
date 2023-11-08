@@ -38,7 +38,7 @@
           </v-list-item>
           <v-list-item
             :title="expanded ? t('reduce') : t('expand')"
-            @click="expanded ? emits('reduce') : emits('expand')">
+            @click="expanded ? emit('reduce') : emit('expand')">
             <template #prepend>
               <v-icon
                 :icon="expanded ? mdiUnfoldLessHorizontal : mdiUnfoldMoreHorizontal"
@@ -67,20 +67,18 @@ import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHori
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia'
 
-const { formatIcon } = useIcons()
-const { t, d, mergeDateTimeFormat } = useI18n()
-const pwaStore = usePwaStore()
-const { updateDisplay } = storeToRefs(pwaStore)
-
 defineProps<{
   call: IResumeCall,
   expanded: boolean,
 }>()
-
-const emits = defineEmits<{
+const emit = defineEmits<{
   (eventName: 'expand'): void,
   (eventName: 'reduce'): void,
 }>()
+const { formatIcon } = useIcons()
+const { t, d, mergeDateTimeFormat } = useI18n()
+const pwaStore = usePwaStore()
+const { updateDisplay } = storeToRefs(pwaStore)
 
 mergeDateTimeFormat('en', {
   datetime: {

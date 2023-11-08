@@ -6,7 +6,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amilochau/aws-cv"
+    "url": "git+https://github.com/amilochau/aws-cv.git",
+    "directory": "src/cv-client"
   },
   "homepage": "https://github.com/amilochau/aws-cv#readme",
   "bugs": {
@@ -25,26 +26,6 @@
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore --fix"
   },
   "dependencies": {
-    "@amilochau/core-vue3": "^0.8.0-beta.12"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "plugin:vue/vue3-recommended"
-    ],
-    "parser": "vue-eslint-parser",
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser",
-      "sourceType": "module"
-    },
-    "rules": {
-      "vue/html-closing-bracket-newline": [
-        "error",
-        {
-          "singleline": "never",
-          "multiline": "never"
-        }
-      ]
-    }
+    "@amilochau/core-vue3": "^0.8.0-beta.14"
   }
 }

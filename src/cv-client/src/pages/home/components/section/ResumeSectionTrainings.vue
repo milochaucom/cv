@@ -15,7 +15,7 @@
         :title="training.title"
         :subtitle="training.subtitle"
         target="_blank"
-        rel="noopener">
+        rel="noopener noreferrer">
         <template #prepend>
           <v-icon
             v-if="training.icon"
@@ -51,7 +51,7 @@
         :prepend-icon="formatIcon(training.icon?.mdi)"
         :href="training.href"
         target="_blank"
-        rel="noopener">
+        rel="noopener noreferrer">
         <template #prepend>
           <v-icon
             v-if="training.icon"

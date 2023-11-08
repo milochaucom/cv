@@ -21,30 +21,16 @@ jobs:
     name: Build (IaC)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build and test projects
-        uses: amilochau/github-actions/build/terraform@v3
+        uses: amilochau/github-actions/build/terraform@v4
    
   build_client:
     name: Build (Client)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Build project
+        uses: amilochau/github-actions/build/node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: "${{ env.PROJECT_CLIENT_WORKSPACE }}/package-lock.json"
-      - name: Install packages
-        shell: pwsh
-        run: npm ci
-        working-directory: ${{ env.PROJECT_CLIENT_WORKSPACE }}
-      - name: Run linter
-        shell: pwsh
-        run: npm run lint
-        working-directory: ${{ env.PROJECT_CLIENT_WORKSPACE }}
-      - name: Build application
-        shell: pwsh
-        run: npm run build
-        working-directory: ${{ env.PROJECT_CLIENT_WORKSPACE }}
+          projectWorkspace: ${{ env.PROJECT_CLIENT_WORKSPACE }}

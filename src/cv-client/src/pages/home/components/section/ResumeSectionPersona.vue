@@ -10,7 +10,7 @@
           max-width="600px"
           min-height="400px">
           <template #activator="{ props: dialogProps }">
-            <VAvatar
+            <v-avatar
               v-bind="dialogProps"
               :image="thumbnail"
               class="cursor-pointer"

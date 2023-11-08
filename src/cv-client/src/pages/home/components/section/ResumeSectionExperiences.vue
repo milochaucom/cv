@@ -52,7 +52,7 @@
         :prepend-icon="mdiMapMarkerOutline"
         :href="experience.placeUri"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         label
         variant="outlined"
         class="chip-border-grey mr-1 mb-1 p-chip-text">

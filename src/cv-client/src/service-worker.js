@@ -1,7 +1,7 @@
 // Imports
 import { cleanupOutdatedCaches, matchPrecache, precacheAndRoute } from 'workbox-precaching'
 import { registerRoute, setCatchHandler, setDefaultHandler } from 'workbox-routing'
-import { NetworkFirst, NetworkOnly, CacheFirst } from 'workbox-strategies'
+import { CacheFirst, NetworkFirst, NetworkOnly } from 'workbox-strategies'
 import { ExpirationPlugin } from 'workbox-expiration'
 
 const MANIFEST = self.__WB_MANIFEST

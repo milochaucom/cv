@@ -22,7 +22,7 @@
           :href="project.href"
           :class="{ 'd-print-none': category.removeFromPrint }"
           target="_blank"
-          rel="noopener">
+          rel="noopener noreferrer">
           <template #append>
             <v-chip
               v-if="project.badge"

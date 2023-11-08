@@ -61,11 +61,10 @@ import ResumeSectionTrainings from './components/section/ResumeSectionTrainings.
 import ResumeSectionMetrics from './components/section/ResumeSectionMetrics.vue';
 import ResumeSectionProjects from './components/section/ResumeSectionProjects.vue';
 import ResumeSectionExperiences from './components/section/ResumeSectionExperiences.vue';
-import { computed, ref, type ComputedRef } from 'vue';
+import { type ComputedRef, computed, ref, watch } from 'vue';
 import resume from '@/data/resume'
 import type { IResume } from '@/types/resume';
 import { useRoute } from 'vue-router';
-import { watch } from 'vue';
 import { usePage } from '@amilochau/core-vue3/composition';
 import { useI18n } from 'vue-i18n';
 
@@ -104,86 +103,86 @@ const changeSelectedTopic = (topic: string) => {
 }
 
 const getStructuredData = () => {
-    const structuredData: any = {
-      '@context': 'https://schema.org/',
-      '@type': 'Person',
+  const structuredData: any = {
+    '@context': 'https://schema.org/',
+    '@type': 'Person',
+  }
+
+  // Persona
+  structuredData.name = currentResume.value.persona.name
+
+  if (currentResume.value.persona.firstName) {
+    structuredData.givenName = currentResume.value.persona.firstName
+  }
+
+  if (currentResume.value.persona.lastName) {
+    structuredData.familyName = currentResume.value.persona.lastName
+  }
+
+  if (currentResume.value.persona.job) {
+    structuredData.jobTitle = currentResume.value.persona.job
+  }
+
+  if (currentResume.value.persona.nationality) {
+    structuredData.nationality = {
+      '@type': 'Country',
+      name: currentResume.value.persona.nationality,
     }
+  }
 
-    // Persona
-    structuredData.name = currentResume.value.persona.name
-
-    if (currentResume.value.persona.firstName) {
-      structuredData.givenName = currentResume.value.persona.firstName
+  if (currentResume.value.persona.contact) {
+    structuredData.contactPoint = {
+      '@type': 'ContactPoint',
+      name: currentResume.value.persona?.contact?.text,
+      url: currentResume.value.persona?.contact?.url,
     }
+  }
 
-    if (currentResume.value.persona.lastName) {
-      structuredData.familyName = currentResume.value.persona.lastName
+  if (currentResume.value.persona.location) {
+    structuredData.homeLocation = {
+      '@type': 'Place',
+      name: currentResume.value.persona.location,
     }
+  }
 
-    if (currentResume.value.persona.job) {
-      structuredData.jobTitle = currentResume.value.persona.job
-    }
-
-    if (currentResume.value.persona.nationality) {
-      structuredData.nationality = {
-        '@type': 'Country',
-        name: currentResume.value.persona.nationality,
+  // Trainings
+  if (currentResume.value.trainings) {
+    if (currentResume.value.trainings.alumni) {
+      structuredData.alumniOf = {
+        '@type': 'EducationalOrganization',
+        name: currentResume.value.trainings.alumni,
       }
     }
 
-    if (currentResume.value.persona.contact) {
-      structuredData.contactPoint = {
-        '@type': 'ContactPoint',
-        name: currentResume.value.persona?.contact?.text,
-        url: currentResume.value.persona?.contact?.url,
-      }
+    if (currentResume.value.trainings.languages?.length) {
+      structuredData.knowsLanguage = currentResume.value.trainings.languages
+    }
+  }
+
+  // Experiences
+  if (currentResume.value.experiences.items.length) {
+    structuredData.worksFor = {
+      '@type': 'Corporation',
+      name: currentResume.value.experiences.items[0].company,
     }
 
-    if (currentResume.value.persona.location) {
-      structuredData.homeLocation = {
-        '@type': 'Place',
-        name: currentResume.value.persona.location,
-      }
-    }
-
-    // Trainings
-    if (currentResume.value.trainings) {
-      if (currentResume.value.trainings.alumni) {
-        structuredData.alumniOf = {
-          '@type': 'EducationalOrganization',
-          name: currentResume.value.trainings.alumni,
-        }
+    structuredData.hasOccupation = []
+    currentResume.value.experiences.items.forEach(experience => {
+      const occupation: any = {
+        '@type': 'Role',
+        roleName: experience.title,
+        startDate: experience.startDate,
       }
 
-      if (currentResume.value.trainings.languages?.length) {
-        structuredData.knowsLanguage = currentResume.value.trainings.languages
-      }
-    }
-
-    // Experiences
-    if (currentResume.value.experiences.items.length) {
-      structuredData.worksFor = {
-        '@type': 'Corporation',
-        name: currentResume.value.experiences.items[0].company,
+      if (experience.endDate) {
+        occupation.endDate = experience.endDate
       }
 
-      structuredData.hasOccupation = []
-      currentResume.value.experiences.items.forEach(experience => {
-        const occupation: any = {
-          '@type': 'Role',
-          roleName: experience.title,
-          startDate: experience.startDate,
-        }
+      structuredData.hasOccupation.push(occupation)
+    })
+  }
 
-        if (experience.endDate) {
-          occupation.endDate = experience.endDate
-        }
-
-        structuredData.hasOccupation.push(occupation)
-      })
-    }
-
-    return structuredData
+  return structuredData
 }
 
 const setStructuredData = () => {

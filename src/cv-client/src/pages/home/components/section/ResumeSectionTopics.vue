@@ -16,7 +16,7 @@
         label
         class="mr-1 mb-1 pa-1 chip-tile"
         size="small"
-        @click="emits('changeSelectedTopic', topic.key)">
+        @click="emit('changeSelectedTopic', topic.key)">
         {{ topic.title }}
       </v-chip>
     </v-card-text>
@@ -33,7 +33,7 @@ defineProps<{
   selectedTopic: string,
 }>()
 
-const emits = defineEmits<{
+const emit = defineEmits<{
   (eventName: 'changeSelectedTopic', topicKey: string): void
 }>()
 
