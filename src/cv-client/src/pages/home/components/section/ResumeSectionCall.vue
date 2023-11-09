@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIcons } from '@/data/icons';
+import { useFormatIcons } from '@/data/format';
 import type { IResumeCall } from '@/types/resume';
 import { usePwaStore } from '@amilochau/core-vue3/stores';
 import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal, mdiUpdate } from '@mdi/js';
@@ -75,7 +75,7 @@ const emit = defineEmits<{
   (eventName: 'expand'): void,
   (eventName: 'reduce'): void,
 }>()
-const { formatIcon } = useIcons()
+const { formatIcon } = useFormatIcons()
 const { t, d, mergeDateTimeFormat } = useI18n()
 const pwaStore = usePwaStore()
 const { updateDisplay } = storeToRefs(pwaStore)

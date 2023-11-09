@@ -64,10 +64,9 @@
 </template>
 
 <script setup lang="ts">
-import { useIcons } from '@/data/icons';
+import { useFormatIcons } from '@/data/format';
 import type { IResumeTrainings } from '@/types/resume';
 import { mdiCalendarRangeOutline, mdiSchool } from '@mdi/js';
-import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 defineProps<{
@@ -75,7 +74,7 @@ defineProps<{
 }>()
 
 const { t } = useI18n()
-const { formatIcon } = useIcons()
+const { formatIcon } = useFormatIcons()
 </script>
 
 <i18n lang="yaml">

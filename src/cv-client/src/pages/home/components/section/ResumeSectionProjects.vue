@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIcons } from '@/data/icons';
+import { useFormatIcons } from '@/data/format';
 import type { IResumeProjects, IResumeTopicItem } from '@/types/resume';
 import { mdiProjector } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
@@ -66,7 +66,7 @@ defineProps<{
 }>()
 
 const { t } = useI18n()
-const { formatIcon } = useIcons()
+const { formatIcon } = useFormatIcons()
 </script>
 
 <i18n lang="yaml">
