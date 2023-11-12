@@ -179,7 +179,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIcons } from '@/data/icons';
+import { useFormatIcons } from '@/data/format';
 import type { IResumeChange, IResumeExperiences, IResumeTopicItem } from '@/types/resume';
 import { mdiBriefcase, mdiBriefcaseSearch, mdiCalendarCheck, mdiCalendarRangeOutline, mdiClose, mdiFire, mdiFlask, mdiLock, mdiLockOpen, mdiMapMarkerOutline, mdiProgressClose, mdiRunFast } from '@mdi/js';
 import { computed, ref } from 'vue';
@@ -194,7 +194,7 @@ const props = defineProps<{
 }>()
 
 const { t, d, mergeDateTimeFormat, n, mergeNumberFormat } = useI18n()
-const { formatIcon } = useIcons()
+const { formatIcon } = useFormatIcons()
 
 mergeDateTimeFormat('en', {
   month: {
