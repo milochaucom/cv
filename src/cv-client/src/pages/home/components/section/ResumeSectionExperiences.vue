@@ -71,9 +71,9 @@
         :key="j"
         :value="j"
         class="p-avoid-break-inside">
-        <template #activator="group">
+        <template #activator="{ props: group }">
           <v-list-item
-            v-bind="group.props"
+            v-bind="group"
             :prepend-icon="formatIcon(mission.icon.mdi)"
             class="font-weight-medium">
             {{ mission.title }}
