@@ -63,10 +63,10 @@ defineProps<{
   topicItems?: IResumeTopicItem[],
   expanded: boolean,
   selectedTopic: string,
-}>()
+}>();
 
-const { t } = useI18n()
-const { formatIcon } = useFormatIcons()
+const { t } = useI18n();
+const { formatIcon } = useFormatIcons();
 </script>
 
 <i18n lang="yaml">

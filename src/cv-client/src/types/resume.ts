@@ -1,4 +1,4 @@
-import type { IIcon, IListItem } from "./list"
+import type { IIcon, IListItem } from './list';
 
 export interface IResumeCall {
   icon?: IIcon
