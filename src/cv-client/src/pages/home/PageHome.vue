@@ -62,13 +62,13 @@ import ResumeSectionMetrics from './components/section/ResumeSectionMetrics.vue'
 import ResumeSectionProjects from './components/section/ResumeSectionProjects.vue';
 import ResumeSectionExperiences from './components/section/ResumeSectionExperiences.vue';
 import { type ComputedRef, computed, ref, watch } from 'vue';
-import resume from '@/data/resume'
+import resume from '@/data/resume';
 import type { IResume } from '@/types/resume';
 import { useRoute } from 'vue-router';
 import { usePage } from '@amilochau/core-vue3/composition';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n()
+const { t } = useI18n();
 usePage(computed(() => ({
   title: t('pageTitle'),
   description: t('pageDescription'),
@@ -76,58 +76,58 @@ usePage(computed(() => ({
     items: [
       {
         title: 'Source code',
-        link: 'https://github.com/amilochau/aws-landing'
-      }
-    ]
+        link: 'https://github.com/amilochau/aws-landing',
+      },
+    ],
   },
-})))
-const route = useRoute()
+})));
+const route = useRoute();
 
-const expanded = ref(true)
-const selectedTopic = ref('')
+const expanded = ref(true);
+const selectedTopic = ref('');
 
 const currentResume: ComputedRef<IResume> = computed(() => {
   if (route.params.lang === 'fr') {
-    return resume['fr']
+    return resume['fr'];
   } else {
-    return resume['en']
+    return resume['en'];
   }
-})
+});
 
 const changeSelectedTopic = (topic: string) => {
   if (topic && selectedTopic.value !== topic) {
-    selectedTopic.value = topic
+    selectedTopic.value = topic;
   } else {
-    selectedTopic.value = ''
+    selectedTopic.value = '';
   }
-}
+};
 
 const getStructuredData = () => {
   const structuredData: any = {
     '@context': 'https://schema.org/',
     '@type': 'Person',
-  }
+  };
 
   // Persona
-  structuredData.name = currentResume.value.persona.name
+  structuredData.name = currentResume.value.persona.name;
 
   if (currentResume.value.persona.firstName) {
-    structuredData.givenName = currentResume.value.persona.firstName
+    structuredData.givenName = currentResume.value.persona.firstName;
   }
 
   if (currentResume.value.persona.lastName) {
-    structuredData.familyName = currentResume.value.persona.lastName
+    structuredData.familyName = currentResume.value.persona.lastName;
   }
 
   if (currentResume.value.persona.job) {
-    structuredData.jobTitle = currentResume.value.persona.job
+    structuredData.jobTitle = currentResume.value.persona.job;
   }
 
   if (currentResume.value.persona.nationality) {
     structuredData.nationality = {
       '@type': 'Country',
       name: currentResume.value.persona.nationality,
-    }
+    };
   }
 
   if (currentResume.value.persona.contact) {
@@ -135,14 +135,14 @@ const getStructuredData = () => {
       '@type': 'ContactPoint',
       name: currentResume.value.persona?.contact?.text,
       url: currentResume.value.persona?.contact?.url,
-    }
+    };
   }
 
   if (currentResume.value.persona.location) {
     structuredData.homeLocation = {
       '@type': 'Place',
       name: currentResume.value.persona.location,
-    }
+    };
   }
 
   // Trainings
@@ -151,11 +151,11 @@ const getStructuredData = () => {
       structuredData.alumniOf = {
         '@type': 'EducationalOrganization',
         name: currentResume.value.trainings.alumni,
-      }
+      };
     }
 
     if (currentResume.value.trainings.languages?.length) {
-      structuredData.knowsLanguage = currentResume.value.trainings.languages
+      structuredData.knowsLanguage = currentResume.value.trainings.languages;
     }
   }
 
@@ -164,44 +164,44 @@ const getStructuredData = () => {
     structuredData.worksFor = {
       '@type': 'Corporation',
       name: currentResume.value.experiences.items[0].company,
-    }
+    };
 
-    structuredData.hasOccupation = []
+    structuredData.hasOccupation = [];
     currentResume.value.experiences.items.forEach(experience => {
       const occupation: any = {
         '@type': 'Role',
         roleName: experience.title,
         startDate: experience.startDate,
-      }
+      };
 
       if (experience.endDate) {
-        occupation.endDate = experience.endDate
+        occupation.endDate = experience.endDate;
       }
 
-      structuredData.hasOccupation.push(occupation)
-    })
+      structuredData.hasOccupation.push(occupation);
+    });
   }
 
-  return structuredData
-}
+  return structuredData;
+};
 
 const setStructuredData = () => {
-  const structuredDataAsJson = JSON.stringify(getStructuredData())
-  const structureDataScripts = Array.prototype.slice.call(document.scripts).filter(x => x.type === 'application/ld+json')
+  const structuredDataAsJson = JSON.stringify(getStructuredData());
+  const structureDataScripts = Array.prototype.slice.call(document.scripts).filter(x => x.type === 'application/ld+json');
 
   if (!structureDataScripts.length) {
-    const script = document.createElement('script')
-    script.setAttribute('type', 'application/ld+json')
-    script.textContent = structuredDataAsJson
-    document.head.appendChild(script)
+    const script = document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.textContent = structuredDataAsJson;
+    document.head.appendChild(script);
   } else {
-    const script = structureDataScripts[0]
-    script.textContent = structuredDataAsJson
+    const script = structureDataScripts[0];
+    script.textContent = structuredDataAsJson;
   }
-}
+};
 
-setStructuredData()
-watch(() => route, () => setStructuredData())
+setStructuredData();
+watch(() => route, () => setStructuredData());
 </script>
 
 <i18n lang="yaml">

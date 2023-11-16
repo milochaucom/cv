@@ -29,9 +29,9 @@ import { useI18n } from 'vue-i18n';
 
 defineProps<{
   metrics: IResumeMetrics,
-}>()
+}>();
 
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <i18n lang="yaml">

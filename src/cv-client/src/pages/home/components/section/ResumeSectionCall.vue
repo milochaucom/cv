@@ -65,35 +65,35 @@ import type { IResumeCall } from '@/types/resume';
 import { usePwaStore } from '@amilochau/core-vue3/stores';
 import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal, mdiUpdate } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
-import { storeToRefs } from 'pinia'
+import { storeToRefs } from 'pinia';
 
 defineProps<{
   call: IResumeCall,
   expanded: boolean,
-}>()
+}>();
 const emit = defineEmits<{
   (eventName: 'expand'): void,
   (eventName: 'reduce'): void,
-}>()
-const { formatIcon } = useFormatIcons()
-const { t, d, mergeDateTimeFormat } = useI18n()
-const pwaStore = usePwaStore()
-const { updateDisplay } = storeToRefs(pwaStore)
+}>();
+const { formatIcon } = useFormatIcons();
+const { t, d, mergeDateTimeFormat } = useI18n();
+const pwaStore = usePwaStore();
+const { updateDisplay } = storeToRefs(pwaStore);
 
 mergeDateTimeFormat('en', {
   datetime: {
-    year: 'numeric', month: 'numeric', day: 'numeric'
+    year: 'numeric', month: 'numeric', day: 'numeric',
   },
-})
+});
 mergeDateTimeFormat('fr', {
   datetime: {
-    year: 'numeric', month: 'numeric', day: 'numeric'
+    year: 'numeric', month: 'numeric', day: 'numeric',
   },
-})
+});
 
 const print = () => {
-  window.print()
-}
+  window.print();
+};
 </script>
 
 <i18n lang="yaml">

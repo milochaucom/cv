@@ -71,9 +71,9 @@
         :key="j"
         :value="j"
         class="p-avoid-break-inside">
-        <template #activator="group">
+        <template #activator="{ props: group }">
           <v-list-item
-            v-bind="group.props"
+            v-bind="group"
             :prepend-icon="formatIcon(mission.icon.mdi)"
             class="font-weight-medium">
             {{ mission.title }}
@@ -191,56 +191,56 @@ const props = defineProps<{
   change?: IResumeChange,
   expanded: boolean,
   selectedTopic: string,
-}>()
+}>();
 
-const { t, d, mergeDateTimeFormat, n, mergeNumberFormat } = useI18n()
-const { formatIcon } = useFormatIcons()
+const { t, d, mergeDateTimeFormat, n, mergeNumberFormat } = useI18n();
+const { formatIcon } = useFormatIcons();
 
 mergeDateTimeFormat('en', {
   month: {
-    year: 'numeric', month: 'short'
+    year: 'numeric', month: 'short',
   },
   short: {
-    year: 'numeric', month: 'long', day: 'numeric'
+    year: 'numeric', month: 'long', day: 'numeric',
   },
-})
+});
 mergeDateTimeFormat('fr', {
   month: {
-    year: 'numeric', month: 'short'
+    year: 'numeric', month: 'short',
   },
   short: {
-    year: 'numeric', month: 'long', day: 'numeric'
+    year: 'numeric', month: 'long', day: 'numeric',
   },
-})
+});
 mergeNumberFormat('en', {
   percent: {
-    style: 'percent'
-  }
-})
+    style: 'percent',
+  },
+});
 mergeNumberFormat('fr', {
   percent: {
-    style: 'percent'
-  }
-})
+    style: 'percent',
+  },
+});
 
-const changeDialog = ref(false)
+const changeDialog = ref(false);
 const changeStartFrom = computed(() => {
-  const nowDate = new Date()
+  const nowDate = new Date();
   if (!props.change || !props.change.noticePeriodInDays) {
-    return nowDate
+    return nowDate;
   }
 
   const startFrom = props.change.noticePeriodBufferInDays
     ? props.change.noticePeriodInDays + props.change.noticePeriodBufferInDays
-    : props.change.noticePeriodInDays
+    : props.change.noticePeriodInDays;
 
-  const startFromDate = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDay() + startFrom)
+  const startFromDate = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDay() + startFrom);
   if (props.change.isDepartureEndOfMonth) {
-    return new Date(startFromDate.getFullYear(), startFromDate.getMonth() + 1, 1)
+    return new Date(startFromDate.getFullYear(), startFromDate.getMonth() + 1, 1);
   } else {
-    return startFromDate
+    return startFromDate;
   }
-})
+});
 </script>
 
 <i18n lang="yaml">

@@ -71,10 +71,10 @@ import { useI18n } from 'vue-i18n';
 
 defineProps<{
   trainings: IResumeTrainings,
-}>()
+}>();
 
-const { t } = useI18n()
-const { formatIcon } = useFormatIcons()
+const { t } = useI18n();
+const { formatIcon } = useFormatIcons();
 </script>
 
 <i18n lang="yaml">

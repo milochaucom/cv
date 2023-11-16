@@ -3,25 +3,21 @@ enum LogStyle {
   Header = 1,
 }
 
-const logTrace = (message: string, logStyle: LogStyle = LogStyle.None) => {
-  const style = getStyle(logStyle)
-  console.trace(`%c${message}`, style)
-}
-
 const logInformation = (message: string, logStyle: LogStyle = LogStyle.None) => {
-  const style = getStyle(logStyle)
-  console.info(`%c${message}`, style)
-}
+  const style = getStyle(logStyle);
+  // eslint-disable-next-line no-console
+  console.info(`%c${message}`, style);
+};
 
 const logWarning = (message: string, logStyle: LogStyle = LogStyle.None) => {
-  const style = getStyle(logStyle)
-  console.warn(`%c${message}`, style)
-}
+  const style = getStyle(logStyle);
+  console.warn(`%c${message}`, style);
+};
 
 const logError = (message: string, logStyle: LogStyle = LogStyle.None) => {
-  const style = getStyle(logStyle)
-  console.error(`%c${message}`, style)
-}
+  const style = getStyle(logStyle);
+  console.error(`%c${message}`, style);
+};
 
 const getStyle = (logStyle: LogStyle) => {
   switch (logStyle) {
@@ -32,7 +28,7 @@ const getStyle = (logStyle: LogStyle) => {
       'padding: 2px 4px',
       'border-radius: 5px',
       'font-weight: bold',
-    ].join(';')
+    ].join(';');
   case LogStyle.None:
   default:
     return [
@@ -40,14 +36,13 @@ const getStyle = (logStyle: LogStyle) => {
       'background-color: #FFF',
       'padding: 2px 4px',
       'border-radius: 5px',
-    ].join(';')
+    ].join(';');
   }
-}
+};
 
 export {
   LogStyle,
-  logTrace,
   logInformation,
   logWarning,
   logError,
-}
+};

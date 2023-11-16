@@ -31,13 +31,13 @@ import { useI18n } from 'vue-i18n';
 defineProps<{
   topics: IResumeTopics,
   selectedTopic: string,
-}>()
+}>();
 
 const emit = defineEmits<{
   (eventName: 'changeSelectedTopic', topicKey: string): void
-}>()
+}>();
 
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <i18n lang="yaml">

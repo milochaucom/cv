@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import thumbnail from '@/assets/resume/thumbnail.webp'
+import thumbnail from '@/assets/resume/thumbnail.webp';
 import { useFormatIcons } from '@/data/format';
 import type { IResumePersona } from '@/types/resume';
 import { mdiAccountBoxOutline, mdiClose } from '@mdi/js';
@@ -66,18 +66,18 @@ import { computed, ref } from 'vue';
 
 const props = defineProps<{
   persona: IResumePersona,
-}>()
+}>();
 
-const { formatIcon } = useFormatIcons()
+const { formatIcon } = useFormatIcons();
 
-const pictureDialog = ref(false)
+const pictureDialog = ref(false);
 const personaItems = computed(() => props.persona.actions?.map((x) => ({
   title: x.title.text,
   props: {
     prependIcon: formatIcon(x.icon.mdi),
     href: x.href,
-  }
-})))
+  },
+})));
 
-const dialog = ref(false)
+const dialog = ref(false);
 </script>
