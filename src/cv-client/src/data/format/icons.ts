@@ -1,7 +1,7 @@
 import { mdiAccountAlert, mdiAccountGroup, mdiAccountHardHat, mdiAccountVoice, mdiAccountWrench, mdiBookMultipleOutline, mdiCalculatorVariant, mdiCardAccountDetailsOutline, mdiChartGantt, mdiChartLine, mdiCircle, mdiCompass, mdiDotNet, mdiFloorPlan, mdiGithub, mdiHandshake, mdiHelpNetwork, mdiHumanGreeting, mdiLifebuoy, mdiLinkedin, mdiMapMarkerDistance, mdiMapMarkerOutline, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiSitemapOutline, mdiTelevisionAmbientLight, mdiTerraform, mdiTownHall } from '@mdi/js';
 import { ref } from 'vue';
 
-export function useFormatIcons() {
+export const useFormatIcons = () => {
 
   const icons = ref<Record<string, string>>({
     'human-greeting': mdiHumanGreeting,
@@ -38,4 +38,4 @@ export function useFormatIcons() {
     icons,
     formatIcon: (value?: string): string => icons.value[value ?? 'notSet'],
   };
-}
+};
