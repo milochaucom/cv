@@ -96,6 +96,7 @@ rules:
   vue/space-infix-ops: error
   # ===== ESLint rules - https://eslint.org/docs/latest/rules/
   eqeqeq: error
+  func-style: error
   no-console:
     - error
     - allow:

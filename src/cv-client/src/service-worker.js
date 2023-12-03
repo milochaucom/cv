@@ -76,11 +76,11 @@ self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
 
-function getFallbackDocument (url) {
+const getFallbackDocument = (url) => {
   return matchPrecache('/_fallback.html');
-}
+};
 
-async function cleanCache (manifest) {
+const cleanCache = async (manifest) => {
   const precache = await openCache('precache');
 
   const responses = await Promise.all(
@@ -102,18 +102,18 @@ async function cleanCache (manifest) {
       }
     }
   }
-}
+};
 
-async function openCache (name) {
+const openCache = async (name) => {
   const precache = (await caches.keys()).find(k => k.includes(self.registration.scope) && k.includes(`-${name}-`));
 
   if (!precache) return;
 
   return caches.open(precache);
-}
+};
 
-function getDate (response) {
+const getDate = (response) => {
   const date = new Date(Object.fromEntries(response.headers).date);
   date.setMinutes(0, 0, 0);
   return date.getTime();
-}
+};
