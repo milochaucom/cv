@@ -77,6 +77,7 @@ export interface IResumeExperienceItem {
   placeUri?: string
   startDate: string
   endDate?: string
+  lang?: string
   missions?: IResumeExperienceMissionItem[];
   tags?: IResumeTag[]
 }

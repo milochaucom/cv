@@ -40,6 +40,7 @@
       <v-chip
         v-if="!experience.endDate"
         :prepend-icon="mdiFire"
+        :title="t('date')"
         label
         variant="outlined"
         class="mr-1 mb-1 d-print-none"
@@ -51,12 +52,22 @@
         v-if="experience.place"
         :prepend-icon="mdiMapMarkerOutline"
         :href="experience.placeUri"
+        :title="t('place')"
         target="_blank"
         rel="noopener noreferrer"
         label
         variant="outlined"
         class="chip-border-grey mr-1 mb-1 p-chip-text">
         {{ experience.place }}
+      </v-chip>
+      <v-chip
+        v-if="experience.lang"
+        :prepend-icon="mdiAccountTieVoiceOutline"
+        :title="t('lang')"
+        label
+        variant="outlined"
+        class="chip-border-grey mr-1 mb-1 p-chip-text">
+        {{ experience.lang }}
       </v-chip>
     </v-card-text>
     <v-card-text
@@ -181,7 +192,7 @@
 <script setup lang="ts">
 import { useFormatIcons } from '@/data/format';
 import type { IResumeChange, IResumeExperiences, IResumeTopicItem } from '@/types/resume';
-import { mdiBriefcase, mdiBriefcaseSearch, mdiCalendarCheck, mdiCalendarRangeOutline, mdiClose, mdiFire, mdiFlask, mdiLock, mdiLockOpen, mdiMapMarkerOutline, mdiProgressClose, mdiRunFast } from '@mdi/js';
+import { mdiAccountTieVoiceOutline, mdiBriefcase, mdiBriefcaseSearch, mdiCalendarCheck, mdiCalendarRangeOutline, mdiClose, mdiFire, mdiFlask, mdiLock, mdiLockOpen, mdiMapMarkerOutline, mdiProgressClose, mdiRunFast } from '@mdi/js';
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -248,6 +259,9 @@ en:
   title: Experiences
   now: Now
   current: Current
+  date: Working period
+  place: Working place
+  lang: Working language
   change:
     title: Change is coming...
     status: Current situation
@@ -267,6 +281,9 @@ fr:
   title: Expériences
   now: Maintenant
   current: En cours
+  date: Période de travail
+  place: Lieu de travail
+  lang: Langue de travail
   change:
     title: Change is coming...
     status: Situation actuelle

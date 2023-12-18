@@ -198,6 +198,7 @@
         "place": "Paris, FR",
         "placeUrl": "https://www.google.com/maps/place/14+Rue+Gerty+Archim%C3%A8de,+75012+Paris/@48.8359403,2.3859098,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6726ab0131eaf:0xf4379e8e2dd5042f!8m2!3d48.8359403!4d2.3884847!16s%2Fg%2F11g6nh9xcc",
         "startDate": "2022-08-29",
+        "lang": "English",
         "missions": [
           {
             "title": "Cloud architecture",
@@ -225,7 +226,7 @@
                 "title": "Definition of a deployment strategy for infrastructure, synchronized with application development lifecycle"
               },
               {
-                "title": "Design of fully secured workflows to help developers configure and deploy their own infrastructure (via AAD Federated Credentials, least privilege principle)"
+                "title": "Design of fully secured workflows to help developers configure and deploy their own infrastructure (via Azure Federated Credentials, least privilege principle)"
               },
               {
                 "title": "Creation of centralized, standardized, consistent modules for Infrastructure as Code and deployment workflows, as the base of an Internal Developer Platform (via GitHub Actions, Terraform)"
@@ -272,6 +273,7 @@
         "placeUri": "https://www.google.com/maps/place/4+Rue+Gustave+Flourens,+92150+Suresnes/@48.8713282,2.2251646,17z/data=!3m1!4b1!4m6!3m5!1s0x47e664d9099f5fc5:0x778d80ab9f1e3f89!8m2!3d48.8713283!4d2.229778!16s%2Fg%2F11h6yr6c47",
         "startDate": "2020-05-04",
         "endDate": "2022-08-26",
+        "lang": "French, English",
         "missions": [
           {
             "title": "Cloud Architecture & Automation",
@@ -364,6 +366,7 @@
         "placeUri": "https://www.google.com/maps/place/Monoprix+Online/@48.9114806,2.3075256,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fa859a7648f:0x9f092451007f953!8m2!3d48.9114745!4d2.3097094",
         "startDate": "2019-07-01",
         "endDate": "2020-04-30",
+        "lang": "French",
         "missions": [
           {
             "title":  "Technical referent of sarenza.com",
@@ -435,6 +438,7 @@
         "placeUri": "https://www.google.fr/maps/@48.3488588,2.6277793,6z/data=!3m1!4b1!4m3!11m2!2sR_OlZS53IfP_ZVzHz3WmXP5ApZKn9w!3e3",
         "startDate": "2011-12-05",
         "endDate": "2019-06-20",
+        "lang": "French, English, German",
         "missions": [
           {
             "title": "Industrial IT solutions architecture & Technical lead",
@@ -612,7 +616,7 @@
         "title": "Years of experience"
       },
       {
-        "number": 559,
+        "number": 665,
         "title": "Personal AWS resources"
       }
     ]
