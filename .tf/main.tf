@@ -6,7 +6,7 @@ terraform {
 
     workspace_key_prefix = "cv" # To adapt for new projects
     dynamodb_table       = "mil-management-shd-table-iac-locks"
-    
+
     assume_role = {
       role_arn = "arn:aws:iam::654654257484:role/administrator-access"
     }
@@ -22,7 +22,7 @@ terraform {
 }
 
 provider "aws" {
-  alias = "workloads"
+  alias  = "workloads"
   region = var.aws_provider_settings.region
 
   assume_role {
@@ -32,14 +32,14 @@ provider "aws" {
   default_tags {
     tags = {
       organization = var.conventions.organization_name
-      application = var.conventions.application_name
-      host        = var.conventions.host_name
+      application  = var.conventions.application_name
+      host         = var.conventions.host_name
     }
   }
 }
 
 provider "aws" {
-  alias = "workloads-us-east-1"
+  alias  = "workloads-us-east-1"
   region = "us-east-1"
 
   assume_role {
@@ -49,8 +49,8 @@ provider "aws" {
   default_tags {
     tags = {
       organization = var.conventions.organization_name
-      application = var.conventions.application_name
-      host        = var.conventions.host_name
+      application  = var.conventions.application_name
+      host         = var.conventions.host_name
     }
   }
 }
@@ -66,8 +66,8 @@ provider "aws" {
   default_tags {
     tags = {
       organization = var.conventions.organization_name
-      application = var.conventions.application_name
-      host        = var.conventions.host_name
+      application  = var.conventions.application_name
+      host         = var.conventions.host_name
     }
   }
 }
@@ -78,7 +78,7 @@ module "checks" {
 }
 
 module "client_app" {
-  source      = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=v1"
+  source      = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=main"
   conventions = var.conventions
 
   client_settings = {
@@ -88,8 +88,8 @@ module "client_app" {
   }
 
   providers = {
-    aws.infrastructure = aws.infrastructure
-    aws.workloads = aws.workloads
+    aws.infrastructure    = aws.infrastructure
+    aws.workloads         = aws.workloads
     aws.workloads-us-east = aws.workloads-us-east-1
   }
 }

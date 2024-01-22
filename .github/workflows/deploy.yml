@@ -12,7 +12,8 @@ concurrency: deploy
 env:
   INFRA_WORKSPACE_DEV: dev
   INFRA_WORKSPACE_PRD: prd
-  INFRA_AWS_ROLE: arn:aws:iam::266302224431:role/github-shd-role
+  INFRA_AWS_ROLE_DEV: arn:aws:iam::266302224431:role/mil-management-shd-role-github-milochaucom
+  INFRA_AWS_ROLE_PRD: arn:aws:iam::266302224431:role/mil-management-shd-role-github-milochaucom
   INFRA_AWS_REGION: eu-west-3
   PROJECT_CLIENT_WORKSPACE: './src/cv-client'
 
@@ -62,7 +63,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ env.INFRA_AWS_ROLE }}
+          role-to-assume: ${{ env.INFRA_AWS_ROLE_DEV }}
           aws-region: ${{ env.INFRA_AWS_REGION }}
 
       - name: Deploy Terraform module
@@ -91,7 +92,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ env.INFRA_AWS_ROLE }}
+          role-to-assume: ${{ env.INFRA_AWS_ROLE_PRD }}
           aws-region: ${{ env.INFRA_AWS_REGION }}
 
       - name: Deploy Terraform module
