@@ -1,11 +1,15 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-shd-bucket"
+    bucket = "mil-management-shd-bucket-iac"
     region = "eu-west-3"
     key    = "terraform.tfstate"
 
     workspace_key_prefix = "cv" # To adapt for new projects
-    dynamodb_table       = "terraform-shd-table-locks"
+    dynamodb_table       = "mil-management-shd-table-iac-locks"
+
+    assume_role = {
+      role_arn = "arn:aws:iam::654654257484:role/administrator-access"
+    }
   }
 
   required_providers {
@@ -18,29 +22,52 @@ terraform {
 }
 
 provider "aws" {
+  alias  = "workloads"
   region = var.aws_provider_settings.region
+
+  assume_role {
+    role_arn = var.assume_roles.workloads
+  }
 
   default_tags {
     tags = {
-      application = var.conventions.application_name
-      host        = var.conventions.host_name
+      organization = var.conventions.organization_name
+      application  = var.conventions.application_name
+      host         = var.conventions.host_name
     }
   }
 }
 
 provider "aws" {
-  alias  = "no-tags"
-  region = var.aws_provider_settings.region
-}
-
-provider "aws" {
-  alias  = "us-east-1"
+  alias  = "workloads-us-east-1"
   region = "us-east-1"
+
+  assume_role {
+    role_arn = var.assume_roles.workloads
+  }
 
   default_tags {
     tags = {
-      application = var.conventions.application_name
-      host        = var.conventions.host_name
+      organization = var.conventions.organization_name
+      application  = var.conventions.application_name
+      host         = var.conventions.host_name
+    }
+  }
+}
+
+provider "aws" {
+  alias  = "infrastructure"
+  region = "us-east-1"
+
+  assume_role {
+    role_arn = var.assume_roles.infrastructure
+  }
+
+  default_tags {
+    tags = {
+      organization = var.conventions.organization_name
+      application  = var.conventions.application_name
+      host         = var.conventions.host_name
     }
   }
 }
@@ -51,7 +78,7 @@ module "checks" {
 }
 
 module "client_app" {
-  source      = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=v1"
+  source      = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=main"
   conventions = var.conventions
 
   client_settings = {
@@ -61,7 +88,8 @@ module "client_app" {
   }
 
   providers = {
-    aws.no-tags   = aws.no-tags
-    aws.us-east-1 = aws.us-east-1
+    aws.infrastructure    = aws.infrastructure
+    aws.workloads         = aws.workloads
+    aws.workloads-us-east = aws.workloads-us-east-1
   }
 }

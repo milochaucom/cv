@@ -1,8 +1,17 @@
 variable "conventions" {
   description = "Conventions to use"
   type = object({
-    application_name = string
-    host_name        = string
+    organization_name = string
+    application_name  = string
+    host_name         = string
+  })
+}
+
+variable "assume_roles" {
+  description = "Roles to be assumed"
+  type = object({
+    infrastructure = string
+    workloads      = string
   })
 }
 
@@ -18,7 +27,7 @@ variable "client_settings" {
   description = "Client application settings"
   type = object({
     package_source_file   = string
-    s3_bucket_name_suffix = string
+    s3_bucket_name_suffix = optional(string, null)
     domains = optional(object({
       zone_name                 = string
       domain_name               = string
