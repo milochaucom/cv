@@ -1,7 +1,7 @@
 import { getCurrentEnvironment } from '@/utils/config';
 import { type MilochauCoreOptions } from '@amilochau/core-vue3/types';
 import routes from './routes';
-import { ref } from 'vue';
+import { computed } from 'vue';
 import logoUrl from '@/assets/logo.png';
 
 export enum Environment {
@@ -43,8 +43,8 @@ export const coreOptions: MilochauCoreOptions = {
     name: 'CV',
     contact: 'Antoine Milochau',
     logoUrl,
-    navigation: ref({
-      items: [],
+    navigation: () => ({
+      items: computed(() => ([])),
     }),
     isProduction: getCurrentEnvironment() === Environment.Production,
   },

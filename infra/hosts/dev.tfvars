@@ -1,4 +1,4 @@
-conventions = {
+context = {
   organization_name = "mil"
   application_name  = "cv"
   host_name         = "dev"

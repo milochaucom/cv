@@ -7,5 +7,6 @@
   "compilerOptions": {
     "composite": true,
     "types": ["node"],
+    "noEmit": false,
   }
 }

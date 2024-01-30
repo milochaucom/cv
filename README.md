@@ -32,8 +32,8 @@ The following files have to be adapted.
 | File | Adaptations needed | Comment |
 | ---- | ------------------ | ------- |
 | [CD - deploy settings](./.github/workflows/deploy.yml) | Change the `INFRA_AWS_ROLE`, `INFRA_AWS_REGION` settings |
-| [IaC - dev settings](./.tf/hosts/dev.tfvars) | Change the `conventions` and `domains` |
-| [IaC - prd settings](./.tf/hosts/prd.tfvars) | Change the `conventions` and `domains` |
+| [IaC - dev settings](./infra/hosts/dev.tfvars) | Change the `conventions` and `domains` |
+| [IaC - prd settings](./infra/hosts/prd.tfvars) | Change the `conventions` and `domains` |
 | [Resume content - en](./src/cv-client/src/data/resume/en.json) | Change the English-specific resume content |
 | [Resume content - fr](./src/cv-client/src/data/resume/fr.json) | Change the French-specific resume content |
 

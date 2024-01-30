@@ -36,7 +36,7 @@ jobs:
         with:
           projectWorkspace: ${{ env.PROJECT_CLIENT_WORKSPACE }}
       - name: Upload artifact (compressed)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-node-compressed
           path: ${{ env.PROJECT_CLIENT_WORKSPACE }}/dist
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download artifact (Client)
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-node-compressed
           path: ${{ env.PROJECT_CLIENT_WORKSPACE }}/dist
@@ -84,7 +84,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download artifact (Client)
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-node-compressed
           path: ${{ env.PROJECT_CLIENT_WORKSPACE }}/dist

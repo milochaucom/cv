@@ -31,9 +31,9 @@ provider "aws" {
 
   default_tags {
     tags = {
-      organization = var.conventions.organization_name
-      application  = var.conventions.application_name
-      host         = var.conventions.host_name
+      organization = var.context.organization_name
+      application  = var.context.application_name
+      host         = var.context.host_name
     }
   }
 }
@@ -48,9 +48,9 @@ provider "aws" {
 
   default_tags {
     tags = {
-      organization = var.conventions.organization_name
-      application  = var.conventions.application_name
-      host         = var.conventions.host_name
+      organization = var.context.organization_name
+      application  = var.context.application_name
+      host         = var.context.host_name
     }
   }
 }
@@ -65,21 +65,21 @@ provider "aws" {
 
   default_tags {
     tags = {
-      organization = var.conventions.organization_name
-      application  = var.conventions.application_name
-      host         = var.conventions.host_name
+      organization = var.context.organization_name
+      application  = var.context.application_name
+      host         = var.context.host_name
     }
   }
 }
 
 module "checks" {
-  source      = "git::https://github.com/amilochau/tf-modules.git//shared/checks?ref=v1"
-  conventions = var.conventions
+  source  = "git::https://github.com/amilochau/tf-modules.git//shared/checks?ref=v2"
+  context = var.context
 }
 
 module "client_app" {
-  source      = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=main"
-  conventions = var.conventions
+  source  = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=v2"
+  context = var.context
 
   client_settings = {
     package_source_file   = var.client_settings.package_source_file
