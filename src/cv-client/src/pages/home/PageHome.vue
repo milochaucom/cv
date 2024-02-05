@@ -4,6 +4,7 @@
       v-if="currentResume.call"
       class="d-print-none">
       <v-col>
+        <update-bottom-sheet />
         <resume-section-call
           :call="currentResume.call"
           :expanded="expanded"
@@ -61,6 +62,7 @@ import ResumeSectionTrainings from './components/section/ResumeSectionTrainings.
 import ResumeSectionMetrics from './components/section/ResumeSectionMetrics.vue';
 import ResumeSectionProjects from './components/section/ResumeSectionProjects.vue';
 import ResumeSectionExperiences from './components/section/ResumeSectionExperiences.vue';
+import UpdateBottomSheet from './components/UpdateBottomSheet.vue';
 import { type ComputedRef, computed, ref, watch } from 'vue';
 import resume from '@/data/resume';
 import type { IResume } from '@/types/resume';

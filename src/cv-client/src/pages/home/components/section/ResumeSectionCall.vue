@@ -49,14 +49,6 @@
       </v-menu>
     </template>
   </v-alert>
-  <v-alert
-    v-if="updateDisplay"
-    :icon="mdiUpdate"
-    border="bottom"
-    border-color="primary"
-    variant="text">
-    {{ t('newVersion') }}
-  </v-alert>
 </template>
 
 <script setup lang="ts">
@@ -102,13 +94,9 @@ en:
   reduce: Reduce
   expand: Expand
   print: Print
-  newVersion: A new version is available. Update this page to get latest information!
-  update: Update
 fr:
   lastUpdate: 'Dernière mise à jour : {lastUpdate}'
   reduce: Réduire
   expand: Etendre
   print: Imprimer
-  newVersion: Une nouvelle version est disponible. Mettez à jour cette page pour avoir les dernières informations !
-  update: Mettre à jour
 </i18n>
