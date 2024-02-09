@@ -625,7 +625,7 @@
     "busy": true,
     "isTrialPeriod": false,
     "isDepartureNotice": false,
-    "changeLikelihoodInPercent": 0.6,
+    "changeLikelihoodInPercent": 0.8,
     "ongoingProcess": false,
     "noticePeriodInDays": 90,
     "noticePeriodBufferInDays": 21,

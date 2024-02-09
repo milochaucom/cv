@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amilochau/aws-cv.git",
+    "url": "git+https://github.com/milochaucom/cv.git",
     "directory": "src/cv-client"
   },
-  "homepage": "https://github.com/amilochau/aws-cv#readme",
+  "homepage": "https://github.com/milochaucom/cv#readme",
   "bugs": {
-    "url": "https://github.com/amilochau/aws-cv/issues"
+    "url": "https://github.com/milochaucom/cv/issues"
   },
   "funding": "https://github.com/sponsors/amilochau",
   "company": "Milochau",

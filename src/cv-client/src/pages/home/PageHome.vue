@@ -78,7 +78,7 @@ usePage(computed(() => ({
     items: [
       {
         title: 'Source code',
-        link: 'https://github.com/amilochau/aws-landing',
+        link: 'https://github.com/milochaucom/cv',
       },
     ],
   },
