@@ -10,9 +10,6 @@ on:
     - main
   workflow_dispatch:
 
-env:
-  DOTNET_VERSION: 7.0.x
-
 jobs:
   analyze:
     name: Analyze with CodeQL
@@ -30,11 +27,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
