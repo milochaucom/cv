@@ -11,10 +11,6 @@ on:
 
 env:
   PROJECT_CLIENT_WORKSPACE: './src/cv-client'
-  DOTNET_VERSION: 7.0.x
-  DOTNET_NOLOGO: true
-  DOTNET_CLI_TELEMETRY_OPTOUT: true
-  VERBOSITY: normal
 
 jobs:
   build_iac:

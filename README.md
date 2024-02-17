@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/milochaucom/cv/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/amilochau/aws-cv" alt="License">
+    <img src="https://img.shields.io/github/license/milochaucom/cv" alt="License">
   </a>
 </p>
 <h1 align="center">
