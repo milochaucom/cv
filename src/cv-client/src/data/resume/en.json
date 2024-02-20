@@ -55,11 +55,6 @@
   "topics": {
     "items": [
       {
-        "key": "management",
-        "title": "Management",
-        "color": "purple darken-3 white--text"
-      },
-      {
         "key": "architecture",
         "title": "Architecture",
         "color": "deep-purple darken-3 white--text"
@@ -78,6 +73,11 @@
         "key": "development",
         "title": "Development",
         "color": "teal darken-3 white--text"
+      },
+      {
+        "key": "management",
+        "title": "Management",
+        "color": "purple darken-3 white--text"
       },
       {
         "key": "quality",
@@ -172,11 +172,11 @@
         "key": "devops"
       },
       {
-        "label": "ARM Templates",
+        "label": "Terraform",
         "key": "devops"
       },
       {
-        "label": "Terraform",
+        "label": "ARM Templates",
         "key": "devops"
       },
       {
@@ -193,7 +193,7 @@
     "items": [
       {
         "title": "Platform Architect",
-        "description": "In a multi-national scale-up (unicorn), I define and help teams implement a new Cloud-native platform, to migrate to multi-tenant, highly available services.",
+        "description": "In a multi-national scale-up part of the French Tech Next 40, I define and help teams implement a new Cloud-native platform, to create SaaS products based on multi-tenant, highly available services.",
         "company": "Shift Technology",
         "place": "Paris, FR",
         "placeUrl": "https://www.google.com/maps/place/14+Rue+Gerty+Archim%C3%A8de,+75012+Paris/@48.8359403,2.3859098,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6726ab0131eaf:0xf4379e8e2dd5042f!8m2!3d48.8359403!4d2.3884847!16s%2Fg%2F11g6nh9xcc",
@@ -241,10 +241,6 @@
           },
           {
             "label": "Well-Architected Framework",
-            "key": "architecture"
-          },
-          {
-            "label": "IDP",
             "key": "architecture"
           },
           {
