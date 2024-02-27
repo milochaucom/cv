@@ -15,6 +15,11 @@
     },
     "types": [
       "vite-plugin-pwa/client"
+    ],
+    "lib": [
+      "ES2023",
+      "DOM",
+      "WebWorker"
     ]
   },
   "references": [

@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify from 'vite-plugin-vuetify';
 import VueI18n from '@intlify/unplugin-vue-i18n/vite';
-import Unfonts from 'unplugin-fonts/vite';
 import { setDefaultResultOrder } from 'dns';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'upath';
@@ -29,17 +28,9 @@ export default defineConfig({
       compositionOnly: true,
       runtimeOnly: false,
     }),
-    Unfonts({
-      google: {
-        families: [{
-          name: 'Roboto',
-          styles: 'wght@100;300;400;500;700;900',
-        }],
-      },
-    }),
     VitePWA({
       srcDir: 'src',
-      filename: 'service-worker.js',
+      filename: 'service-worker.ts',
       strategies: 'injectManifest',
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png}'],
@@ -75,9 +66,6 @@ export default defineConfig({
             purpose: 'maskable',
           },
         ],
-      },
-      devOptions: {
-        enabled: true,
       },
     }),
     {

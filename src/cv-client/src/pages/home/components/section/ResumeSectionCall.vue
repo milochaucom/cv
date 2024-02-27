@@ -14,7 +14,7 @@
     <div
       v-if="call.lastUpdate"
       class="text-medium-emphasis font-weight-light">
-      {{ t('lastUpdate', { lastUpdate: d(call.lastUpdate) }) }}
+      {{ t('lastUpdate', { lastUpdate: d(call.lastUpdate, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }) }) }}
     </div>
     <template #append>
       <v-menu
@@ -54,10 +54,8 @@
 <script setup lang="ts">
 import { useFormatIcons } from '@/data/format';
 import type { IResumeCall } from '@/types/resume';
-import { usePwaStore } from '@amilochau/core-vue3/stores';
-import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal, mdiUpdate } from '@mdi/js';
+import { mdiDotsVertical, mdiPrinter, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
-import { storeToRefs } from 'pinia';
 
 defineProps<{
   call: IResumeCall,
@@ -68,20 +66,7 @@ const emit = defineEmits<{
   (eventName: 'reduce'): void,
 }>();
 const { formatIcon } = useFormatIcons();
-const { t, d, mergeDateTimeFormat } = useI18n();
-const pwaStore = usePwaStore();
-const { updateDisplay } = storeToRefs(pwaStore);
-
-mergeDateTimeFormat('en', {
-  datetime: {
-    year: 'numeric', month: 'numeric', day: 'numeric',
-  },
-});
-mergeDateTimeFormat('fr', {
-  datetime: {
-    year: 'numeric', month: 'numeric', day: 'numeric',
-  },
-});
+const { t, d } = useI18n();
 
 const print = () => {
   window.print();
