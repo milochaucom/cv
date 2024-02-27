@@ -31,10 +31,10 @@
         variant="outlined"
         class="text-capitalize chip-border-grey mr-1 mb-1 p-chip-text">
         <span v-if="experience.endDate">
-          {{ d(experience.startDate, 'month') }} — {{ d(experience.endDate, 'month') }}
+          {{ d(experience.startDate, { year: 'numeric', month: 'short' }) }} — {{ d(experience.endDate, { year: 'numeric', month: 'short' }) }}
         </span>
         <span v-else>
-          {{ d(experience.startDate, 'month') }} — {{ t('now') }}
+          {{ d(experience.startDate, { year: 'numeric', month: 'short' }) }} — {{ t('now') }}
         </span>
       </v-chip>
       <v-chip
@@ -157,7 +157,7 @@
               {{ t('change.changeLikelihood') }}
             </p>
             <p class="text-h4 mt-2 mb-4">
-              {{ n(change.changeLikelihoodInPercent, 'percent') }}
+              {{ n(change.changeLikelihoodInPercent, { style: 'percent' }) }}
             </p>
             <v-chip
               :prepend-icon="change.ongoingProcess ? mdiBriefcaseSearch : mdiProgressClose"
@@ -180,7 +180,7 @@
               {{ t('change.startFrom') }}
             </p>
             <p class="text-h4 mt-2 mb-4">
-              {{ d(changeStartFrom, 'short') }}
+              {{ d(changeStartFrom, { year: 'numeric', month: 'long', day: 'numeric' }) }}
             </p>
           </section>
         </div>
@@ -204,35 +204,8 @@ const props = defineProps<{
   selectedTopic: string,
 }>();
 
-const { t, d, mergeDateTimeFormat, n, mergeNumberFormat } = useI18n();
+const { t, d, n } = useI18n();
 const { formatIcon } = useFormatIcons();
-
-mergeDateTimeFormat('en', {
-  month: {
-    year: 'numeric', month: 'short',
-  },
-  short: {
-    year: 'numeric', month: 'long', day: 'numeric',
-  },
-});
-mergeDateTimeFormat('fr', {
-  month: {
-    year: 'numeric', month: 'short',
-  },
-  short: {
-    year: 'numeric', month: 'long', day: 'numeric',
-  },
-});
-mergeNumberFormat('en', {
-  percent: {
-    style: 'percent',
-  },
-});
-mergeNumberFormat('fr', {
-  percent: {
-    style: 'percent',
-  },
-});
 
 const changeDialog = ref(false);
 const changeStartFrom = computed(() => {
