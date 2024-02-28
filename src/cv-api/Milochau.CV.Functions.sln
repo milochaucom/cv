@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{1AC46DFE-0602-4EFC-B6C6-290FA6FDEAB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{4A61FEB0-930F-426C-BF8E-AC328FD0570D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "http", "http", "{819003B2-680D-4303-BD4A-EA4945685DF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "messages", "messages", "{CCFAF657-334F-4A8B-8BD4-98DEE57331C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Milochau.Contacts.Shared.DynamoDB", "shared\dynamodb\Milochau.Contacts.Shared.DynamoDB.csproj", "{64A9C17C-AECC-4F34-B219-227AE44133A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Milochau.Contacts.Shared.Entities", "shared\entities\Milochau.Contacts.Shared.Entities.csproj", "{3099FBE7-87EE-46FA-A67F-505ED731089F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Milochau.Contacts.Http.Messages.Post", "functions\http\messages\post\Milochau.Contacts.Http.Messages.Post.csproj", "{C2D4310A-F3D5-4142-B6D5-7F972D9900B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Milochau.Contacts.Http.Messages.Get", "functions\http\messages\get\Milochau.Contacts.Http.Messages.Get.csproj", "{9C583606-FAF7-4109-889A-B95AAC37298F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scheduler", "scheduler", "{4BE138D2-4B38-407E-8165-155D4F70709F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Milochau.Contacts.Scheduler.Summary", "functions\scheduler\summary\Milochau.Contacts.Scheduler.Summary.csproj", "{65C19074-6CF1-41CA-B73A-F4D8CDCC8D86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "async", "async", "{0016DBFB-A1D1-430D-B525-430DB66D017C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Milochau.Contacts.Async.UnsubscribeEmails", "functions\async\unsubscribe-emails\Milochau.Contacts.Async.UnsubscribeEmails.csproj", "{E8ED03D0-F110-4506-8ED5-024C783C2BE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64A9C17C-AECC-4F34-B219-227AE44133A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A9C17C-AECC-4F34-B219-227AE44133A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A9C17C-AECC-4F34-B219-227AE44133A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A9C17C-AECC-4F34-B219-227AE44133A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3099FBE7-87EE-46FA-A67F-505ED731089F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3099FBE7-87EE-46FA-A67F-505ED731089F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3099FBE7-87EE-46FA-A67F-505ED731089F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3099FBE7-87EE-46FA-A67F-505ED731089F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D4310A-F3D5-4142-B6D5-7F972D9900B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D4310A-F3D5-4142-B6D5-7F972D9900B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D4310A-F3D5-4142-B6D5-7F972D9900B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D4310A-F3D5-4142-B6D5-7F972D9900B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C583606-FAF7-4109-889A-B95AAC37298F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C583606-FAF7-4109-889A-B95AAC37298F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C583606-FAF7-4109-889A-B95AAC37298F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C583606-FAF7-4109-889A-B95AAC37298F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C19074-6CF1-41CA-B73A-F4D8CDCC8D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C19074-6CF1-41CA-B73A-F4D8CDCC8D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C19074-6CF1-41CA-B73A-F4D8CDCC8D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C19074-6CF1-41CA-B73A-F4D8CDCC8D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8ED03D0-F110-4506-8ED5-024C783C2BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8ED03D0-F110-4506-8ED5-024C783C2BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8ED03D0-F110-4506-8ED5-024C783C2BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8ED03D0-F110-4506-8ED5-024C783C2BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{819003B2-680D-4303-BD4A-EA4945685DF2} = {4A61FEB0-930F-426C-BF8E-AC328FD0570D}
+		{CCFAF657-334F-4A8B-8BD4-98DEE57331C1} = {819003B2-680D-4303-BD4A-EA4945685DF2}
+		{64A9C17C-AECC-4F34-B219-227AE44133A3} = {1AC46DFE-0602-4EFC-B6C6-290FA6FDEAB6}
+		{3099FBE7-87EE-46FA-A67F-505ED731089F} = {1AC46DFE-0602-4EFC-B6C6-290FA6FDEAB6}
+		{C2D4310A-F3D5-4142-B6D5-7F972D9900B5} = {CCFAF657-334F-4A8B-8BD4-98DEE57331C1}
+		{9C583606-FAF7-4109-889A-B95AAC37298F} = {CCFAF657-334F-4A8B-8BD4-98DEE57331C1}
+		{4BE138D2-4B38-407E-8165-155D4F70709F} = {4A61FEB0-930F-426C-BF8E-AC328FD0570D}
+		{65C19074-6CF1-41CA-B73A-F4D8CDCC8D86} = {4BE138D2-4B38-407E-8165-155D4F70709F}
+		{0016DBFB-A1D1-430D-B525-430DB66D017C} = {4A61FEB0-930F-426C-BF8E-AC328FD0570D}
+		{E8ED03D0-F110-4506-8ED5-024C783C2BE8} = {0016DBFB-A1D1-430D-B525-430DB66D017C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48C3CE6-9541-4497-B2EE-589791207E39}
+	EndGlobalSection
+EndGlobal
