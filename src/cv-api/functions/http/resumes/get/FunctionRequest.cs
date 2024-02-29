@@ -21,7 +21,7 @@ namespace Milochau.CV.Http.Resumes.Get
         {
             result = null;
 
-            if (!request.TryGetHeader("origin", out var originUrl))
+            if (!request.TryGetQueryStringParameter("origin", out var originUrl))
             {
                 return false;
             }

@@ -14,7 +14,7 @@
     <div
       v-if="call.lastUpdate"
       class="text-medium-emphasis font-weight-light">
-      {{ t('lastUpdate', { lastUpdate: d(call.lastUpdate, { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }) }) }}
+      {{ t('lastUpdate', { lastUpdate: d(call.lastUpdate, { year: 'numeric', month: 'numeric', day: 'numeric' }) }) }}
     </div>
     <template #append>
       <v-menu

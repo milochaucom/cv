@@ -10,6 +10,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
         public required string Title { get; set; }
         public required Icon Icon { get; set; }
         public required List<ResumeContentExperiencesMissionItemLine> Items { get; set; }
+        public bool? RemoveFromPrint { get; set; }
 
         public Dictionary<string, AttributeValue> FormatForDynamoDb()
         {
@@ -17,6 +18,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 .Append("ti", Title)
                 .Append("ic", Icon.FormatForDynamoDb())
                 .Append("it", Items.Select(x => x.FormatForDynamoDb()))
+                .Append("rp", RemoveFromPrint)
                 .ToDictionary(x => x.Key, x => x.Value);
         }
 
@@ -27,6 +29,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 Title = attributes.ReadString("ti"),
                 Icon = Icon.ParseFromDynamoDb(attributes.ReadObject("ic"))!,
                 Items = attributes.ReadList("it").Select(x => ResumeContentExperiencesMissionItemLine.ParseFromDynamoDb(x)).ToList(),
+                RemoveFromPrint = attributes.ReadBoolOptional("rp"),
             };
         }
     }

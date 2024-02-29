@@ -1,5 +1,9 @@
 import type { IIcon } from './list';
 
+export interface IResumesDetailsResponse {
+  content: IResume;
+}
+
 export interface IResumeCall {
   icon?: IIcon
   color?: string
@@ -86,6 +90,7 @@ export interface IResumeExperienceMissionItem {
   title: string
   icon: IIcon
   items: IResumeExprerienceMissionLineItem[]
+  removeFromPrint?: boolean
 }
 
 export interface IResumeExprerienceMissionLineItem {

@@ -1,8 +1,7 @@
-import { createCoreVue3App } from '@amilochau/core-vue3';
+import { createCoreVue3AuthApp } from '@amilochau/core-vue3-auth';
 import { coreOptions } from './data/config';
 
 import { LogStyle, logInformation } from './utils/logger';
-import resume from '@/data/resume';
 
 import 'vuetify/styles';
 import './styles/main.scss';
@@ -15,7 +14,5 @@ logInformation('Don\'t hesitate to contact me:');
 logInformation('  - if you want to learn more on my projects');
 logInformation('  - if you want to hire me :)');
 logInformation('===================', LogStyle.Header);
-logInformation(`Contact me here: ${resume['en'].persona.contact.url}`);
-logInformation('===================', LogStyle.Header);
 
-export const coreVue3App = createCoreVue3App(coreOptions);
+export const coreVue3App = createCoreVue3AuthApp(coreOptions);

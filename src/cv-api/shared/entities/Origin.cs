@@ -32,23 +32,5 @@ namespace Milochau.CV.Shared.Entities
                 ResumeId = attributes.ReadGuid(K_ResumeId),
             };
         }
-
-        // @todo Is this required?
-        /*public class Origin__Gsi_By_ResumeId_ThenBy_Origin
-        {
-            public const string IndexName = "by_resume_id_thenby_or";
-
-            public required Guid ResumeId { get; set; }
-            public required string OriginUrl { get; set; }
-
-            public static Origin__Gsi_By_ResumeId_ThenBy_Origin ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-            {
-                return new Origin__Gsi_By_ResumeId_ThenBy_Origin
-                {
-                    ResumeId = attributes.ReadGuid(K_ResumeId),
-                    OriginUrl = attributes.ReadString(K_OriginUrl),
-                };
-            }
-        }*/
     }
 }

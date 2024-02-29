@@ -36,8 +36,6 @@ The following files have to be adapted.
 | [IaC - dev settings](./infra/hosts/dev.tfvars) | Change the `conventions` and `domains` |
 | [IaC - prd settings](./infra/hosts/prd.tfvars) | Change the `conventions` and `domains` |
 | [API settings](./src/contacts-client/src/data/config.ts) | Change the environment-specific API settings |
-| [Resume content - en](./src/cv-client/src/data/resume/en.json) | Change the English-specific resume content |
-| [Resume content - fr](./src/cv-client/src/data/resume/fr.json) | Change the French-specific resume content |
 
 ## Underlying technologies
 

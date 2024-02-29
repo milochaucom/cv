@@ -2,11 +2,12 @@
   <v-card-item
     :prepend-icon="mdiBriefcase"
     :title="t('title')"
-    class="pt-0 p-pb-0" />
+    class="pt-0 p-pb-0"
+    @dblclick="copyExperiences" />
   <v-card
     v-for="(experience, i) in experiences.items"
     :key="i"
-    class="mb-4 p-mb-2 p-avoid-break-inside"
+    class="mb-4 p-mb-2"
     elevation="0">
     <v-card-item>
       <v-card-title>
@@ -81,7 +82,8 @@
         v-for="(mission, j) in experience.missions"
         :key="j"
         :value="j"
-        class="p-avoid-break-inside">
+        class="p-avoid-break-inside"
+        :class="{ 'd-print-none': mission.removeFromPrint }">
         <template #activator="{ props: group }">
           <v-list-item
             v-bind="group"
@@ -94,7 +96,8 @@
           v-for="(item, k) in mission.items"
           :key="k"
           :title="item.title"
-          class="mission-item pl-4 p-font-weight-light" />
+          class="mission-item pl-4 p-font-weight-light"
+          :class="{ 'd-print-none': item.removeFromPrint }" />
       </v-list-group>
     </v-list>
     <v-card-text
@@ -192,6 +195,7 @@
 <script setup lang="ts">
 import { useFormatIcons } from '@/data/format';
 import type { IResumeChange, IResumeExperiences, IResumeTopicItem } from '@/types/resume';
+import { useAppStore } from '@amilochau/core-vue3/stores';
 import { mdiAccountTieVoiceOutline, mdiBriefcase, mdiBriefcaseSearch, mdiCalendarCheck, mdiCalendarRangeOutline, mdiClose, mdiFire, mdiFlask, mdiLock, mdiLockOpen, mdiMapMarkerOutline, mdiProgressClose, mdiRunFast } from '@mdi/js';
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -206,6 +210,7 @@ const props = defineProps<{
 
 const { t, d, n } = useI18n();
 const { formatIcon } = useFormatIcons();
+const appStore = useAppStore();
 
 const changeDialog = ref(false);
 const changeStartFrom = computed(() => {
@@ -225,6 +230,55 @@ const changeStartFrom = computed(() => {
     return startFromDate;
   }
 });
+
+const copyExperiences = () => {
+  let exportedExperiences = '';
+
+  if (!props.experiences.items) {
+    return;
+  }
+
+  props.experiences.items.forEach((experience) => {
+    if (experience.client) {
+      exportedExperiences += `${experience.title} (${experience.client})\n\n`;
+    } else if (experience.company) {
+      exportedExperiences += `${experience.title} (${experience.company})\n\n`;
+    } else {
+      exportedExperiences += `${experience.title}\n\n`;
+    }
+
+    if (experience.missions) {
+      experience.missions.forEach((mission) => {
+        if (mission.icon.unicode) {
+          exportedExperiences += `${mission.icon.unicode} ${mission.title}\n`;
+        } else {
+          exportedExperiences += `${mission.title}\n`;
+        }
+        mission.items.forEach((item) => {
+          exportedExperiences += `▪️ ${item.title}\n`;
+        });
+        exportedExperiences += '\n';
+      });
+    }
+
+    if (experience.tags) {
+      exportedExperiences += '\n';
+      exportedExperiences += `${t('copy.tags')} `;
+      exportedExperiences += experience.tags.map((tag) => tag.label).reduce((previous, current) => `${previous}, ${current}`);
+    }
+    exportedExperiences += '\n';
+    if (experience.client) {
+      exportedExperiences += `${t('copy.via')} ${experience.company}`;
+    }
+    exportedExperiences += '\n\n';
+    exportedExperiences += '----------';
+    exportedExperiences += '\n\n';
+  });
+
+  navigator.clipboard.writeText(exportedExperiences);
+
+  appStore.displaySuccessMessage({ title: t('copy.successfullyCopied') }, 'snackbar');
+};
 </script>
 
 <i18n lang="yaml">
@@ -250,6 +304,10 @@ en:
     noticePeriod: Notice period
     days: "{days} days"
     startFrom: Start of a new position at the earliest
+  copy:
+    tags: "Tags:"
+    via: Via
+    successfullyCopied: Experiences successfully copied into the clipboard!
 fr:
   title: Expériences
   now: Maintenant
@@ -272,6 +330,10 @@ fr:
     noticePeriod: Durée de préavis
     days: "{days} jours"
     startFrom: Début d'un nouveau poste au plus tôt
+  copy:
+    tags: "Tags :"
+    via: Via
+    successfullyCopied: Les expériences ont bien été copiées dans le presse-papier !
 </i18n>
 
 <style lang="sass" scoped>

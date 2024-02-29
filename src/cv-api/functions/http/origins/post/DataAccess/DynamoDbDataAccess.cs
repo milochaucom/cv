@@ -24,7 +24,7 @@ namespace Milochau.CV.Http.Origins.Post.DataAccess
 
         public async Task CreateOrUpdateOriginAsync(FunctionRequest request, CancellationToken cancellationToken)
         {
-            var resume = new Origin
+            var origin = new Origin
             {
                 OriginUrl = request.Body.OriginUrl,
                 ResumeId = request.Body.ResumeId,
@@ -32,8 +32,8 @@ namespace Milochau.CV.Http.Origins.Post.DataAccess
 
             await amazonDynamoDB.PutItemAsync(new PutItemRequest(request.User.UserId)
             {
-                TableName = $"{EnvironmentVariables.ConventionPrefix}-table-{Resume.TableNameSuffix}",
-                Item = resume.FormatForDynamoDb(),
+                TableName = $"{EnvironmentVariables.ConventionPrefix}-table-{Origin.TableNameSuffix}",
+                Item = origin.FormatForDynamoDb(),
             }, cancellationToken);
         }
     }

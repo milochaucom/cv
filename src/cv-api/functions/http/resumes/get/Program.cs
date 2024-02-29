@@ -48,7 +48,15 @@ namespace Milochau.CV.Http.Resumes.Get
                 return HttpResponse.NotFound();
             }
 
-            var response = await dynamoDbDataAccess.GetResumeAsync(requestData, origin, cancellationToken);
+            FunctionResponse? response = null;
+            if (!string.IsNullOrWhiteSpace(requestData.Lang))
+            {
+                response = await dynamoDbDataAccess.GetResumeAsync(requestData.User, origin.ResumeId, requestData.Lang, cancellationToken);
+            }
+            if (response == null)
+            {
+                response = await dynamoDbDataAccess.GetResumeFallbackAsync(requestData.User, origin.ResumeId, cancellationToken);
+            }
             if (response == null)
             {
                 return HttpResponse.NotFound();
