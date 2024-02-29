@@ -96,14 +96,14 @@
             "icon": {
               "mdi": "map-marker-outline"
             },
-            "href": "https://maps.milochau.com/fr"
+            "href": "https://milochau.com/fr"
           },
           {
             "title": "Gestion d'opérations",
             "icon": {
               "mdi": "book-multiple-outline"
             },
-            "href": "https://operations.milochau.com/fr"
+            "href": "https://milochau.com/fr"
           },
           {
             "title": "CV",
@@ -208,10 +208,13 @@
             },
             "items": [
               {
-                "title": "Audits pour mesure la fiabilité et la conformité des workloads déployés (reviews manuelles et audits automatiques, en continu)"
+                "title": "Conception et implémentation d'une architecture Cloud Azure-first, suivant le Cloud Adoption Framework, pour permettre aux équipes de déployer de nouveaux services - incluant les landing zones, naming, tagging, data storage et backup, identity management"
               },
               {
-                "title": "Conception et implémentation d'une architecture Cloud Azure-first, commençant par les landing zones, les conventions et la topologie réseau"
+                "title": "Définition et mise en place de policies pour mesurer la fiabilité et la conformité des workloads déployés, en utilisant des audits en continu"
+              },
+              {
+                "title": "Création de formations techniques pour faciliter l'adoption des ressources Cloud-native par les équipes techniques (y compris infrastructure et développement)"
               }
             ]
           },
@@ -222,14 +225,33 @@
               "unicode": "📐"
             },
             "items": [
+              
               {
-                "title": "Définition d'une stratégie de déploiement de l'infrastructure, synchronisée avec le cycle de développement des applications"
+                "title": "Conception d'une architecture de haut niveau pour introduire des services, appelés de manière synchrone et asynchrone par les anciens monolithes"
               },
               {
-                "title": "Conception de workflows entièrement sécurisés pour aider les développeurs à configurer et déployer leur propre infrastructure (via Azure Federated Credentials, least privilege principle)"
+                "title": "Définition de capacités standard pour une nouvelle plateforme basée sur Azure, incluant le réseau et le firewall, le hosting d'applications scalables, le messaging et l'intégration, la gestion des identitiés et des accès"
               },
               {
-                "title": "Création de modules centralisés, standardisés et consistents pour l'Infrastructure as Code et les workflows de déploiement, comme base d'une 'Internal Developer Platform' (via GitHub Actions, Terraform)"
+                "title": "Conception de fonctionnalités d'intégration partagées par les services, incluant les permissions, l'orchestration des workflows, la gestion des données, les workloads déclenchés par des événements"
+              }
+            ]
+          },
+          {
+            "title": "Deployment acceleration",
+            "icon": {
+              "mdi": "terraform",
+              "unicode": "⚙️"
+            },
+            "items": [
+              {
+                "title": "Définition d'une nouvelle stratégie de déploiement pour l'infrastructure et les applications, pour permettre un déploiement continu et synchronisé"
+              },
+              {
+                "title": "Conception de workflows sécurisés, basés sur GitHub Actions et Azure Federated Credentials, pour imposer une stratégie least privilege"
+              },
+              {
+                "title": "Création de modules centralisés, normalisés, cohérents et versionnés pour l'Infrastructure as Code et les workflows de déploiement, comme base d'une Internal Developer Platform (via GitHub Actions, Terraform)"
               }
             ]
           }
@@ -613,7 +635,7 @@
       },
       {
         "number": 665,
-        "title": "Resources AWS personnnelles"
+        "title": "Resources AWS personnelles"
       }
     ]
   },

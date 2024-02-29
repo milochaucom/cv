@@ -26,9 +26,6 @@
             :selected-topic="selectedTopic"
             @change-selected-topic="changeSelectedTopic" />
         </v-expand-transition>
-        <resume-section-trainings
-          v-if="currentResume.trainings"
-          :trainings="currentResume.trainings" />
         <resume-section-metrics
           v-if="currentResume.metrics"
           :metrics="currentResume.metrics" />
@@ -38,6 +35,9 @@
           :topic-items="currentResume.topics?.items"
           :expanded="expanded"
           :selected-topic="selectedTopic" />
+        <resume-section-trainings
+          v-if="currentResume.trainings"
+          :trainings="currentResume.trainings" />
       </v-col>
       <v-col
         cols="12"

@@ -33,7 +33,7 @@ namespace Milochau.CV.Tests.Integration.Apis
             .WithSummary("Create a resume")
             .WithOpenApi();
 
-            endpoints.MapGet("/resumes", async (HttpContext httpContext, string userName, CancellationToken cancellationToken) =>
+            endpoints.MapGet("/resumes", async (HttpContext httpContext, CancellationToken cancellationToken) =>
             {
                 var proxyRequest = await ApiGatewayHelpers.BuildProxyRequestAsync(httpContext, new ProxyRequestOptions(), cancellationToken);
                 var credentials = new AssumeRoleAWSCredentials(Environment.GetEnvironmentVariable("AWS_ROLE_ARN")!);
@@ -47,7 +47,7 @@ namespace Milochau.CV.Tests.Integration.Apis
             .WithSummary("Get a resume")
             .WithOpenApi();
 
-            endpoints.MapGet("/a/resumes/{userName}", async (HttpContext httpContext, string userName, CancellationToken cancellationToken) =>
+            endpoints.MapGet("/a/resumes", async (HttpContext httpContext, CancellationToken cancellationToken) =>
             {
                 var proxyRequest = await ApiGatewayHelpers.BuildProxyRequestAsync(httpContext, new ProxyRequestOptions
                 {
