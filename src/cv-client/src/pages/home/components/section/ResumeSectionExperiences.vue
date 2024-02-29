@@ -157,7 +157,7 @@
               {{ t('change.changeLikelihood') }}
             </p>
             <p class="text-h4 mt-2 mb-4">
-              {{ n(change.changeLikelihoodInPercent, { style: 'percent' }) }}
+              {{ n(change.changeLikelihoodInPercent / 100, { style: 'percent' }) }}
             </p>
             <v-chip
               :prepend-icon="change.ongoingProcess ? mdiBriefcaseSearch : mdiProgressClose"

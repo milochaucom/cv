@@ -10,7 +10,10 @@ on:
     - main
 
 env:
+  PROJECT_API_BUILD: './src/cv-api/Milochau.CV.sln'
+  PROJECT_API_TESTS: './src/cv-api/Milochau.CV.sln'
   PROJECT_CLIENT_WORKSPACE: './src/cv-client'
+  DOTNET_VERSION: 8.0.x
 
 jobs:
   build_iac:
@@ -21,6 +24,18 @@ jobs:
       - name: Build and test projects
         uses: amilochau/github-actions/build/terraform@v4
    
+  build_api:
+    name: Build (API)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build solution
+        uses: amilochau/github-actions/build/netcore@v4
+        with:
+          dotnetVersion: ${{ env.DOTNET_VERSION }}
+          projectsToBuild: ${{ env.PROJECT_API_BUILD }}
+          projectsToTest: ${{ env.PROJECT_API_TESTS }}
+
   build_client:
     name: Build (Client)
     runs-on: ubuntu-latest

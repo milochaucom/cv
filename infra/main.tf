@@ -77,6 +77,41 @@ module "checks" {
   context = var.context
 }
 
+module "functions_app" {
+  source  = "git::https://github.com/amilochau/tf-modules.git//aws/functions-app?ref=v2"
+  context = var.context
+
+  cognito_clients_settings = var.cognito_clients_settings
+
+  lambda_settings = {
+    architecture = "x86_64"
+    runtime      = "provided.al2023"
+    functions = {
+      for k, v in var.lambda_settings.functions : "${replace(k, "/", "-")}" => {
+        memory_size_mb           = v.memory_size_mb
+        timeout_s                = v.timeout_s
+        deployment_file_path     = "${var.lambda_settings.base_directory}/${k}/${v.package_file}"
+        handler                  = v.handler
+        environment_variables    = v.environment_variables
+        http_triggers            = v.http_triggers
+        sns_triggers             = v.sns_triggers
+        scheduler_triggers       = v.scheduler_triggers
+        dynamodb_stream_triggers = v.dynamodb_stream_triggers
+        ses_accesses             = v.ses_accesses
+        lambda_accesses          = v.lambda_accesses
+      }
+    }
+  }
+
+  cognito_user_pool_id = var.cognito_user_pool_id
+
+  dynamodb_tables_settings = var.dynamodb_tables_settings
+
+  providers = {
+    aws.workloads = aws.workloads
+  }
+}
+
 module "client_app" {
   source  = "git::https://github.com/amilochau/tf-modules.git//aws/static-web-app?ref=v2"
   context = var.context

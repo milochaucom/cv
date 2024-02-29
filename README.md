@@ -18,6 +18,7 @@
 
 - Personal information display
 - UI optimized for print
+- API to let users update their CV
 
 ## Usage
 
@@ -34,6 +35,7 @@ The following files have to be adapted.
 | [CD - deploy settings](./.github/workflows/deploy.yml) | Change the `INFRA_AWS_ROLE`, `INFRA_AWS_REGION` settings |
 | [IaC - dev settings](./infra/hosts/dev.tfvars) | Change the `conventions` and `domains` |
 | [IaC - prd settings](./infra/hosts/prd.tfvars) | Change the `conventions` and `domains` |
+| [API settings](./src/contacts-client/src/data/config.ts) | Change the environment-specific API settings |
 | [Resume content - en](./src/cv-client/src/data/resume/en.json) | Change the English-specific resume content |
 | [Resume content - fr](./src/cv-client/src/data/resume/fr.json) | Change the French-specific resume content |
 
@@ -42,11 +44,13 @@ The following files have to be adapted.
 `aws-cv` uses the following technologies to work:
 
 - Front-End (UI client): `vue.js v3`, `vuetify`
-- Infrastructure: `AWS CloudFront`, `AWS S3`
+- Back-End (Functions): `.NET 8.0 native AOT`
+- Infrastructure: `AWS CloudFront`, `AWS Lambda`, `AWS S3`, `AWS DynamoDB`, `AWS Cognito`
 - DevOps: `GitHub Actions`, `Terraform`
 
 The following `amilochau` packages are used:
 
+- [amilochau/core-aws](https://github.com/amilochau/core-aws): AWS Lambda, AWS DynamoDB helpers
 - [amilochau/core-vue3](https://github.com/amilochau/core-vue3): vue.js v3 layout
 - [amilochau/github-actions](https://github.com/amilochau/github-actions): GitHub Actions
 - [amilochau/tf-modules](https://github.com/amilochau/tf-modules): Terraform modules

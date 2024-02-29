@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Development": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:4000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CONVENTION__ORGANIZATION": "mil",
+        "CONVENTION__APPLICATION": "cv",
+        "CONVENTION__HOST": "dev",
+        "CONVENTION__PREFIX": "mil-cv-dev",
+        "AWS_REGION": "eu-west-3",
+        "AWS_ROLE_ARN": "arn:aws:iam::339712953809:role/administrator-access"
+      }
+    }
+  }
+}
