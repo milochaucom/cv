@@ -35,9 +35,9 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             {
                 Icon = Icon.ParseFromDynamoDb(attributes.ReadObjectOptional("ic")),
                 Color = attributes.ReadStringOptional("co"),
-                Message = attributes.ReadString("co"),
-                Description = attributes.ReadStringOptional("co"),
-                LastUpdate = attributes.ReadStringOptional("co"),
+                Message = attributes.ReadString("me"),
+                Description = attributes.ReadStringOptional("de"),
+                LastUpdate = attributes.ReadStringOptional("lu"),
             };
         }
     }
