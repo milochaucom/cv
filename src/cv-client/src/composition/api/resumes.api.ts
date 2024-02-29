@@ -5,8 +5,8 @@ export const useResumesApi = () => {
 
   const api = useApi('/resumes');
 
-  const get = async (culture: string) => {
-    const response = await api.getHttp(`?origin=${encodeURIComponent(window.origin)}&lang=${culture}`, { redirect404: false }); // @todo redirect 404
+  const get = async (lang: string) => {
+    const response = await api.getHttp(`?origin=${encodeURIComponent(window.origin)}&lang=${lang}`, { redirect404: true });
     return await response.json() as IResumesDetailsResponse;
   };
 

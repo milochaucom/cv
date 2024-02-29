@@ -64,9 +64,8 @@ import ResumeSectionProjects from './section/ResumeSectionProjects.vue';
 import ResumeSectionExperiences from './section/ResumeSectionExperiences.vue';
 import UpdateBottomSheet from './UpdateBottomSheet.vue';
 import { type ComputedRef, computed, ref, watch } from 'vue';
-import resume from '@/data/resume';
 import { type IResume, type IResumesDetailsResponse } from '@/types/resume';
-import { useRoute } from 'vue-router';
+import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 import { useHandle, usePage } from '@amilochau/core-vue3/composition';
 import { useI18n } from 'vue-i18n';
 import { useIdentityStore } from '@amilochau/core-vue3/stores';
@@ -96,28 +95,25 @@ const { handleLoadAndError } = useHandle();
 const resumeDetails = ref<IResumesDetailsResponse>();
 
 // LOAD RESUME
-const loadResume = () => handleLoadAndError(async () => {
+const loadResume = (lang: string) => handleLoadAndError(async () => {
   if (isAuthenticated.value) {
-    resumeDetails.value = await resumesApi.get(route.params.lang.toString());
+    resumeDetails.value = await resumesApi.get(lang);
   } else {
-    resumeDetails.value = await resumesAnonymousApi.get(route.params.lang.toString());
+    resumeDetails.value = await resumesAnonymousApi.get(lang);
   }
-  // eslint-disable-next-line no-console
-  console.log('resumeDetails', resumeDetails.value); // @todo remove that log
-}, 'internal'); // @todo 'snackbar'
+}, 'snackbar');
 
-await loadResume();
+await loadResume(route.params.lang.toString());
+onBeforeRouteUpdate(async (to, from) => {
+  if (to.params.lang !== from.params.lang) {
+    await loadResume(to.params.lang.toString());
+  }
+});
 
 const expanded = ref(true);
 const selectedTopic = ref('');
 
-const currentResume: ComputedRef<IResume> = computed(() => {
-  if (route.params.lang === 'fr') {
-    return resume['fr'];
-  } else {
-    return resume['en'];
-  }
-});
+const currentResume: ComputedRef<IResume> = computed(() => resumeDetails.value?.content!);
 
 const changeSelectedTopic = (topic: string) => {
   if (topic && selectedTopic.value !== topic) {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.OpenApi.Models;
 using Milochau.Core.Aws.Integration;
 using Milochau.CV.Shared.Entities;
 using System;
@@ -17,6 +18,7 @@ namespace Milochau.CV.Tests.Integration.Apis
             {
                 var proxyRequest = await ApiGatewayHelpers.BuildProxyRequestAsync(httpContext, new ProxyRequestOptions
                 {
+                    UserId = "65a133d934f948f7b27eb55c803e2ea5",
                     PathParameters = new Dictionary<string, string>
                     {
                         { "resumeId", resumeId },
@@ -28,6 +30,11 @@ namespace Milochau.CV.Tests.Integration.Apis
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
             })
             .Accepts<Http.Resumes.Post.FunctionRequestBody>("application/json")
+            .WithOpenApi(x =>
+            {
+                x.Parameters.Add(new OpenApiParameter { In = ParameterLocation.Query, Name = "lang" });
+                return x;
+            })
             .Produces(204)
             .WithTags("Resumes")
             .WithSummary("Create a resume")
@@ -40,6 +47,12 @@ namespace Milochau.CV.Tests.Integration.Apis
                 var lambdaFunction = new Http.Resumes.Get.Function(credentials);
                 var proxyResponse = await lambdaFunction.DoAsync(proxyRequest, new TestLambdaContext(), cancellationToken);
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
+            })
+            .WithOpenApi(x =>
+            {
+                x.Parameters.Add(new OpenApiParameter { In = ParameterLocation.Query, Name = "origin", Required = true });
+                x.Parameters.Add(new OpenApiParameter { In = ParameterLocation.Query, Name = "lang" });
+                return x;
             })
             .Produces<Http.Resumes.Get.FunctionResponse>(200, "application/json")
             .Produces(400)
@@ -57,6 +70,12 @@ namespace Milochau.CV.Tests.Integration.Apis
                 var lambdaFunction = new Http.Resumes.Get.Function(credentials);
                 var proxyResponse = await lambdaFunction.DoAsync(proxyRequest, new TestLambdaContext(), cancellationToken);
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
+            })
+            .WithOpenApi(x =>
+            {
+                x.Parameters.Add(new OpenApiParameter { In = ParameterLocation.Query, Name = "origin", Required = true });
+                x.Parameters.Add(new OpenApiParameter { In = ParameterLocation.Query, Name = "lang" });
+                return x;
             })
             .Produces<Http.Resumes.Get.FunctionResponse>(200, "application/json")
             .Produces(400)
