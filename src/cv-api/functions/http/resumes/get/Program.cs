@@ -39,6 +39,10 @@ namespace Milochau.CV.Http.Resumes.Get
         {
             context.Logger.LogLine(Microsoft.Extensions.Logging.LogLevel.Information, $"DomainName: {request.RequestContext.DomainName}");
             context.Logger.LogLine(Microsoft.Extensions.Logging.LogLevel.Information, $"SourceIp: {request.RequestContext.Http?.SourceIp}");
+            if (request.Headers?.TryGetValue("host", out var host) == true)
+            {
+                context.Logger.LogLine(Microsoft.Extensions.Logging.LogLevel.Information, $"Host: {host}");
+            }
 
             if (!request.TryParseAndValidate<FunctionRequest>(new ValidationOptions { AuthenticationRequired = false }, out var proxyResponse, out var requestData))
             {
