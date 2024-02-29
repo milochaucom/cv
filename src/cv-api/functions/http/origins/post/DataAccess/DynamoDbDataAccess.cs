@@ -27,7 +27,7 @@ namespace Milochau.CV.Http.Origins.Post.DataAccess
             var resume = new Origin
             {
                 OriginUrl = request.Body.OriginUrl,
-                ResumeId = request.ResumeId,
+                ResumeId = request.Body.ResumeId,
             };
 
             await amazonDynamoDB.PutItemAsync(new PutItemRequest(request.User.UserId)

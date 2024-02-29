@@ -33,7 +33,7 @@ namespace Milochau.CV.Http.Resumes.Post
             result = null;
 
             if (!request.TryGetIdentityUser(out var user)
-                || !request.TryGetPathParameter("resume_id", out var rawResumeId) || !Guid.TryParse(rawResumeId, out var resumeId)
+                || !request.TryGetPathParameter("resumeId", out var rawResumeId) || !Guid.TryParse(rawResumeId, out var resumeId)
                 || !request.TryDeserializeBody(out var body, ApplicationJsonSerializerContext.Default.FunctionRequestBody))
             {
                 return false;

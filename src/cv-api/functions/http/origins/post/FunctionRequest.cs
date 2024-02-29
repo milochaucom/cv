@@ -13,14 +13,14 @@ namespace Milochau.CV.Http.Origins.Post
     public class FunctionRequestBody
     {
         [Required]
+        public required Guid ResumeId { get; set; }
+
+        [Required]
         public required string OriginUrl { get; set; }
     }
 
     public class FunctionRequest(IdentityUser user) : AuthenticatedRequest(user), IParsableAndValidatable<FunctionRequest>
     {
-        [Required]
-        public required Guid ResumeId { get; set; }
-
         [ValidateObjectMembers]
         public required FunctionRequestBody Body { get; set; }
 
@@ -29,7 +29,6 @@ namespace Milochau.CV.Http.Origins.Post
             result = null;
 
             if (!request.TryGetIdentityUser(out var user)
-                || !request.TryGetPathParameter("resume_id", out var rawResumeId) || !Guid.TryParse(rawResumeId, out var resumeId)
                 || !request.TryDeserializeBody(out var body, ApplicationJsonSerializerContext.Default.FunctionRequestBody))
             {
                 return false;
@@ -39,7 +38,6 @@ namespace Milochau.CV.Http.Origins.Post
             {
                 User = user,
                 Body = body,
-                ResumeId = resumeId,
             };
 
             return true;

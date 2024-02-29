@@ -42,7 +42,7 @@ namespace Milochau.CV.Http.Origins.Post
                 return proxyResponse;
             }
 
-            var accessResult = await dynamoDbDataAccess.CheckAccessAsync(requestData.User, requestData.ResumeId, cancellationToken);
+            var accessResult = await dynamoDbDataAccess.CheckAccessAsync(requestData.User, requestData.Body.ResumeId, cancellationToken);
             if (!accessResult.Allowed)
             {
                 return HttpResponse.NotFound();

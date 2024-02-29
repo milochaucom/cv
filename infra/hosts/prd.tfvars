@@ -26,8 +26,8 @@ lambda_settings = {
     }
     "http/resumes/get" = {
       http_triggers = [{
-        method = "GET"
-        route  = "/api/resumes"
+        method    = "GET"
+        route     = "/api/resumes"
         anonymous = false
         }, {
         method    = "GET"
