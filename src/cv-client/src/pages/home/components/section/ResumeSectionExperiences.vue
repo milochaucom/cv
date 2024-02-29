@@ -2,13 +2,14 @@
   <v-card-item
     :prepend-icon="mdiBriefcase"
     :title="t('title')"
-    class="pt-0 p-pb-0" />
+    class="pt-0 p-pb-0"
+    @dblclick="copyExperiences" />
   <v-card
     v-for="(experience, i) in experiences.items"
     :key="i"
-    class="mb-4 p-mb-2 p-avoid-break-inside"
+    class="mb-4 p-mb-2"
     elevation="0">
-    <v-card-item @dblclick="copyExperiences">
+    <v-card-item>
       <v-card-title>
         {{ experience.title }}
         <span class="font-weight-light text-body-1 px-1">
@@ -81,7 +82,8 @@
         v-for="(mission, j) in experience.missions"
         :key="j"
         :value="j"
-        class="p-avoid-break-inside">
+        class="p-avoid-break-inside"
+        :class="{ 'd-print-none': mission.removeFromPrint }">
         <template #activator="{ props: group }">
           <v-list-item
             v-bind="group"
@@ -94,7 +96,8 @@
           v-for="(item, k) in mission.items"
           :key="k"
           :title="item.title"
-          class="mission-item pl-4 p-font-weight-light" />
+          class="mission-item pl-4 p-font-weight-light"
+          :class="{ 'd-print-none': item.removeFromPrint }" />
       </v-list-group>
     </v-list>
     <v-card-text

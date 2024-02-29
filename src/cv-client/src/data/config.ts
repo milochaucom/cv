@@ -1,4 +1,4 @@
-import { getCurrentEnvironment } from '@/utils/config';
+import { getConfig, getCurrentEnvironment } from '@/utils/config';
 import { type MilochauCoreOptions } from '@amilochau/core-vue3/types';
 import routes from './routes';
 import { computed } from 'vue';
@@ -21,10 +21,19 @@ export const envConfig: EnvConfigValues = {
   default: {
   },
   local: {
+    VITE_API_URL: 'http://localhost:4000',
+    VITE_COGNITO_USERPOOL_ID: 'eu-west-3_Trx7Zxn8M',
+    VITE_COGNITO_CLIENT_ID: '2hobruu56js0kcraube2f5ui18',
   },
   dev: {
+    VITE_API_URL: 'https://dev.cv.milochau.com/api',
+    VITE_COGNITO_USERPOOL_ID: 'eu-west-3_Trx7Zxn8M',
+    VITE_COGNITO_CLIENT_ID: '2hobruu56js0kcraube2f5ui18',
   },
   prd: {
+    VITE_API_URL: 'https://cv.milochau.com/api',
+    VITE_COGNITO_USERPOOL_ID: 'eu-west-3_UBYZWnUAL',
+    VITE_COGNITO_CLIENT_ID: '1bjrm2rhvr4r6o24262femths6',
   },
 };
 
@@ -48,6 +57,9 @@ export const coreOptions: MilochauCoreOptions = {
     }),
     isProduction: getCurrentEnvironment() === Environment.Production,
   },
+  api: {
+    gatewayUri: getConfig('VITE_API_URL'),
+  },
   i18n: {
     messages: {
       en: {
@@ -56,6 +68,12 @@ export const coreOptions: MilochauCoreOptions = {
       fr: {
         appTitle: 'CV',
       },
+    },
+  },
+  identity: {
+    cognito: {
+      userPoolId: getConfig('VITE_COGNITO_USERPOOL_ID'),
+      clientId: getConfig('VITE_COGNITO_CLIENT_ID'),
     },
   },
   routes: routes,

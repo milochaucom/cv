@@ -6,7 +6,7 @@
     "color": "success",
     "message": "Welcome on my resume!",
     "description": "",
-    "lastUpdate": "2023-05-15"
+    "lastUpdate": "2024-02-29"
   },
   "persona": {
     "name": "Antoine MILOCHAU",
@@ -468,7 +468,8 @@
                 "title": "Definition of target architectures and technologies, division of applications into functional domains, clarification of data flows"
               },
               {
-                "title": "Design of real-time production monitoring applications (.NET)"
+                "title": "Design of real-time production monitoring applications (.NET)",
+                "removeFromPrint": true
               },
               {
                 "title": "Complete rewrite of a real-time optimization application (C to C++, 30 M€/y in earnings)"
@@ -507,7 +508,8 @@
                 "title": "Project management of applications for fuel blend optimization, including Scrum framework and change management"
               },
               {
-                "title": "Functional and technical coordination, piloting, reporting to management"
+                "title": "Functional and technical coordination, piloting, reporting to management",
+                "removeFromPrint": true
               },
               {
                 "title": "Link with service providers and subcontractors (~ 10 developers)"
@@ -542,7 +544,8 @@
               {
                 "title": "Implementation of non-linear optimization algorithms (Matlab, C++)"
               }
-            ]
+            ],
+            "removeFromPrint": true
           }
         ],
         "tags": [

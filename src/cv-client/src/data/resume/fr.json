@@ -6,7 +6,7 @@
     "color": "success",
     "message": "Bienvenue sur mon CV !",
     "description": "",
-    "lastUpdate": "2023-05-15"
+    "lastUpdate": "2024-02-29"
   },
   "persona": {
     "name": "Antoine MILOCHAU",
@@ -469,7 +469,8 @@
                 "title": "Définition des architectures et technologies cibles, découpage des applications en domaines fonctionnels, clarification des flux de données"
               },
               {
-                "title": "Conception d'applications de suivi de la production en temps réel (.NET)"
+                "title": "Conception d'applications de suivi de la production en temps réel (.NET)",
+                "removeFromPrint": true
               },
               {
                 "title": "Réécriture complète d'une application d'optimisation temps réel (C vers C++, 30 M€/an de gains)"
@@ -508,7 +509,8 @@
                 "title": "Gestion des projets d'applications pour l'optimisation des mélanges de carburant, y compris framework Scrum et conduite du changement"
               },
               {
-                "title": "Coordination fonctionnelle et technique, pilotage, reporting au management"
+                "title": "Coordination fonctionnelle et technique, pilotage, reporting au management",
+                "removeFromPrint": true
               },
               {
                 "title": "Lien avec les prestataires et sous-traitants (~ 10 développeurs)"
@@ -543,7 +545,8 @@
               {
                 "title": "Implémentation d'algorithmes d'optimisation non-linéaire (Matlab, C++)"
               }
-            ]
+            ],
+            "removeFromPrint": true
           }
         ],
         "tags": [
