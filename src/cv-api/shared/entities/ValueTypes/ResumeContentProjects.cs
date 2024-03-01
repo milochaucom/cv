@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentProjects
+    public class ResumeContentProjects : IDynamoDbEntity<ResumeContentProjects>
     {
         public required List<ResumeContentProjectsCategory> Items { get; set; }
         public List<ResumeTag>? Tags { get; set; }
@@ -13,22 +13,17 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
         public Dictionary<string, AttributeValue> FormatForDynamoDb()
         {
             return new Dictionary<string, AttributeValue>()
-                .Append("it", Items.Select(x => x.FormatForDynamoDb()))
-                .Append("ta", Tags?.Select(x => x.FormatForDynamoDb()))
-                .ToDictionary(x => x.Key, x => x.Value);
+                .Append("it", Items)
+                .Append("ta", Tags)
+                .ToDictionary();
         }
 
-        public static ResumeContentProjects? ParseFromDynamoDb(Dictionary<string, AttributeValue>? attributes)
+        public static ResumeContentProjects ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
-            if (attributes == null)
-            {
-                return null;
-            }
-
             return new ResumeContentProjects
             {
-                Items = attributes.ReadList("it").Select(x => ResumeContentProjectsCategory.ParseFromDynamoDb(x)).ToList(),
-                Tags = attributes.ReadListOptional("ta")?.Select(x => ResumeTag.ParseFromDynamoDb(x)).ToList(),
+                Items = attributes.ReadList<ResumeContentProjectsCategory>("it"),
+                Tags = attributes.ReadListOptional<ResumeTag>("ta"),
             };
         }
     }

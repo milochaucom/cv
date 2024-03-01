@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentExperiencesMissionItemLine
+    public class ResumeContentExperiencesMissionItemLine : IDynamoDbEntity<ResumeContentExperiencesMissionItemLine>
     {
         public required string Title { get; set; }
         public bool? RemoveFromPrint { get; set; }
@@ -15,7 +15,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             return new Dictionary<string, AttributeValue>()
                 .Append("ti", Title)
                 .Append("rp", RemoveFromPrint)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static ResumeContentExperiencesMissionItemLine ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)

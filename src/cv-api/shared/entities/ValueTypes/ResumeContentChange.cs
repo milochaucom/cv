@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentChange
+    public class ResumeContentChange : IDynamoDbEntity<ResumeContentChange>
     {
         public bool? Busy { get; set; }
         public bool? IsTrialPeriod { get; set; }
@@ -27,16 +27,11 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 .Append("np", NoticePeriodInDays)
                 .Append("npb", NoticePeriodBufferInDays)
                 .Append("ide", IsDepartureEndOfMonth)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
-        public static ResumeContentChange? ParseFromDynamoDb(Dictionary<string, AttributeValue>? attributes)
+        public static ResumeContentChange ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
-            if (attributes == null)
-            {
-                return null;
-            }
-
             return new ResumeContentChange
             {
                 Busy = attributes.ReadBoolOptional("bu"),

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentExperiencesItem
+    public class ResumeContentExperiencesItem : IDynamoDbEntity<ResumeContentExperiencesItem>
     {
         public required string Title { get; set; }
         public string? Description { get; set; }
@@ -31,9 +31,9 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 .Append("sd", StartDate)
                 .Append("ed", EndDate)
                 .Append("la", Lang)
-                .Append("mi", Missions?.Select(x => x.FormatForDynamoDb()))
-                .Append("ta", Tags?.Select(x => x.FormatForDynamoDb()))
-                .ToDictionary(x => x.Key, x => x.Value);
+                .Append("mi", Missions)
+                .Append("ta", Tags)
+                .ToDictionary();
         }
 
         public static ResumeContentExperiencesItem ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
@@ -49,8 +49,8 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 StartDate = attributes.ReadString("sd"),
                 EndDate = attributes.ReadStringOptional("ed"),
                 Lang = attributes.ReadStringOptional("la"),
-                Missions = attributes.ReadListOptional("mi")?.Select(x => ResumeContentExperiencesMissionItem.ParseFromDynamoDb(x)).ToList(),
-                Tags = attributes.ReadListOptional("ta")?.Select(x => ResumeTag.ParseFromDynamoDb(x)).ToList(),
+                Missions = attributes.ReadListOptional<ResumeContentExperiencesMissionItem>("mi"),
+                Tags = attributes.ReadListOptional<ResumeTag>("ta"),
             };
         }
     }

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities
 {
-    public class Resume
+    public class Resume : IDynamoDbEntity<Resume>
     {
         public const string TableNameSuffix = "resumes";
         public const int MaxFetchItems = 100;
@@ -33,8 +33,8 @@ namespace Milochau.CV.Shared.Entities
                 .Append(K_Lang, Lang)
                 .Append(K_UserId, UserId)
                 .Append(K_Creation, Creation)
-                .Append(K_Content, Content.FormatForDynamoDb())
-                .ToDictionary(x => x.Key, x => x.Value);
+                .Append(K_Content, Content)
+                .ToDictionary();
         }
 
         public static Resume ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
@@ -45,7 +45,7 @@ namespace Milochau.CV.Shared.Entities
                 Lang = attributes.ReadStringOptional(K_Lang),
                 UserId = attributes.ReadGuid(K_UserId),
                 Creation = attributes.ReadDateTimeOffset(K_Creation),
-                Content = ResumeContent.ParseFromDynamoDb(attributes.ReadObject(K_Content)),
+                Content = attributes.ReadObject<ResumeContent>(K_Content),
             };
         }
     }

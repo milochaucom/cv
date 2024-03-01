@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentProjectsCategory
+    public class ResumeContentProjectsCategory : IDynamoDbEntity<ResumeContentProjectsCategory>
     {
         public required string Title { get; set; }
         public required List<ResumeContentProjectsItem> Items { get; set; }
@@ -15,9 +15,9 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
         {
             return new Dictionary<string, AttributeValue>()
                 .Append("ti", Title)
-                .Append("it", Items.Select(x => x.FormatForDynamoDb()))
+                .Append("it", Items)
                 .Append("rp", RemoveFromPrint)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static ResumeContentProjectsCategory ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
@@ -25,7 +25,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             return new ResumeContentProjectsCategory
             {
                 Title = attributes.ReadString("ti"),
-                Items = attributes.ReadList("it").Select(x => ResumeContentProjectsItem.ParseFromDynamoDb(x)).ToList(),
+                Items = attributes.ReadList<ResumeContentProjectsItem>("it"),
                 RemoveFromPrint = attributes.ReadBoolOptional("rp"),
             };
         }

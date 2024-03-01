@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentTopicsItem
+    public class ResumeContentTopicsItem : IDynamoDbEntity<ResumeContentTopicsItem>
     {
         public required string Key { get; set; }
         public required string Title { get; set; }
@@ -17,7 +17,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 .Append("ke", Key)
                 .Append("ti", Title)
                 .Append("co", Color)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static ResumeContentTopicsItem ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)

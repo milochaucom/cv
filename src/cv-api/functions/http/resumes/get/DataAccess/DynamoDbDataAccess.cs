@@ -33,7 +33,7 @@ namespace Milochau.CV.Http.Resumes.Get.DataAccess
                 TableName = $"{EnvironmentVariables.ConventionPrefix}-table-{Origin.TableNameSuffix}",
                 Key = new Dictionary<string, AttributeValue>()
                     .Append(Origin.K_OriginUrl, request.OriginUrl)
-                    .ToDictionary(x => x.Key, x => x.Value),
+                    .ToDictionary(),
             }, cancellationToken);
 
             if (response.Item == null)
@@ -52,7 +52,7 @@ namespace Milochau.CV.Http.Resumes.Get.DataAccess
                 Key = new Dictionary<string, AttributeValue>()
                     .Append(Resume.K_Id, resumeId)
                     .Append(Resume.K_Lang, lang)
-                    .ToDictionary(x => x.Key, x => x.Value),
+                    .ToDictionary(),
             }, cancellationToken);
 
             if (response.Item == null)
@@ -79,7 +79,7 @@ namespace Milochau.CV.Http.Resumes.Get.DataAccess
                 ExpressionAttributeNames = keyConditionExpressionBuilder.GetExpressionAttributeNames(),
                 ExpressionAttributeValues = new Dictionary<string, AttributeValue>()
                     .AppendValue(Resume.K_Id, resumeId)
-                    .ToDictionary(x => x.Key, x => x.Value),
+                    .ToDictionary(),
                 Limit = Resume.MaxFetchItems,
                 ScanIndexForward = false,
             };

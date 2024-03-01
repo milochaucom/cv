@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentPersonaActionTitle
+    public class ResumeContentPersonaActionTitle : IDynamoDbEntity<ResumeContentPersonaActionTitle>
     {
         public required string Text { get; set; }
         public string? Replacement { get; set; }
@@ -15,7 +15,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             return new Dictionary<string, AttributeValue>()
                 .Append("te", Text)
                 .Append("re", Replacement)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static ResumeContentPersonaActionTitle ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities
 {
-    public class Origin
+    public class Origin : IDynamoDbEntity<Origin>
     {
         public const string TableNameSuffix = "origins";
 
@@ -21,7 +21,7 @@ namespace Milochau.CV.Shared.Entities
             return new Dictionary<string, AttributeValue>()
                 .Append(K_OriginUrl, OriginUrl)
                 .Append(K_ResumeId, ResumeId)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static Origin ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)

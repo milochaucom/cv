@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities
 {
-    public class Access
+    public class Access : IDynamoDbEntity<Access>
     {
         public const string TableNameSuffix = "accesses";
 
@@ -21,7 +21,7 @@ namespace Milochau.CV.Shared.Entities
             return new Dictionary<string, AttributeValue>()
                 .Append(K_UserId, UserId)
                 .Append(K_ResumeId, ResumeId)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static Access ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)

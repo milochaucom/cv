@@ -31,7 +31,7 @@ namespace Milochau.CV.Shared.DynamoDB
                 Key = new Dictionary<string, AttributeValue>()
                     .Append(Access.K_UserId, user.UserId)
                     .Append(Access.K_ResumeId, resumeId)
-                    .ToDictionary(x => x.Key, x => x.Value),
+                    .ToDictionary(),
             }, cancellationToken);
 
             if (response.Item == null || response.Item.Count == 0)
