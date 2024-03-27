@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentPersonaContact
+    public class ResumeContentPersonaContact : IDynamoDbEntity<ResumeContentPersonaContact>
     {
         public required string Text { get; set; }
         public required string Url { get; set; }
@@ -15,16 +15,11 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             return new Dictionary<string, AttributeValue>()
                 .Append("te", Text)
                 .Append("ur", Url)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
-        public static ResumeContentPersonaContact? ParseFromDynamoDb(Dictionary<string, AttributeValue>? attributes)
+        public static ResumeContentPersonaContact ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
-            if (attributes == null)
-            {
-                return null;
-            }
-
             return new ResumeContentPersonaContact
             {
                 Text = attributes.ReadString("te"),

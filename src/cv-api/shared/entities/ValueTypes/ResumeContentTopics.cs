@@ -5,27 +5,22 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentTopics
+    public class ResumeContentTopics : IDynamoDbEntity<ResumeContentTopics>
     {
         public List<ResumeContentTopicsItem>? Items { get; set; }
 
         public Dictionary<string, AttributeValue> FormatForDynamoDb()
         {
             return new Dictionary<string, AttributeValue>()
-                .Append("it", Items?.Select(x => x.FormatForDynamoDb()))
-                .ToDictionary(x => x.Key, x => x.Value);
+                .Append("it", Items)
+                .ToDictionary();
         }
 
-        public static ResumeContentTopics? ParseFromDynamoDb(Dictionary<string, AttributeValue>? attributes)
+        public static ResumeContentTopics ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
-            if (attributes == null)
-            {
-                return null;
-            }
-
             return new ResumeContentTopics
             {
-                Items = attributes.ReadListOptional("it")?.Select(x => ResumeContentTopicsItem.ParseFromDynamoDb(x)).ToList(),
+                Items = attributes.ReadListOptional<ResumeContentTopicsItem>("it"),
             };
         }
     }

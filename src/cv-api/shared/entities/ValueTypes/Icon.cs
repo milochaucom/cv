@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class Icon
+    public class Icon : IDynamoDbEntity<Icon>
     {
         public required string Mdi { get; set; }
         public string? Unicode { get; set; }
@@ -15,16 +15,11 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             return new Dictionary<string, AttributeValue>()
                 .Append("md", Mdi)
                 .Append("un", Unicode)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
-        public static Icon? ParseFromDynamoDb(Dictionary<string, AttributeValue>? attributes)
+        public static Icon ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
-            if (attributes == null)
-            {
-                return null;
-            }
-
             return new Icon
             {
                 Mdi = attributes.ReadString("md"),

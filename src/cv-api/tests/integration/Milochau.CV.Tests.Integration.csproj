@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Milochau.Core.Aws.Integration" Version="0.2.10" />
+    <PackageReference Include="Milochau.Core.Aws.Integration" Version="0.2.12" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

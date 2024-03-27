@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentTrainings
+    public class ResumeContentTrainings : IDynamoDbEntity<ResumeContentTrainings>
     {
         public required List<ResumeContentTrainingsItem> InitialTraining { get; set; }
         public required List<ResumeContentTrainingsItem> ContinuousTraining { get; set; }
@@ -15,24 +15,19 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
         public Dictionary<string, AttributeValue> FormatForDynamoDb()
         {
             return new Dictionary<string, AttributeValue>()
-                .Append("it", InitialTraining.Select(x => x.FormatForDynamoDb()))
-                .Append("ct", ContinuousTraining.Select(x => x.FormatForDynamoDb()))
+                .Append("it", InitialTraining)
+                .Append("ct", ContinuousTraining)
                 .Append("al", Alumni)
                 .Append("la", Languages, preserveOrder: true)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
-        public static ResumeContentTrainings? ParseFromDynamoDb(Dictionary<string, AttributeValue>? attributes)
+        public static ResumeContentTrainings ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
-            if (attributes == null)
-            {
-                return null;
-            }
-
             return new ResumeContentTrainings
             {
-                InitialTraining = attributes.ReadList("it").Select(x => ResumeContentTrainingsItem.ParseFromDynamoDb(x)).ToList(),
-                ContinuousTraining = attributes.ReadList("ct").Select(x => ResumeContentTrainingsItem.ParseFromDynamoDb(x)).ToList(),
+                InitialTraining = attributes.ReadList<ResumeContentTrainingsItem>("it"),
+                ContinuousTraining = attributes.ReadList<ResumeContentTrainingsItem>("ct"),
                 Alumni = attributes.ReadStringOptional("al"),
                 Languages = attributes.ReadListString("la"),
             };

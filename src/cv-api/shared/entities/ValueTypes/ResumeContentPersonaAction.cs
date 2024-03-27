@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentPersonaAction
+    public class ResumeContentPersonaAction : IDynamoDbEntity<ResumeContentPersonaAction>
     {
         public required ResumeContentPersonaActionTitle Title { get; set; }
         public required Icon Icon { get; set; }
@@ -14,18 +14,18 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
         public Dictionary<string, AttributeValue> FormatForDynamoDb()
         {
             return new Dictionary<string, AttributeValue>()
-                .Append("ti", Title.FormatForDynamoDb())
-                .Append("ic", Icon.FormatForDynamoDb())
+                .Append("ti", Title)
+                .Append("ic", Icon)
                 .Append("hr", Href)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static ResumeContentPersonaAction ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
             return new ResumeContentPersonaAction
             {
-                Title = ResumeContentPersonaActionTitle.ParseFromDynamoDb(attributes.ReadObject("ti")),
-                Icon = Icon.ParseFromDynamoDb(attributes.ReadObject("ic"))!,
+                Title = attributes.ReadObject<ResumeContentPersonaActionTitle>("ti"),
+                Icon = attributes.ReadObject<Icon>("ic"),
                 Href = attributes.ReadStringOptional("hr")
             };
         }

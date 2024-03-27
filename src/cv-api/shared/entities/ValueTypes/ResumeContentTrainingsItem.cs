@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentTrainingsItem
+    public class ResumeContentTrainingsItem : IDynamoDbEntity<ResumeContentTrainingsItem>
     {
         public required string Title { get; set; }
         public string? Subtitle { get; set; }
@@ -18,10 +18,10 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             return new Dictionary<string, AttributeValue>()
                 .Append("ti", Title)
                 .Append("st", Subtitle)
-                .Append("ic", Icon?.FormatForDynamoDb())
+                .Append("ic", Icon)
                 .Append("da", Date)
                 .Append("hr", Href)
-                .ToDictionary(x => x.Key, x => x.Value);
+                .ToDictionary();
         }
 
         public static ResumeContentTrainingsItem ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
@@ -30,7 +30,7 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
             {
                 Title = attributes.ReadString("ti"),
                 Subtitle = attributes.ReadStringOptional("st"),
-                Icon = Icon.ParseFromDynamoDb(attributes.ReadObjectOptional("ic")),
+                Icon = attributes.ReadObjectOptional<Icon>("ic"),
                 Date = attributes.ReadStringOptional("da"),
                 Href = attributes.ReadStringOptional("hr"),
             };

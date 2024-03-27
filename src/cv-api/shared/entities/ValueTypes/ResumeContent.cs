@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContent
+    public class ResumeContent : IDynamoDbEntity<ResumeContent>
     {
         public ResumeContentCall? Call { get; set; }
         public required ResumeContentPersona Persona { get; set; }
@@ -19,29 +19,29 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
         public Dictionary<string, AttributeValue> FormatForDynamoDb()
         {
             return new Dictionary<string, AttributeValue>()
-                .Append("ca", Call?.FormatForDynamoDb())
-                .Append("pe", Persona.FormatForDynamoDb())
-                .Append("to", Topics?.FormatForDynamoDb())
-                .Append("pr", Projects?.FormatForDynamoDb())
-                .Append("ex", Experiences.FormatForDynamoDb())
-                .Append("tr", Trainings?.FormatForDynamoDb())
-                .Append("me", Metrics?.FormatForDynamoDb())
-                .Append("ch", Change?.FormatForDynamoDb())
-                .ToDictionary(x => x.Key, x => x.Value);
+                .Append("ca", Call)
+                .Append("pe", Persona)
+                .Append("to", Topics)
+                .Append("pr", Projects)
+                .Append("ex", Experiences)
+                .Append("tr", Trainings)
+                .Append("me", Metrics)
+                .Append("ch", Change)
+                .ToDictionary();
         }
 
         public static ResumeContent ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
         {
             return new ResumeContent
             {
-                Call = ResumeContentCall.ParseFromDynamoDb(attributes.ReadObjectOptional("ca")),
-                Persona = ResumeContentPersona.ParseFromDynamoDb(attributes.ReadObject("pe")),
-                Topics = ResumeContentTopics.ParseFromDynamoDb(attributes.ReadObjectOptional("to")),
-                Projects = ResumeContentProjects.ParseFromDynamoDb(attributes.ReadObjectOptional("pr")),
-                Experiences = ResumeContentExperiences.ParseFromDynamoDb(attributes.ReadObject("ex")),
-                Trainings = ResumeContentTrainings.ParseFromDynamoDb(attributes.ReadObjectOptional("tr")),
-                Metrics = ResumeContentMetrics.ParseFromDynamoDb(attributes.ReadObjectOptional("me")),
-                Change = ResumeContentChange.ParseFromDynamoDb(attributes.ReadObjectOptional("ch")),
+                Call = attributes.ReadObjectOptional<ResumeContentCall>("ca"),
+                Persona = attributes.ReadObject<ResumeContentPersona>("pe"),
+                Topics = attributes.ReadObjectOptional<ResumeContentTopics>("to"),
+                Projects = attributes.ReadObjectOptional<ResumeContentProjects>("pr"),
+                Experiences = attributes.ReadObject<ResumeContentExperiences>("ex"),
+                Trainings = attributes.ReadObjectOptional<ResumeContentTrainings>("tr"),
+                Metrics = attributes.ReadObjectOptional<ResumeContentMetrics>("me"),
+                Change = attributes.ReadObjectOptional<ResumeContentChange>("ch"),
             };
         }
     }

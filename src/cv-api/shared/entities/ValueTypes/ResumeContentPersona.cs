@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentPersona
+    public class ResumeContentPersona : IDynamoDbEntity<ResumeContentPersona>
     {
         public required string Name { get; set; }
         public string? FirstName { get; set; }
@@ -27,9 +27,9 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 .Append("jo", Job)
                 .Append("de", Description)
                 .Append("lo", Location)
-                .Append("ac", Actions?.Select(x => x.FormatForDynamoDb()))
-                .Append("co", Contact?.FormatForDynamoDb())
-                .ToDictionary(x => x.Key, x => x.Value);
+                .Append("ac", Actions)
+                .Append("co", Contact)
+                .ToDictionary();
         }
 
         public static ResumeContentPersona ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
@@ -43,8 +43,8 @@ namespace Milochau.CV.Shared.Entities.ValueTypes
                 Job = attributes.ReadStringOptional("jo"),
                 Description = attributes.ReadStringOptional("de"),
                 Location = attributes.ReadStringOptional("lo"),
-                Actions = attributes.ReadList("ac")?.Select(x => ResumeContentPersonaAction.ParseFromDynamoDb(x)).ToList(),
-                Contact = ResumeContentPersonaContact.ParseFromDynamoDb(attributes.ReadObjectOptional("co")),
+                Actions = attributes.ReadList<ResumeContentPersonaAction>("ac"),
+                Contact = attributes.ReadObjectOptional<ResumeContentPersonaContact>("co"),
             };
         }
     }

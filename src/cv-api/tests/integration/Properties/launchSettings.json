@@ -11,6 +11,7 @@
         "CONVENTION__APPLICATION": "cv",
         "CONVENTION__HOST": "dev",
         "CONVENTION__PREFIX": "mil-cv-dev",
+        "ACCOUNT_ID": "339712953809",
         "AWS_REGION": "eu-west-3",
         "AWS_ROLE_ARN": "arn:aws:iam::339712953809:role/administrator-access"
       }
