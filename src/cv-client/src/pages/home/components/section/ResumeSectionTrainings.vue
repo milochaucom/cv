@@ -19,8 +19,7 @@
         <template #prepend>
           <v-icon
             v-if="training.icon"
-            :icon="formatIcon(training.icon.mdi)"
-            class="d-print-none" />
+            :icon="formatIcon(training.icon.mdi)" />
         </template>
         <template #append>
           <v-chip
@@ -55,8 +54,7 @@
         <template #prepend>
           <v-icon
             v-if="training.icon"
-            :icon="formatIcon(training.icon.mdi)"
-            class="d-print-none" />
+            :icon="formatIcon(training.icon.mdi)" />
         </template>
       </v-list-item>
     </v-list>

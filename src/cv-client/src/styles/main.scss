@@ -86,11 +86,15 @@ $grid-columns: 12;
     border: none !important;
   }
 
-  // Use confortable chips density
+  // Use comfortable chips density
   .v-chip {
     height: 18px !important;
     padding-left: 4px !important;
     padding-right: 4px !important;
+
+    .v-icon {
+      margin-left: -4px !important;
+    }
   }
 
   // Reduce height for lists
