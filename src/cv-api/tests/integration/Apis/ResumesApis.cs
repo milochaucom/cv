@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.OpenApi.Models;
 using Milochau.Core.Aws.Integration;
-using Milochau.CV.Shared.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading;

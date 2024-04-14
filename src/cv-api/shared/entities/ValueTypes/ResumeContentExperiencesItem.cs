@@ -1,57 +1,32 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentExperiencesItem : IDynamoDbEntity<ResumeContentExperiencesItem>
+    [DynamoDbNested]
+    public partial class ResumeContentExperiencesItem
     {
+        [DynamoDbAttribute("ti")]
         public required string Title { get; set; }
+        [DynamoDbAttribute("de")]
         public string? Description { get; set; }
+        [DynamoDbAttribute("co")]
         public required string Company { get; set; }
+        [DynamoDbAttribute("cl")]
         public string? Client { get; set; }
+        [DynamoDbAttribute("pl")]
         public string? Place { get; set; }
+        [DynamoDbAttribute("pu")]
         public string? PlaceUri { get; set; }
+        [DynamoDbAttribute("sd")]
         public required string StartDate { get; set; }
+        [DynamoDbAttribute("ed")]
         public string? EndDate { get; set; }
+        [DynamoDbAttribute("la")]
         public string? Lang { get; set; }
+        [DynamoDbAttribute("mi")]
         public List<ResumeContentExperiencesMissionItem>? Missions { get; set; }
+        [DynamoDbAttribute("ta")]
         public List<ResumeTag>? Tags { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("ti", Title)
-                .Append("de", Description)
-                .Append("co", Company)
-                .Append("cl", Client)
-                .Append("pl", Place)
-                .Append("pu", PlaceUri)
-                .Append("sd", StartDate)
-                .Append("ed", EndDate)
-                .Append("la", Lang)
-                .Append("mi", Missions)
-                .Append("ta", Tags)
-                .ToDictionary();
-        }
-
-        public static ResumeContentExperiencesItem ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentExperiencesItem
-            {
-                Title = attributes.ReadString("ti"),
-                Description = attributes.ReadStringOptional("de"),
-                Company = attributes.ReadString("co"),
-                Client = attributes.ReadStringOptional("cl"),
-                Place = attributes.ReadStringOptional("pl"),
-                PlaceUri = attributes.ReadStringOptional("pu"),
-                StartDate = attributes.ReadString("sd"),
-                EndDate = attributes.ReadStringOptional("ed"),
-                Lang = attributes.ReadStringOptional("la"),
-                Missions = attributes.ReadListOptional<ResumeContentExperiencesMissionItem>("mi"),
-                Tags = attributes.ReadListOptional<ResumeTag>("ta"),
-            };
-        }
     }
 }

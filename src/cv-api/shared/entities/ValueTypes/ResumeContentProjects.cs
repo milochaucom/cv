@@ -1,30 +1,14 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentProjects : IDynamoDbEntity<ResumeContentProjects>
+    [DynamoDbNested]
+    public partial class ResumeContentProjects
     {
+        [DynamoDbAttribute("it")]
         public required List<ResumeContentProjectsCategory> Items { get; set; }
+        [DynamoDbAttribute("ta")]
         public List<ResumeTag>? Tags { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("it", Items)
-                .Append("ta", Tags)
-                .ToDictionary();
-        }
-
-        public static ResumeContentProjects ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentProjects
-            {
-                Items = attributes.ReadList<ResumeContentProjectsCategory>("it"),
-                Tags = attributes.ReadListOptional<ResumeTag>("ta"),
-            };
-        }
     }
 }

@@ -1,48 +1,25 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentChange : IDynamoDbEntity<ResumeContentChange>
+    [DynamoDbNested]
+    public partial class ResumeContentChange
     {
+        [DynamoDbAttribute("bu")]
         public bool? Busy { get; set; }
+        [DynamoDbAttribute("it")]
         public bool? IsTrialPeriod { get; set; }
+        [DynamoDbAttribute("id")]
         public bool? IsDepartureNotice { get; set; }
+        [DynamoDbAttribute("cl")]
         public int? ChangeLikelihoodInPercent { get; set; }
+        [DynamoDbAttribute("op")]
         public bool? OngoingProcess {  get; set; }
+        [DynamoDbAttribute("np")]
         public int? NoticePeriodInDays { get; set; }
+        [DynamoDbAttribute("npb")]
         public int? NoticePeriodBufferInDays { get; set; }
+        [DynamoDbAttribute("ide")]
         public bool? IsDepartureEndOfMonth { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("bu", Busy)
-                .Append("it", IsTrialPeriod)
-                .Append("id", IsDepartureNotice)
-                .Append("cl", ChangeLikelihoodInPercent)
-                .Append("op", OngoingProcess)
-                .Append("np", NoticePeriodInDays)
-                .Append("npb", NoticePeriodBufferInDays)
-                .Append("ide", IsDepartureEndOfMonth)
-                .ToDictionary();
-        }
-
-        public static ResumeContentChange ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentChange
-            {
-                Busy = attributes.ReadBoolOptional("bu"),
-                IsTrialPeriod = attributes.ReadBoolOptional("it"),
-                IsDepartureNotice = attributes.ReadBoolOptional("id"),
-                ChangeLikelihoodInPercent = attributes.ReadIntOptional("cl"),
-                OngoingProcess = attributes.ReadBoolOptional("op"),
-                NoticePeriodInDays = attributes.ReadIntOptional("np"),
-                NoticePeriodBufferInDays = attributes.ReadIntOptional("npb"),
-                IsDepartureEndOfMonth = attributes.ReadBoolOptional("ide"),
-            };
-        }
     }
 }

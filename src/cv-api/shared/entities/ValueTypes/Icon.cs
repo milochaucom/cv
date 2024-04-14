@@ -1,30 +1,13 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class Icon : IDynamoDbEntity<Icon>
+    [DynamoDbNested]
+    public partial class Icon
     {
+        [DynamoDbAttribute("md")]
         public required string Mdi { get; set; }
+        [DynamoDbAttribute("un")]
         public string? Unicode { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("md", Mdi)
-                .Append("un", Unicode)
-                .ToDictionary();
-        }
-
-        public static Icon ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new Icon
-            {
-                Mdi = attributes.ReadString("md"),
-                Unicode = attributes.ReadStringOptional("un"),
-            };
-        }
     }
 }

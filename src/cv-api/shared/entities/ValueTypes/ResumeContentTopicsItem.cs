@@ -1,33 +1,15 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentTopicsItem : IDynamoDbEntity<ResumeContentTopicsItem>
+    [DynamoDbNested]
+    public partial class ResumeContentTopicsItem
     {
+        [DynamoDbAttribute("ke")]
         public required string Key { get; set; }
+        [DynamoDbAttribute("ti")]
         public required string Title { get; set; }
+        [DynamoDbAttribute("co")]
         public string? Color { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("ke", Key)
-                .Append("ti", Title)
-                .Append("co", Color)
-                .ToDictionary();
-        }
-
-        public static ResumeContentTopicsItem ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentTopicsItem
-            {
-                Key = attributes.ReadString("ke"),
-                Title = attributes.ReadString("ti"),
-                Color = attributes.ReadStringOptional("co"),
-            };
-        }
     }
 }
