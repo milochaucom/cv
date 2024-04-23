@@ -22,8 +22,8 @@
     "serve": "vite serve --port 3000",
     "preview": "vite build && vite preview",
     "build": "vue-tsc --noEmit && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore --fix"
   },
   "engines": {
     "node": ">=20.0.0"
