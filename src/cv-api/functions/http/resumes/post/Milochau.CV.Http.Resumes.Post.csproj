@@ -28,8 +28,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Milochau.Core.Aws.ApiGateway" Version="0.2.13-beta.12" />
-    <PackageReference Include="Milochau.Core.Aws.DynamoDB" Version="0.2.13-beta.12" />
+    <PackageReference Include="Milochau.Core.Aws.ApiGateway" Version="0.2.13" />
+    <PackageReference Include="Milochau.Core.Aws.DynamoDB" Version="0.2.13" />
   </ItemGroup>
 
   <ItemGroup>

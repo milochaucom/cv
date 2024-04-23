@@ -7,8 +7,6 @@ namespace Milochau.CV.Tests.Integration
 {
     public class Program
     {
-        public static string UserId { get; set; } = Environment.GetEnvironmentVariable("USER_ID")!;
-
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
