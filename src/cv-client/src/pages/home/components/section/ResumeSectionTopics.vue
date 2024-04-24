@@ -34,7 +34,7 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (eventName: 'changeSelectedTopic', topicKey: string): void
+  changeSelectedTopic: [topicKey: string],
 }>();
 
 const { t } = useI18n();

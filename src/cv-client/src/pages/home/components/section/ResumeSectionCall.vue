@@ -62,8 +62,8 @@ defineProps<{
   expanded: boolean,
 }>();
 const emit = defineEmits<{
-  (eventName: 'expand'): void,
-  (eventName: 'reduce'): void,
+  expand: [],
+  reduce: [],
 }>();
 const { formatIcon } = useFormatIcons();
 const { t, d } = useI18n();
