@@ -1,30 +1,13 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentExperiencesMissionItemLine : IDynamoDbEntity<ResumeContentExperiencesMissionItemLine>
+    [DynamoDbNested]
+    public partial class ResumeContentExperiencesMissionItemLine
     {
+        [DynamoDbAttribute("ti")]
         public required string Title { get; set; }
+        [DynamoDbAttribute("rp")]
         public bool? RemoveFromPrint { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("ti", Title)
-                .Append("rp", RemoveFromPrint)
-                .ToDictionary();
-        }
-
-        public static ResumeContentExperiencesMissionItemLine ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentExperiencesMissionItemLine
-            {
-                Title = attributes.ReadString("ti"),
-                RemoveFromPrint = attributes.ReadBoolOptional("rp"),
-            };
-        }
     }
 }

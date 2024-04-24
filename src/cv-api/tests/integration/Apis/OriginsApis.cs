@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Milochau.Core.Aws.Integration;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace Milochau.CV.Tests.Integration.Apis

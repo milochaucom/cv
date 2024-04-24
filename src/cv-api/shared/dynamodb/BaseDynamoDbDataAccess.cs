@@ -1,14 +1,10 @@
 ﻿using Milochau.Core.Aws.Abstractions;
-using Milochau.Core.Aws.Core.References;
 using Milochau.Core.Aws.DynamoDB;
 using Milochau.Core.Aws.DynamoDB.Model;
 using Milochau.CV.Shared.Entities;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-using Milochau.Core.Aws.DynamoDB.Helpers;
-using System.Linq;
 
 namespace Milochau.CV.Shared.DynamoDB
 {
@@ -25,16 +21,14 @@ namespace Milochau.CV.Shared.DynamoDB
         {
             var result = new AccessResult();
 
-            var response = await amazonDynamoDB.GetItemAsync(new GetItemRequest(user.UserId)
+            var response = await amazonDynamoDB.GetItemAsync(new GetItemRequest<Access>
             {
-                TableName = $"{EnvironmentVariables.ConventionPrefix}-table-{Access.TableNameSuffix}",
-                Key = new Dictionary<string, AttributeValue>()
-                    .Append(Access.K_UserId, user.UserId)
-                    .Append(Access.K_ResumeId, resumeId)
-                    .ToDictionary(),
+                UserId = user.UserId,
+                PartitionKey = user.UserId,
+                SortKey = resumeId,
             }, cancellationToken);
 
-            if (response.Item == null || response.Item.Count == 0)
+            if (response.Entity == null)
             {
                 return result;
             }

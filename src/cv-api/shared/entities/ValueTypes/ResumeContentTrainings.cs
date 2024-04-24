@@ -1,36 +1,18 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentTrainings : IDynamoDbEntity<ResumeContentTrainings>
+    [DynamoDbNested]
+    public partial class ResumeContentTrainings
     {
+        [DynamoDbAttribute("it")]
         public required List<ResumeContentTrainingsItem> InitialTraining { get; set; }
+        [DynamoDbAttribute("ct")]
         public required List<ResumeContentTrainingsItem> ContinuousTraining { get; set; }
+        [DynamoDbAttribute("al")]
         public string? Alumni { get; set; }
+        [DynamoDbAttribute("la")]
         public required List<string> Languages { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("it", InitialTraining)
-                .Append("ct", ContinuousTraining)
-                .Append("al", Alumni)
-                .Append("la", Languages, preserveOrder: true)
-                .ToDictionary();
-        }
-
-        public static ResumeContentTrainings ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentTrainings
-            {
-                InitialTraining = attributes.ReadList<ResumeContentTrainingsItem>("it"),
-                ContinuousTraining = attributes.ReadList<ResumeContentTrainingsItem>("ct"),
-                Alumni = attributes.ReadStringOptional("al"),
-                Languages = attributes.ReadListString("la"),
-            };
-        }
     }
 }

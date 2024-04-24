@@ -1,30 +1,13 @@
-﻿using Milochau.Core.Aws.DynamoDB.Helpers;
-using Milochau.Core.Aws.DynamoDB.Model;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Milochau.Core.Aws.DynamoDB.Abstractions;
 
 namespace Milochau.CV.Shared.Entities.ValueTypes
 {
-    public class ResumeContentPersonaContact : IDynamoDbEntity<ResumeContentPersonaContact>
+    [DynamoDbNested]
+    public partial class ResumeContentPersonaContact
     {
+        [DynamoDbAttribute("te")]
         public required string Text { get; set; }
+        [DynamoDbAttribute("ur")]
         public required string Url { get; set; }
-
-        public Dictionary<string, AttributeValue> FormatForDynamoDb()
-        {
-            return new Dictionary<string, AttributeValue>()
-                .Append("te", Text)
-                .Append("ur", Url)
-                .ToDictionary();
-        }
-
-        public static ResumeContentPersonaContact ParseFromDynamoDb(Dictionary<string, AttributeValue> attributes)
-        {
-            return new ResumeContentPersonaContact
-            {
-                Text = attributes.ReadString("te"),
-                Url = attributes.ReadString("ur"),
-            };
-        }
     }
 }

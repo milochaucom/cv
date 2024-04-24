@@ -7,8 +7,6 @@ namespace Milochau.CV.Tests.Integration
 {
     public class Program
     {
-        public static string UserId { get; set; } = "545ed070-bed2-4da9-b33a-b66239de4cd9"; // Antoine Milochau - DEV
-
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

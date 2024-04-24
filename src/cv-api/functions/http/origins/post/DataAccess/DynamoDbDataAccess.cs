@@ -1,5 +1,4 @@
 ﻿using Milochau.Core.Aws.Abstractions;
-using Milochau.Core.Aws.Core.References;
 using Milochau.Core.Aws.DynamoDB;
 using Milochau.Core.Aws.DynamoDB.Model;
 using Milochau.CV.Shared.DynamoDB;
@@ -30,10 +29,10 @@ namespace Milochau.CV.Http.Origins.Post.DataAccess
                 ResumeId = request.Body.ResumeId,
             };
 
-            await amazonDynamoDB.PutItemAsync(new PutItemRequest(request.User.UserId)
+            await amazonDynamoDB.PutItemAsync(new PutItemRequest<Origin>
             {
-                TableName = $"{EnvironmentVariables.ConventionPrefix}-table-{Origin.TableNameSuffix}",
-                Item = origin.FormatForDynamoDb(),
+                UserId = request.User.UserId,
+                Entity = origin,
             }, cancellationToken);
         }
     }
