@@ -118,8 +118,9 @@ module "client_app" {
   context = var.context
 
   api_settings = {
-    domain_name = module.functions_app.apigateway_invoke_domain
-    origin_path = module.functions_app.apigateway_invoke_origin_path
+    domain_name     = module.functions_app.apigateway_invoke_domain
+    origin_path     = module.functions_app.apigateway_invoke_origin_path
+    allowed_origins = var.client_settings.allowed_origins
   }
   client_settings = {
     package_source_file   = var.client_settings.package_source_file

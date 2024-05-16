@@ -111,5 +111,6 @@ variable "client_settings" {
       domain_name               = string
       subject_alternative_names = optional(list(string), [])
     }), null)
+    allowed_origins = optional(list(string), [])
   })
 }
