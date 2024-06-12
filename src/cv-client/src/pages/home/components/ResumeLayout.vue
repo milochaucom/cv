@@ -101,7 +101,7 @@ const loadResume = (lang: string) => handleLoadAndError(async () => {
   } else {
     resumeDetails.value = await resumesAnonymousApi.get(lang);
   }
-}, 'snackbar');
+});
 
 await loadResume(route.params.lang.toString());
 onBeforeRouteUpdate(async (to, from) => {

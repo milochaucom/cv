@@ -106,7 +106,7 @@
       <v-chip
         v-for="(tag, j) in experience.tags"
         :key="j"
-        :color="topicItems?.find((x) => x.key === tag.key)?.color"
+        :color="topicItems?.find((x: IResumeTopicItem) => x.key === tag.key)?.color"
         :variant="tag.key === selectedTopic ? undefined : 'outlined'"
         label
         class="mr-1 mb-1 chip-tile"
@@ -277,7 +277,7 @@ const copyExperiences = () => {
 
   navigator.clipboard.writeText(exportedExperiences);
 
-  appStore.displaySuccessMessage({ title: t('copy.successfullyCopied') }, 'snackbar');
+  appStore.displaySuccessMessage({ title: t('copy.successfullyCopied') });
 };
 </script>
 
@@ -336,7 +336,8 @@ fr:
     successfullyCopied: Les expériences ont bien été copiées dans le presse-papier !
 </i18n>
 
-<style lang="sass" scoped>
-.mission-item
-  padding-inline-start: 16px !important
+<style scoped>
+.mission-item {
+  padding-inline-start: 16px !important;
+}
 </style>

@@ -41,7 +41,7 @@
       <v-chip
         v-for="(tag, i) in projects.tags"
         :key="i"
-        :color="topicItems?.find((x) => x.key === tag.key)?.color"
+        :color="topicItems?.find((x: IResumeTopicItem) => x.key === tag.key)?.color"
         :variant="tag.key === selectedTopic ? undefined : 'outlined'"
         label
         class="mr-1 mb-1 chip-tile"
