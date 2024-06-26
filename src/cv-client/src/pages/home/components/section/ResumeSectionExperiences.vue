@@ -307,7 +307,7 @@ en:
   copy:
     tags: "Tags:"
     via: Via
-    successfullyCopied: Experiences successfully copied into the clipboard!
+    successfullyCopied: The experiences has been successfully copied into the clipboard!
 fr:
   title: Expériences
   now: Maintenant
