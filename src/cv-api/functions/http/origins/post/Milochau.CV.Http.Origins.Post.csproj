@@ -29,11 +29,10 @@
 
   <ItemGroup>
     <PackageReference Include="Milochau.Core.Aws.ApiGateway" Version="0.2.14" />
-    <PackageReference Include="Milochau.Core.Aws.DynamoDB" Version="0.2.14" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\shared\dynamodb\Milochau.CV.Shared.DynamoDB.csproj" />
+    <ProjectReference Include="..\..\..\..\shared\data\Milochau.CV.Shared.Data.csproj" />
     <ProjectReference Include="..\..\..\..\shared\entities\Milochau.CV.Shared.Entities.csproj" />
   </ItemGroup>
 

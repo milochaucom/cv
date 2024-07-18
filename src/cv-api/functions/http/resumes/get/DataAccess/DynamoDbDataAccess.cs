@@ -2,7 +2,6 @@
 using Milochau.Core.Aws.DynamoDB;
 using Milochau.Core.Aws.DynamoDB.Model;
 using Milochau.Core.Aws.DynamoDB.Model.Expressions;
-using Milochau.CV.Shared.DynamoDB;
 using Milochau.CV.Shared.Entities;
 using System;
 using System.Linq;
@@ -11,19 +10,8 @@ using System.Threading.Tasks;
 
 namespace Milochau.CV.Http.Resumes.Get.DataAccess
 {
-    public interface IDynamoDbDataAccess
+    public class DynamoDbDataAccess(IAmazonDynamoDB amazonDynamoDB)
     {
-        Task<Origin?> GetOriginAsync(FunctionRequest request, CancellationToken cancellationToken);
-        Task<FunctionResponse?> GetResumeAsync(IdentityUser? user, Guid resumeId, string lang, CancellationToken cancellationToken);
-        Task<FunctionResponse?> GetResumeFallbackAsync(IdentityUser? user, Guid resumeId, CancellationToken cancellationToken);
-    }
-
-    public class DynamoDbDataAccess : BaseDynamoDbDataAccess, IDynamoDbDataAccess
-    {
-        public DynamoDbDataAccess(IAmazonDynamoDB amazonDynamoDB) : base(amazonDynamoDB)
-        {
-        }
-
         public async Task<Origin?> GetOriginAsync(FunctionRequest request, CancellationToken cancellationToken)
         {
             var response = await amazonDynamoDB.GetItemAsync(new GetItemRequest<Origin>

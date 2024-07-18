@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.OpenApi.Models;
+using Milochau.Core.Aws.DynamoDB;
 using Milochau.Core.Aws.Integration;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Milochau.CV.Tests.Integration.Apis
                     },
                 }, cancellationToken);
                 var credentials = new AssumeRoleAWSCredentials(Environment.GetEnvironmentVariable("AWS_ROLE_ARN")!);
-                var lambdaFunction = new Http.Resumes.Post.Function(credentials);
+                var lambdaFunction = new Http.Resumes.Post.Function(new AmazonDynamoDBClient(credentials));
                 var proxyResponse = await lambdaFunction.DoAsync(proxyRequest, new TestLambdaContext(), cancellationToken);
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
             })
@@ -43,7 +44,7 @@ namespace Milochau.CV.Tests.Integration.Apis
             {
                 var proxyRequest = await ApiGatewayHelpers.BuildProxyRequestAsync(httpContext, new ProxyRequestOptions(), cancellationToken);
                 var credentials = new AssumeRoleAWSCredentials(Environment.GetEnvironmentVariable("AWS_ROLE_ARN")!);
-                var lambdaFunction = new Http.Resumes.Get.Function(credentials);
+                var lambdaFunction = new Http.Resumes.Get.Function(new AmazonDynamoDBClient(credentials));
                 var proxyResponse = await lambdaFunction.DoAsync(proxyRequest, new TestLambdaContext(), cancellationToken);
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
             })
@@ -66,7 +67,7 @@ namespace Milochau.CV.Tests.Integration.Apis
                     AnonymousRequest = true,
                 }, cancellationToken);
                 var credentials = new AssumeRoleAWSCredentials(Environment.GetEnvironmentVariable("AWS_ROLE_ARN")!);
-                var lambdaFunction = new Http.Resumes.Get.Function(credentials);
+                var lambdaFunction = new Http.Resumes.Get.Function(new AmazonDynamoDBClient(credentials));
                 var proxyResponse = await lambdaFunction.DoAsync(proxyRequest, new TestLambdaContext(), cancellationToken);
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
             })

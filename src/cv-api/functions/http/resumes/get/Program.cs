@@ -14,7 +14,8 @@ namespace Milochau.CV.Http.Resumes.Get
 {
     public class FunctionHandler
     {
-        private static readonly Function function = new Function(new EnvironmentVariablesAWSCredentials());
+        private static readonly EnvironmentVariablesAWSCredentials credentials = new();
+        private static readonly Function function = new(new AmazonDynamoDBClient(credentials));
 
         private static Task Main()
         {
@@ -22,18 +23,9 @@ namespace Milochau.CV.Http.Resumes.Get
         }
     }
 
-    public class Function
+    public class Function(IAmazonDynamoDB amazonDynamoDB)
     {
-        private readonly IDynamoDbDataAccess dynamoDbDataAccess;
-
-        public Function(IAWSCredentials credentials)
-            : this(new DynamoDbDataAccess(new AmazonDynamoDBClient(credentials)))
-        { }
-
-        public Function(IDynamoDbDataAccess dynamoDbDataAccess)
-        {
-            this.dynamoDbDataAccess = dynamoDbDataAccess;
-        }
+        private readonly DynamoDbDataAccess dynamoDbDataAccess = new(amazonDynamoDB);
 
         public async Task<APIGatewayHttpApiV2ProxyResponse> DoAsync(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context, CancellationToken cancellationToken)
         {

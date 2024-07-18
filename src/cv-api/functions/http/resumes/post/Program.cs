@@ -6,6 +6,7 @@ using Milochau.Core.Aws.Core.Lambda.RuntimeSupport.Bootstrap;
 using Milochau.Core.Aws.Core.Runtime.Credentials;
 using Milochau.Core.Aws.DynamoDB;
 using Milochau.CV.Http.Resumes.Post.DataAccess;
+using Milochau.CV.Shared.Data;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace Milochau.CV.Http.Resumes.Post
 {
     public class FunctionHandler
     {
-        private static readonly Function function = new Function(new EnvironmentVariablesAWSCredentials());
+        private static readonly EnvironmentVariablesAWSCredentials credentials = new();
+        private static readonly Function function = new(new AmazonDynamoDBClient(credentials));
 
         private static Task Main()
         {
@@ -22,18 +24,10 @@ namespace Milochau.CV.Http.Resumes.Post
         }
     }
 
-    public class Function
+    public class Function(IAmazonDynamoDB amazonDynamoDB)
     {
-        private readonly IDynamoDbDataAccess dynamoDbDataAccess;
-
-        public Function(IAWSCredentials credentials)
-            : this(new DynamoDbDataAccess(new AmazonDynamoDBClient(credentials)))
-        { }
-
-        public Function(IDynamoDbDataAccess dynamoDbDataAccess)
-        {
-            this.dynamoDbDataAccess = dynamoDbDataAccess;
-        }
+        private readonly AccessRepository accessRepository = new(amazonDynamoDB);
+        private readonly DynamoDbDataAccess dynamoDbDataAccess = new(amazonDynamoDB);
 
         public async Task<APIGatewayHttpApiV2ProxyResponse> DoAsync(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context, CancellationToken cancellationToken)
         {
@@ -42,8 +36,8 @@ namespace Milochau.CV.Http.Resumes.Post
                 return proxyResponse;
             }
 
-            var accessResult = await dynamoDbDataAccess.CheckAccessAsync(requestData.User, requestData.ResumeId, cancellationToken);
-            if (!accessResult.Allowed)
+            var accessResult = await accessRepository.GetAccessAsync(new(requestData.ResumeId, requestData.User), cancellationToken);
+            if (accessResult.Access == null)
             {
                 return HttpResponse.NotFound();
             }

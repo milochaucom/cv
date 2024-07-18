@@ -1,26 +1,13 @@
-﻿using Milochau.Core.Aws.Abstractions;
-using Milochau.Core.Aws.DynamoDB;
+﻿using Milochau.Core.Aws.DynamoDB;
 using Milochau.Core.Aws.DynamoDB.Model;
-using Milochau.CV.Shared.DynamoDB;
 using Milochau.CV.Shared.Entities;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Milochau.CV.Http.Origins.Post.DataAccess
 {
-    public interface IDynamoDbDataAccess
+    public class DynamoDbDataAccess(IAmazonDynamoDB amazonDynamoDB)
     {
-        Task<AccessResult> CheckAccessAsync(IdentityUser user, Guid resumeId, CancellationToken cancellationToken);
-        Task CreateOrUpdateOriginAsync(FunctionRequest request, CancellationToken cancellationToken);
-    }
-
-    public class DynamoDbDataAccess : BaseDynamoDbDataAccess, IDynamoDbDataAccess
-    {
-        public DynamoDbDataAccess(IAmazonDynamoDB amazonDynamoDB) : base(amazonDynamoDB)
-        {
-        }
-
         public async Task CreateOrUpdateOriginAsync(FunctionRequest request, CancellationToken cancellationToken)
         {
             var origin = new Origin
