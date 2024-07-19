@@ -5,7 +5,6 @@ using Milochau.Core.Aws.Core.Lambda.Events;
 using Milochau.Core.Aws.Core.Lambda.RuntimeSupport.Bootstrap;
 using Milochau.Core.Aws.Core.Runtime.Credentials;
 using Milochau.Core.Aws.DynamoDB;
-using Milochau.CV.Http.Resumes.Post.DataAccess;
 using Milochau.CV.Shared.Data;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -27,7 +26,7 @@ namespace Milochau.CV.Http.Resumes.Post
     public class Function(IAmazonDynamoDB amazonDynamoDB)
     {
         private readonly AccessRepository accessRepository = new(amazonDynamoDB);
-        private readonly DynamoDbDataAccess dynamoDbDataAccess = new(amazonDynamoDB);
+        private readonly ResumeRepository resumeRepository = new(amazonDynamoDB);
 
         public async Task<APIGatewayHttpApiV2ProxyResponse> DoAsync(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context, CancellationToken cancellationToken)
         {
@@ -42,7 +41,7 @@ namespace Milochau.CV.Http.Resumes.Post
                 return HttpResponse.NotFound();
             }
 
-            await dynamoDbDataAccess.CreateOrUpdateResumeAsync(requestData, cancellationToken);
+            await resumeRepository.CreateOrUpdateResumeAsync(new(requestData.ResumeId, requestData.Lang, requestData.Body.Content, requestData.User), cancellationToken);
 
             return HttpResponse.NoContent();
         }

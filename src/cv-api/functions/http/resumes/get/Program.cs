@@ -5,7 +5,7 @@ using Milochau.Core.Aws.Core.Lambda.Events;
 using Milochau.Core.Aws.Core.Lambda.RuntimeSupport.Bootstrap;
 using Milochau.Core.Aws.Core.Runtime.Credentials;
 using Milochau.Core.Aws.DynamoDB;
-using Milochau.CV.Http.Resumes.Get.DataAccess;
+using Milochau.CV.Shared.Data;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +25,8 @@ namespace Milochau.CV.Http.Resumes.Get
 
     public class Function(IAmazonDynamoDB amazonDynamoDB)
     {
-        private readonly DynamoDbDataAccess dynamoDbDataAccess = new(amazonDynamoDB);
+        private readonly OriginRepository originRepository = new(amazonDynamoDB);
+        private readonly ResumeRepository resumeRepository = new(amazonDynamoDB);
 
         public async Task<APIGatewayHttpApiV2ProxyResponse> DoAsync(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context, CancellationToken cancellationToken)
         {
@@ -34,26 +35,22 @@ namespace Milochau.CV.Http.Resumes.Get
                 return proxyResponse;
             }
 
-            var origin = await dynamoDbDataAccess.GetOriginAsync(requestData, cancellationToken);
-            if (origin == null)
+            var origin = await originRepository.GetOriginAsync(new(requestData.OriginUrl, requestData.User), cancellationToken);
+            if (origin.Origin == null)
             {
                 return HttpResponse.NotFound();
             }
 
-            FunctionResponse? response = null;
-            if (!string.IsNullOrWhiteSpace(requestData.Lang))
-            {
-                response = await dynamoDbDataAccess.GetResumeAsync(requestData.User, origin.ResumeId, requestData.Lang, cancellationToken);
-            }
-            if (response == null)
-            {
-                response = await dynamoDbDataAccess.GetResumeFallbackAsync(requestData.User, origin.ResumeId, cancellationToken);
-            }
-            if (response == null)
+            var resumeResponse = await resumeRepository.GetResumeAsync(new(origin.Origin.ResumeId, requestData.Lang, requestData.User), cancellationToken);
+            if (resumeResponse.Resume == null)
             {
                 return HttpResponse.NotFound();
             }
 
+            var response = new FunctionResponse
+            {
+                Content = resumeResponse.Resume.Content,
+            };
             return HttpResponse.Ok(response, ApplicationJsonSerializerContext.Default.FunctionResponse);
         }
     }
