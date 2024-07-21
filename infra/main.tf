@@ -79,7 +79,7 @@ module "checks" {
 }
 
 module "functions_app" {
-  source  = "git::https://github.com/amilochau/tf-modules.git//aws/functions-app?ref=v2"
+  source  = "git::https://github.com/amilochau/tf-modules.git//aws/functions-app?ref=amilochau/fix-apigateway-accesslog-format"
   context = var.context
 
   cognito_clients_settings = var.cognito_clients_settings
