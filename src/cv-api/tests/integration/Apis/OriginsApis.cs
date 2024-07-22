@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Milochau.Core.Aws.DynamoDB;
 using Milochau.Core.Aws.Integration;
 using System;
 using System.Threading;
@@ -15,7 +16,7 @@ namespace Milochau.CV.Tests.Integration.Apis
             {
                 var proxyRequest = await ApiGatewayHelpers.BuildProxyRequestAsync(httpContext, new ProxyRequestOptions(), cancellationToken);
                 var credentials = new AssumeRoleAWSCredentials(Environment.GetEnvironmentVariable("AWS_ROLE_ARN")!);
-                var lambdaFunction = new Http.Origins.Post.Function(credentials);
+                var lambdaFunction = new Http.Origins.Post.Function(new AmazonDynamoDBClient(credentials));
                 var proxyResponse = await lambdaFunction.DoAsync(proxyRequest, new TestLambdaContext(), cancellationToken);
                 return ApiGatewayHelpers.BuildResult(proxyResponse);
             })
