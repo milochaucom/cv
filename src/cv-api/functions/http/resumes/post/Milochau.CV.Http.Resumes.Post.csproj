@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Milochau.Core.Aws.ApiGateway" Version="0.2.15" />
+    <PackageReference Include="Milochau.Core.Aws.ApiGateway" Version="0.2.16" />
   </ItemGroup>
 
   <ItemGroup>
