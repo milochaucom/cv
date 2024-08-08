@@ -42,11 +42,12 @@ variable "lambda_settings" {
       handler               = optional(string, "bootstrap")
       environment_variables = optional(map(string), {})
       http_triggers = optional(list(object({
-        description = optional(string, null)
-        method      = string
-        route       = string
-        anonymous   = optional(bool, false)
-        enable_cors = optional(bool, false)
+        description        = optional(string, null)
+        method             = string
+        route              = string
+        request_parameters = optional(map(string), null)
+        anonymous          = optional(bool, false)
+        enable_cors        = optional(bool, false)
       })), [])
       sns_triggers = optional(list(object({
         description = optional(string, null)
@@ -66,6 +67,12 @@ variable "lambda_settings" {
         domain = string
       })), [])
       lambda_accesses = optional(list(object({
+        arn = string
+      })), [])
+      dynamodb_table_accesses = optional(list(object({
+        arn = string
+      })), [])
+      sns_topic_accesses = optional(list(object({
         arn = string
       })), [])
     }))

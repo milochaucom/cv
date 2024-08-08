@@ -15,7 +15,7 @@ env:
   INFRA_AWS_ROLE_DEV: arn:aws:iam::266302224431:role/mil-management-shd-role-github-milochaucom
   INFRA_AWS_ROLE_PRD: arn:aws:iam::266302224431:role/mil-management-shd-role-github-milochaucom
   INFRA_AWS_REGION: eu-west-3
-  PROJECT_API_SOLUTION: './src/cv-api/Milochau.CV.Functions.sln'
+  PROJECT_API_SOLUTION: './src/cv-api/Milochau.CV.sln'
   PROJECT_API_PUBLISH_FILTER: '*/bin/Release/net8.0/linux-x64/publish/bootstrap'
   PROJECT_CLIENT_WORKSPACE: './src/cv-client'
 

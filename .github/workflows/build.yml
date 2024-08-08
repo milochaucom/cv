@@ -27,6 +27,9 @@ jobs:
   build_api:
     name: Build (API)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v4
       - name: Build solution

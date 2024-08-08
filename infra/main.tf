@@ -100,6 +100,8 @@ module "functions_app" {
         dynamodb_stream_triggers = v.dynamodb_stream_triggers
         ses_accesses             = v.ses_accesses
         lambda_accesses          = v.lambda_accesses
+        dynamodb_table_accesses  = v.dynamodb_table_accesses
+        sns_topic_accesses       = v.sns_topic_accesses
       }
     }
   }
