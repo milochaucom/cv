@@ -10,7 +10,7 @@ namespace Milochau.CV.Shared.Data
     public class AccessRepository(IAmazonDynamoDB amazonDynamoDB)
     {
 
-        public async Task<GetAccessResponse> GetAccessAsync(GetAccessRequest request, CancellationToken cancellationToken)
+        public async Task<ReadAccessResponse> ReadAccessAsync(ReadAccessRequest request, CancellationToken cancellationToken)
         {
             var response = await amazonDynamoDB.GetItemAsync(new GetItemRequest<Access>
             {
@@ -19,7 +19,7 @@ namespace Milochau.CV.Shared.Data
                 SortKey = request.ResumeId,
             }, cancellationToken);
 
-            return new GetAccessResponse(response.Entity);
+            return new ReadAccessResponse(response.Entity);
         }
     }
 }

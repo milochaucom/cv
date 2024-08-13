@@ -15,12 +15,12 @@ namespace Milochau.CV.Shared.Data.Models
         public Origin Origin { get; } = origin;
     }
 
-    public class GetOriginRequest(string originUrl, IdentityUser? identityUser)
+    public class ReadOriginRequest(string originUrl, IdentityUser? identityUser)
     {
         public string OriginUrl { get; } = originUrl;
         public IdentityUser? IdentityUser { get; } = identityUser;
     }
-    public class GetOriginResponse(Origin? origin)
+    public class ReadOriginResponse(Origin? origin)
     {
         public Origin? Origin { get; } = origin;
     }

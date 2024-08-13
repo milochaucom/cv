@@ -35,13 +35,13 @@ namespace Milochau.CV.Http.Resumes.Get
                 return proxyResponse;
             }
 
-            var origin = await originRepository.GetOriginAsync(new(requestData.OriginUrl, requestData.User), cancellationToken);
+            var origin = await originRepository.ReadOriginAsync(new(requestData.OriginUrl, requestData.User), cancellationToken);
             if (origin.Origin == null)
             {
                 return HttpResponse.NotFound();
             }
 
-            var resumeResponse = await resumeRepository.GetResumeAsync(new(origin.Origin.ResumeId, requestData.Lang, requestData.User), cancellationToken);
+            var resumeResponse = await resumeRepository.ReadResumeAsync(new(origin.Origin.ResumeId, requestData.Lang, requestData.User), cancellationToken);
             if (resumeResponse.Resume == null)
             {
                 return HttpResponse.NotFound();

@@ -32,7 +32,7 @@ namespace Milochau.CV.Shared.Data
             return new CreateOrUpdateResumeResponse(resume);
         }
 
-        public async Task<GetResumeResponse> GetResumeAsync(GetResumeRequest request, CancellationToken cancellationToken)
+        public async Task<ReadResumeResponse> ReadResumeAsync(ReadResumeRequest request, CancellationToken cancellationToken)
         {
             if (!string.IsNullOrWhiteSpace(request.Lang))
             {
@@ -45,7 +45,7 @@ namespace Milochau.CV.Shared.Data
 
                 if (dynamoDbResponse.Entity != null)
                 {
-                    return new GetResumeResponse(dynamoDbResponse.Entity);
+                    return new ReadResumeResponse(dynamoDbResponse.Entity);
                 }
             }
 
@@ -61,7 +61,7 @@ namespace Milochau.CV.Shared.Data
             var dynamoDbQueryResponse = await amazonDynamoDB.QueryAsync(dynamoDbRequest, cancellationToken);
 
             // Take the first resume we find, as we don't know which language to choose
-            return new GetResumeResponse(dynamoDbQueryResponse.Entities?.FirstOrDefault());
+            return new ReadResumeResponse(dynamoDbQueryResponse.Entities?.FirstOrDefault());
         }
     }
 }

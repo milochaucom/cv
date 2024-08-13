@@ -3,7 +3,7 @@ import { useApi } from '@amilochau/core-vue3-auth/composition';
 
 export const useResumesApi = () => {
 
-  const api = useApi('/resumes');
+  const api = useApi('resumes', '/resumes');
 
   const get = async (lang: string) => {
     const response = await api.getHttp(`?origin=${encodeURIComponent(window.origin)}&lang=${lang}`, { redirect404: true });

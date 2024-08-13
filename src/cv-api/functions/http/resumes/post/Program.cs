@@ -35,7 +35,7 @@ namespace Milochau.CV.Http.Resumes.Post
                 return proxyResponse;
             }
 
-            var accessResult = await accessRepository.GetAccessAsync(new(requestData.ResumeId, requestData.User), cancellationToken);
+            var accessResult = await accessRepository.ReadAccessAsync(new(requestData.ResumeId, requestData.User), cancellationToken);
             if (accessResult.Access == null)
             {
                 return HttpResponse.NotFound();

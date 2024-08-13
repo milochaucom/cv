@@ -3,7 +3,7 @@ import { useApiAnonymous } from '@amilochau/core-vue3/composition';
 
 export const useResumesAnonymousApi = () => {
 
-  const api = useApiAnonymous('/a/resumes');
+  const api = useApiAnonymous('resumes', '/a/resumes');
 
   const get = async (lang: string) => {
     const response = await api.getHttp(`?origin=${encodeURIComponent(window.origin)}&lang=${lang}`, { redirect404: true });

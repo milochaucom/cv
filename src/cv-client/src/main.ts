@@ -1,5 +1,5 @@
 import { createCoreVue3AuthApp } from '@amilochau/core-vue3-auth';
-import { coreOptions } from './data/config';
+import { coreOptionsBuilder, environmentOptionsBuilder } from './data/config';
 
 import { LogStyle, logInformation } from './utils/logger';
 
@@ -15,4 +15,4 @@ logInformation('  - if you want to learn more on my projects');
 logInformation('  - if you want to hire me :)');
 logInformation('===================', LogStyle.Header);
 
-export const coreVue3App = createCoreVue3AuthApp(coreOptions);
+export const coreVue3App = createCoreVue3AuthApp(environmentOptionsBuilder, coreOptionsBuilder);

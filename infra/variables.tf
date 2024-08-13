@@ -47,7 +47,6 @@ variable "lambda_settings" {
         route              = string
         request_parameters = optional(map(string), null)
         anonymous          = optional(bool, false)
-        enable_cors        = optional(bool, false)
       })), [])
       sns_triggers = optional(list(object({
         description = optional(string, null)
@@ -118,6 +117,13 @@ variable "client_settings" {
       domain_name               = string
       subject_alternative_names = optional(list(string), [])
     }), null)
+  })
+}
+
+variable "cors_settings" {
+  description = "CORS settings"
+  type = object({
     allowed_origins = optional(list(string), [])
   })
+  default = {}
 }

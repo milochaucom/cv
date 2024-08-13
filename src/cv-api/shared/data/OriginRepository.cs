@@ -26,7 +26,7 @@ namespace Milochau.CV.Shared.Data
             return new CreateOrUpdateOriginResponse(origin);
         }
 
-        public async Task<GetOriginResponse> GetOriginAsync(GetOriginRequest request, CancellationToken cancellationToken)
+        public async Task<ReadOriginResponse> ReadOriginAsync(ReadOriginRequest request, CancellationToken cancellationToken)
         {
             var response = await amazonDynamoDB.GetItemAsync(new GetItemRequest<Origin>
             {
@@ -35,7 +35,7 @@ namespace Milochau.CV.Shared.Data
                 SortKey = null,
             }, cancellationToken);
 
-            return new GetOriginResponse(response.Entity);
+            return new ReadOriginResponse(response.Entity);
         }
     }
 }

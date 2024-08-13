@@ -4,12 +4,12 @@ using System;
 
 namespace Milochau.CV.Shared.Data.Models
 {
-    public class GetAccessRequest(Guid resumeId, IdentityUser identityUser)
+    public class ReadAccessRequest(Guid resumeId, IdentityUser identityUser)
     {
         public Guid ResumeId { get; } = resumeId;
         public IdentityUser IdentityUser { get; } = identityUser;
     }
-    public class GetAccessResponse(Access? access)
+    public class ReadAccessResponse(Access? access)
     {
         public Access? Access { get; } = access;
     }
