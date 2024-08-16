@@ -29,6 +29,6 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@amilochau/core-vue3-auth": "^0.8.11"
+    "@amilochau/core-vue3-auth": "^0.8.12"
   }
 }
