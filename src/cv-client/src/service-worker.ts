@@ -3,6 +3,8 @@ import { registerRoute } from 'workbox-routing';
 import { CacheFirst, NetworkFirst, NetworkOnly } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 
+// ===== ROUTING =====
+
 declare let self: ServiceWorkerGlobalScope;
 
 const MANIFEST = self.__WB_MANIFEST;
@@ -12,7 +14,7 @@ precacheAndRoute(MANIFEST);
 
 const defaultNetworkOnly = new NetworkOnly();
 
-// Fallback document
+// Fallback document for navigation requests
 registerRoute(
   ({ url, request }) => url.origin === self.location.origin
     && request.mode === 'navigate'
@@ -50,10 +52,12 @@ registerRoute(
 );
 
 // APIs - Network First
+// Note that only GET routes are handled by workbox-routing when no method is explicitely provided
 registerRoute(
   ({ request }) => request.destination !== 'document',
   new NetworkFirst({
     cacheName: 'apis',
+    networkTimeoutSeconds: 30,
     plugins: [
       new ExpirationPlugin({
         maxEntries: 100,
@@ -63,6 +67,11 @@ registerRoute(
     ],
   }),
 );
+
+// Other routes - Network Only
+// Note that no 'setDefaultHandler' is required when Network Only is the default strategy
+
+// ===== APP REGISTRATION =====
 
 self.addEventListener('message', event => {
   if (event.data === 'sw:update' || event.data?.type === 'SKIP_WAITING') {
