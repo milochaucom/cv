@@ -16,8 +16,9 @@ env:
   INFRA_AWS_ROLE_PRD: arn:aws:iam::266302224431:role/mil-management-shd-role-github-milochaucom
   INFRA_AWS_REGION: eu-west-3
   PROJECT_API_SOLUTION: './src/cv-api/Milochau.CV.sln'
-  PROJECT_API_PUBLISH_FILTER: '*/bin/Release/net8.0/linux-x64/publish/bootstrap'
+  PROJECT_API_PUBLISH_FILTER: '*/bin/Release/net9.0/linux-x64/publish/bootstrap'
   PROJECT_CLIENT_WORKSPACE: './src/cv-client'
+  DOTNET_VERSION: 9.0.x
 
 jobs:
   build_iac:
@@ -36,6 +37,7 @@ jobs:
       - name: Build AWS Lambda functions
         uses: amilochau/github-actions/build/lambda-functions@v4
         with:
+          dotnetVersion: ${{ env.DOTNET_VERSION }}
           solutionPath: ${{ env.PROJECT_API_SOLUTION }}
           publishPathFilter: ${{ env.PROJECT_API_PUBLISH_FILTER }}
 
@@ -120,3 +122,16 @@ jobs:
         uses: amilochau/github-actions/deploy/terraform@v4
         with:
           workspaceName: ${{ env.INFRA_WORKSPACE_PRD }}
+
+  clean:
+    name: Clean
+    if: always()
+    needs: [deploy_prd]
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: write
+    steps:
+      - name: Clean artifacts (API)
+        uses: amilochau/github-actions/clean/artifacts@v4
+        with:
+          runId: ${{ github.run_id }}

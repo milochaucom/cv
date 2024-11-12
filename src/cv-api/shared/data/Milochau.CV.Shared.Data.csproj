@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <IsPublishable>false</IsPublishable>
 
     <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Milochau.Core.Aws.Abstractions" Version="0.2.22" />
-    <PackageReference Include="Milochau.Core.Aws.DynamoDB" Version="0.2.22" />
+    <PackageReference Include="Milochau.Core.Aws.Abstractions" />
+    <PackageReference Include="Milochau.Core.Aws.DynamoDB" />
   </ItemGroup>
 
   <ItemGroup>
