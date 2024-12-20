@@ -42,7 +42,7 @@ The following files have to be adapted.
 `aws-cv` uses the following technologies to work:
 
 - Front-End (UI client): `vue.js v3`, `vuetify`
-- Back-End (Functions): `.NET 8.0 native AOT`
+- Back-End (Functions): `.NET 9.0 native AOT`
 - Infrastructure: `AWS CloudFront`, `AWS Lambda`, `AWS S3`, `AWS DynamoDB`, `AWS Cognito`
 - DevOps: `GitHub Actions`, `Terraform`
 
