@@ -18,7 +18,7 @@ env:
 jobs:
   build_iac:
     name: Build (IaC)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Build and test projects
@@ -26,7 +26,7 @@ jobs:
    
   build_api:
     name: Build (API)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: read
@@ -41,7 +41,7 @@ jobs:
 
   build_client:
     name: Build (Client)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Build project

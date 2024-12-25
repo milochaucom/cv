@@ -23,7 +23,7 @@ env:
 jobs:
   build_iac:
     name: Build (IaC)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Build and test projects
@@ -31,7 +31,7 @@ jobs:
 
   build_api:
     name: Build (API)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # Native AOT to be on a compatible machine (with AWS Lambda Runtime 2023)
     steps:
       - uses: actions/checkout@v4
       - name: Build AWS Lambda functions
@@ -43,7 +43,7 @@ jobs:
 
   build_client:
     name: Build (Client)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Build project
@@ -61,7 +61,7 @@ jobs:
   deploy_dev:
     name: Deploy (DEV)
     needs: [build_iac, build_api, build_client]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       id-token: write
       contents: read
@@ -94,7 +94,7 @@ jobs:
     name: Deploy (PRD)
     if: github.ref == 'refs/heads/main'
     needs: [deploy_dev]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       id-token: write
       contents: read
