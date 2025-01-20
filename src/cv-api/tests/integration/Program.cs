@@ -1,41 +1,32 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Milochau.CV.Tests.Integration.Apis;
+using Milochau.Core.Aws.Core.JsonConverters;
+using Milochau.CV.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace Milochau.CV.Tests.Integration
+var options = new IntegrationWebApplicationOptions
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddSwaggerGen(options =>
-            {
-                options.CustomSchemaIds(type => type.FullName);
-            });
-            builder.Services.AddCors();
+    Args = args,
+    CorsOrigins = ["http://localhost:3000", "http://localhost:4173"]
+};
 
-            var app = builder.Build();
-            app.UseSwagger();
-            app.UseSwaggerUI();
+var builder = IntegrationWebApplication.CreateBuilder(options);
 
-            app.UseCors(builder =>
-            {
-                builder.AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials()
-                    .WithOrigins("http://localhost:3000", "http://localhost:4173");
-            });
-            app.MapGet("/", () =>
-            {
-                return Results.Redirect("/swagger");
-            }).ExcludeFromDescription();
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    options.SerializerOptions.Converters.Add(new GuidConverter());
+    options.SerializerOptions.TypeInfoResolver = ApiPayloadJsonSerializerContext.Default;
+});
 
-            app.MapResumesApis();
-            app.MapOriginsApis();
+builder.AddApplicationDependencies();
 
-            app.Run();
-        }
-    }
-}
+var app = builder.Build();
+
+app.UseIntegrationMiddlewares(options);
+
+app.UseApplicationMiddlewares();
+
+app.Run();

@@ -7,7 +7,7 @@ export const environmentOptionsBuilder: (context: { host: string, subdomain: str
   if (host.includes('localhost')) {
     return {
       variables: {
-        VITE_API_URL: 'http://localhost:4000',
+        VITE_API_URL: 'http://localhost:4000/api',
         VITE_COGNITO_USERPOOL_ID: 'eu-west-3_Trx7Zxn8M',
         VITE_COGNITO_CLIENT_ID: '2hobruu56js0kcraube2f5ui18',
       },
