@@ -3,9 +3,9 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Milochau.Core.Aws.Abstractions" Version="0.4.1" />
-    <PackageVersion Include="Milochau.Core.Aws.ApiGateway" Version="0.4.1" />
-    <PackageVersion Include="Milochau.Core.Aws.DynamoDB" Version="0.4.1" />
-    <PackageVersion Include="Milochau.Core.Aws.Integration" Version="0.4.1" />
+    <PackageVersion Include="Milochau.Core.Aws.Abstractions" Version="0.4.2" />
+    <PackageVersion Include="Milochau.Core.Aws.ApiGateway" Version="0.4.2" />
+    <PackageVersion Include="Milochau.Core.Aws.DynamoDB" Version="0.4.2" />
+    <PackageVersion Include="Milochau.Core.Aws.Integration" Version="0.4.2" />
   </ItemGroup>
 </Project>

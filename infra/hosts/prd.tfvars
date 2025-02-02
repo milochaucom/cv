@@ -25,7 +25,7 @@ lambda_settings = {
         anonymous = false
         }, {
         method    = "ANY"
-        route     = "/api/a/{proxy+}"
+        route     = "/api/{version}/a/{proxy+}"
         anonymous = true
       }]
     }
