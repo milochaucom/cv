@@ -73,6 +73,11 @@ registerRoute(
 
 // ===== APP REGISTRATION =====
 
+self.addEventListener('install', () => {
+  console.warn('addEventListener - install');
+  //self.skipWaiting();
+});
+
 self.addEventListener('message', event => {
   if (event.data === 'sw:update' || event.data?.type === 'SKIP_WAITING') {
     self.skipWaiting();
