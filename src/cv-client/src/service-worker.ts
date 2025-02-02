@@ -73,19 +73,12 @@ registerRoute(
 
 // ===== APP REGISTRATION =====
 
-self.addEventListener('install', () => {
-  console.warn('addEventListener - install');
-  self.skipWaiting();
-});
-
 self.addEventListener('message', event => {
-  console.warn('addEventListener - message');
   if (event.data === 'sw:update' || event.data?.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
 
 self.addEventListener('activate', event => {
-  console.warn('addEventListener - activate');
   event.waitUntil(self.clients.claim());
 });
