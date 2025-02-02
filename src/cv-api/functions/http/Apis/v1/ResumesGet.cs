@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Milochau.CV.Http.Apis
+namespace Milochau.CV.Http.Apis.v1
 {
     public static class ResumesGet
     {

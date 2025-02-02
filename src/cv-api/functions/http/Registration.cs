@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Milochau.Core.Aws.DynamoDB;
-using Milochau.CV.Http.Apis;
+using Milochau.CV.Http.Apis.v1;
 using Milochau.CV.Shared.Data;
 using System.Text.Json.Serialization;
 

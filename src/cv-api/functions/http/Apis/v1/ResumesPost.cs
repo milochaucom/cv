@@ -12,7 +12,7 @@ using Milochau.CV.Shared.Entities.ValueTypes;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Milochau.CV.Http.Apis
+namespace Milochau.CV.Http.Apis.v1
 {
     public static class ResumesPost
     {
