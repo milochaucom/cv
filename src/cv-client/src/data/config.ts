@@ -7,7 +7,7 @@ export const environmentOptionsBuilder: (context: { host: string, subdomain: str
   if (host.includes('localhost')) {
     return {
       variables: {
-        VITE_API_URL: 'http://localhost:4000',
+        VITE_API_URL: 'http://localhost:4000/api/v1',
         VITE_COGNITO_USERPOOL_ID: 'eu-west-3_Trx7Zxn8M',
         VITE_COGNITO_CLIENT_ID: '2hobruu56js0kcraube2f5ui18',
       },
@@ -16,7 +16,7 @@ export const environmentOptionsBuilder: (context: { host: string, subdomain: str
   } else if (subdomain.includes('dev')) {
     return {
       variables: {
-        VITE_API_URL: 'https://dev.cv.milochau.com/api',
+        VITE_API_URL: 'https://dev.cv.milochau.com/api/v1',
         VITE_COGNITO_USERPOOL_ID: 'eu-west-3_Trx7Zxn8M',
         VITE_COGNITO_CLIENT_ID: '2hobruu56js0kcraube2f5ui18',
       },
@@ -25,7 +25,7 @@ export const environmentOptionsBuilder: (context: { host: string, subdomain: str
   } else {
     return {
       variables: {
-        VITE_API_URL: 'https://cv.milochau.com/api',
+        VITE_API_URL: 'https://cv.milochau.com/api/v1',
         VITE_COGNITO_USERPOOL_ID: 'eu-west-3_UBYZWnUAL',
         VITE_COGNITO_CLIENT_ID: '1bjrm2rhvr4r6o24262femths6',
       },

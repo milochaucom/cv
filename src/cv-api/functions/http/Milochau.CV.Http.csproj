@@ -1,8 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <OutputType>exe</OutputType>
     <AWSProjectType>Lambda</AWSProjectType>
     <AssemblyName Condition=" '$(BuildSource)' == 'AwsCmd' ">bootstrap</AssemblyName>
 
@@ -29,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\shared\data\Milochau.CV.Shared.Data.csproj" />
-    <ProjectReference Include="..\..\..\..\shared\entities\Milochau.CV.Shared.Entities.csproj" />
+    <ProjectReference Include="..\..\shared\data\Milochau.CV.Shared.Data.csproj" />
+    <ProjectReference Include="..\..\shared\entities\Milochau.CV.Shared.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

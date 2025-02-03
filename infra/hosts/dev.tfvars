@@ -18,27 +18,15 @@ cognito_clients_settings = {
 lambda_settings = {
   base_directory = "../src/cv-api/functions"
   functions = {
-    "http/origins/post" = {
+    "http" = {
       http_triggers = [{
-        method = "POST"
-        route  = "/api/origins"
-      }]
-    }
-    "http/resumes/get" = {
-      http_triggers = [{
-        method    = "GET"
-        route     = "/api/resumes"
+        method    = "ANY"
+        route     = "$default"
         anonymous = false
         }, {
-        method    = "GET"
-        route     = "/api/a/resumes"
+        method    = "ANY"
+        route     = "/api/{version}/a/{proxy+}"
         anonymous = true
-      }]
-    }
-    "http/resumes/post" = {
-      http_triggers = [{
-        method = "POST"
-        route  = "/api/resumes"
       }]
     }
   }

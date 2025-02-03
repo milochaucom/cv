@@ -13,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\functions\http\origins\post\Milochau.CV.Http.Origins.Post.csproj" />
-    <ProjectReference Include="..\..\functions\http\resumes\get\Milochau.CV.Http.Resumes.Get.csproj" />
-    <ProjectReference Include="..\..\functions\http\resumes\post\Milochau.CV.Http.Resumes.Post.csproj" />
+    <ProjectReference Include="..\..\functions\http\Milochau.CV.Http.csproj" />
   </ItemGroup>
 
 </Project>
