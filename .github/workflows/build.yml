@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build solution
-        uses: amilochau/github-actions/build/netcore@v4
+        uses: amilochau/github-actions/build/netcore@amilochau/net-dependency-submission-review
         with:
           dotnetVersion: ${{ env.DOTNET_VERSION }}
           projectsToBuild: ${{ env.PROJECT_API_BUILD }}
