@@ -66,3 +66,9 @@ client_settings = {
     domain_name = "dev.cv.milochau.com"
   }
 }
+
+cors_settings = {
+  allowed_origins = [
+    "http://localhost:3000"
+  ]
+}
