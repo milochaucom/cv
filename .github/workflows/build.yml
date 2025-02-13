@@ -28,7 +28,8 @@ jobs:
     name: Build (API)
     runs-on: ubuntu-24.04
     permissions:
-      contents: read
+      id-token: write
+      contents: write
       packages: read
     steps:
       - uses: actions/checkout@v4
