@@ -17,11 +17,7 @@ let commitDate = execSync('git log -1 --format=%cI').toString().split('\n')[0];
 
 export default defineConfig({
   plugins: [
-    vue({
-      script: {
-        defineModel: true, // Opt-in feature, see https://github.com/vuejs/rfcs/discussions/503
-      },
-    }),
+    vue(),
     vuetify(),
     VueI18n({
       fullInstall: false,
